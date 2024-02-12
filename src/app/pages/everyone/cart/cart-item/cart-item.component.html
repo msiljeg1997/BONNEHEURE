@@ -1,0 +1,25 @@
+<div class="row">
+
+    <div class="shopping-cart">
+        <div class="product">
+            <div class="product-image">
+                <img src="{{baseUrl}}/{{item.getImagePath()}}/{{item.getPreviewImageName()}}">
+            </div>
+            <div class="product-details">
+                <a class="product-title" [routerLink]="['/proizvod', item.getProductUrlName() + '_' + item.item_id]">{{item.getName()}}</a>
+                <p class="product-description">{{item.getDescription()}}</p>
+            </div>
+            <div class="product-price">{{item.getDiscountPriceEur() | currency:'EUR'}}</div>
+            <div class="product-quantity">
+                <input type="number" min="1" [(ngModel)]="item.quantity" (change)="cartService.updateCartItem(item)" (keyup)="changeMade()">
+            </div>
+            <div class="product-removal">
+                <button class="remove-product" (click)="cartService.removeFromCart(item)">
+                    Ukloni
+                </button>
+            </div>
+            <div class="product-line-price">{{item.getTotalPrice() | currency:'EUR'}}</div>
+        </div>
+    </div>
+
+</div>

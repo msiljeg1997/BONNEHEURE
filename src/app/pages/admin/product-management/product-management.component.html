@@ -1,0 +1,114 @@
+<app-product-form *ngIf="this.displayEditProductForm" [display]="this.displayEditProductForm" [isEditing]="this.isEditing"
+(closeDialogEmitter)="toggleEditProductForm($event)" [product]="this.selectedProduct"></app-product-form>
+
+<p-table *ngIf="products.length > 0" #dt [value]="products" dataKey="id" [rowHover]="true" [rows]="10" [showCurrentPageReport]="true"
+    [rowsPerPageOptions]="[10,25,50]" responsiveLayout="scroll" [paginator]="true"
+    currentPageReportTemplate="Prikaz {first} do {last} od {totalRecords} zapisa"
+    [globalFilterFields]="['id', 'name', 'description', 'category_description', 'featured', 'price_eur', 'price_hrk', 'discount_percentage']">
+    <ng-template pTemplate="caption">
+        <div class="table-header space-between">
+            <div>
+                <button pButton type="button" class="p-button-primary" icon="pi pi-box" (click)="toggleAddProductForm()"></button>&nbsp;
+                <button pButton label="" class="p-button-outlined" icon="pi pi-filter-slash" (click)="clearFilters(dt)"></button>
+            </div>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+        <tr>
+            <th pSortableColumn="id">
+                <div class="flex justify-content-between align-items-center">
+                    ID
+                    <p-sortIcon field="id"></p-sortIcon>
+                    <p-columnFilter type="numeric" field="id" display="menu" class="ml-auto"></p-columnFilter>
+                </div>
+            </th>
+            <th pSortableColumn="name">
+                <div class="flex justify-content-between align-items-center">
+                    Naziv
+                    <p-sortIcon field="name"></p-sortIcon>
+                    <p-columnFilter type="text" field="name" display="menu" class="ml-auto"></p-columnFilter>
+                </div>
+            </th>
+            <th>Slika</th>
+            <th pSortableColumn="description">
+                <div class="flex justify-content-between align-items-center">
+                    Opis
+                    <p-sortIcon field="description"></p-sortIcon>
+                    <p-columnFilter type="text" field="description" display="menu" class="ml-auto"></p-columnFilter>
+                </div>
+            </th>
+            <th pSortableColumn="category_description">
+                <div class="flex justify-content-between align-items-center">
+                    Kategorija
+                    <p-sortIcon field="category_description"></p-sortIcon>
+                    <p-columnFilter type="text" field="category_description" display="menu" class="ml-auto"></p-columnFilter>
+                </div>
+            </th>
+            <th pSortableColumn="featured">
+                <div class="flex justify-content-between align-items-center">
+                    Istaknut
+                    <p-sortIcon field="featured"></p-sortIcon>
+                    <p-columnFilter type="numeric" field="featured" display="menu" class="ml-auto"></p-columnFilter>
+                </div>
+            </th>
+            <th pSortableColumn="price_eur">
+                <div class="flex justify-content-between align-items-center">
+                    Cijena(€)
+                    <p-sortIcon field="price_eur"></p-sortIcon>
+                    <p-columnFilter type="numeric" field="price_eur" display="menu" class="ml-auto"></p-columnFilter>
+                </div>
+            </th>
+            <th pSortableColumn="price_hrk">
+                <div class="flex justify-content-between align-items-center">
+                    Cijena(HRK)
+                    <p-sortIcon field="price_hrk"></p-sortIcon>
+                    <p-columnFilter type="numeric" field="price_hrk" display="menu" class="ml-auto"></p-columnFilter>
+                </div>
+            </th>
+            <th pSortableColumn="discount_percentage">
+                <div class="flex justify-content-between align-items-center">
+                    Popust(%)
+                    <p-sortIcon field="discount_percentage"></p-sortIcon>
+                    <p-columnFilter type="numeric" field="discount_percentage" display="menu" class="ml-auto"></p-columnFilter>
+                </div>
+            </th>
+            <th pSortableColumn="disabled">
+                <div class="flex justify-content-between align-items-center">
+                    Sakriven
+                    <p-sortIcon field="disabled"></p-sortIcon>
+                    <p-columnFilter type="numeric" field="disabled" display="menu" class="ml-auto"></p-columnFilter>
+                </div>
+            </th>
+            <th></th>
+            <th></th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-product>
+        <tr>
+            <td>{{product.id}}</td>
+            <td>{{product.name}}</td>
+            <td><img *ngIf="product.preview_image_name" src="{{baseUrl}}/{{product.id}}/{{product.preview_image_name}}" [alt]="product.preview_image_alt_text" width="100"
+                    class="shadow-4" /></td>
+            <td>{{product.description}}</td>
+            <td>{{product.category_description}}</td>
+            <td>{{product.featured}}</td>
+            <td>{{product.price_eur | currency:'EUR'}}</td>
+            <td>{{product.price_hrk | currency:'HRK'}}</td>
+            <td>{{product.discount_percentage}}</td>
+            <td>{{product.disabled}}</td>
+            <td class="text-center">
+                <button pButton type="button" class="p-button-secondary" icon="pi pi-cog"
+                    (click)="toggleEditProductForm(false, product)"></button>
+            </td>
+            <td class="text-center">
+                <button pButton type="button" class="p-button-danger" icon="pi pi-trash"
+                    (click)="toggleDeleteProductDialog(product)"></button>
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+        <tr>
+            <td colspan="8">Proizvodi nisu pronađeni.</td>
+        </tr>
+    </ng-template>
+</p-table>

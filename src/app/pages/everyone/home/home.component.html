@@ -1,0 +1,27 @@
+<div class="container">
+    <hr class="my-4" />
+    <p-carousel *ngIf="itemService.featuredItems && itemService.featuredItems.length > 3" #carouselAction [value]="itemService.featuredItems" [numVisible]="4" [numScroll]="1"
+        [responsiveOptions]="responsiveOptions">
+        <ng-template pTemplate="header">
+            <div class="text-center">
+                <p class="h3 text-muted">ISTAKNUTO</p>
+            </div>
+        </ng-template>
+        <ng-template let-product pTemplate="item">
+            <app-item-card [item]="product"></app-item-card>
+        </ng-template>
+    </p-carousel>
+    <hr class="my-4" />
+    <p-carousel *ngIf="itemService.discountItems && itemService.discountItems.length > 3" #carouselAction2 [value]="itemService.discountItems" [numVisible]="4" [numScroll]="1"
+        [responsiveOptions]="responsiveOptions">
+        <ng-template pTemplate="header">
+            <div class="text-center">
+                <p class="h3 text-muted">AKCIJA</p>
+            </div>
+        </ng-template>
+        <ng-template let-product pTemplate="item">
+            <app-item-card [item]="product"></app-item-card>
+        </ng-template>
+    </p-carousel>
+    <hr class="my-4" />
+</div>

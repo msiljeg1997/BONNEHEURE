@@ -1,0 +1,49 @@
+<p-dialog header="{{ 'user_form_header' }}" [(visible)]="display" [closable]="false" [modal]="true"
+    [breakpoints]="{'960px': '80vw'}" [style]="{width: '35vw'}" [draggable]="false">
+
+    <ng-template pTemplate="header">
+        <h3 class="text-muted">{{image.alt_text}}({{image.id}})</h3>
+    </ng-template>
+
+    <form [formGroup]="formGroup">
+        <div class="container">
+            <h5 class="text-muted">Osnovne postavke</h5>
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <div class="p-inputgroup">
+                        <label for="default" class="form-control-label">Pretpregled:</label>&nbsp;
+                        <input id="default" class="form-check-input" type="checkbox" [(ngModel)]="image.default"
+                            formControlName="default">
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4" />
+            <div class="row">
+                <div class="col-12 col-md-3">
+                    <label for="order" class="form-control-label">Redoslijed:</label>&nbsp;
+                    <div class="p-inputgroup">
+                        <input id="order" pInputText type="text" [(ngModel)]="image.order" formControlName="order">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <label for="alt_text" class="form-control-label">Opis:</label>&nbsp;
+                    <div class="p-inputgroup">
+                        <input id="alt_text" pInputText type="text" [(ngModel)]="image.alt_text"
+                            formControlName="alt_text">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <ng-template pTemplate="footer">
+        <div class="row space-between">
+            <button class="btn btn-danger" (click)="closeDialog(false)"><i
+                    class="pi pi-minus-circle">Poništi</i></button>
+            <button class="btn btn-success" [disabled]="isFormInvalid()" (click)="closeDialog(true)"><i
+                    class="pi pi-check">Spremi</i></button>
+        </div>
+    </ng-template>
+</p-dialog>

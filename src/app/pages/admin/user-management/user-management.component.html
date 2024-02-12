@@ -1,0 +1,131 @@
+<app-add-user-form *ngIf="this.displayAddUserForm" [display]="this.displayAddUserForm"
+    (closeDialogEmitter)="toggleAddUserForm($event)"></app-add-user-form>
+<app-edit-user-form *ngIf="this.displayEditUserForm" [display]="this.displayEditUserForm" [user]="this.selectedUser"
+    (closeDialogEmitter)="toggleEditUserForm($event)"></app-edit-user-form>
+
+<p-table #dt [value]="users" dataKey="id" [rowHover]="true" [rows]="10" [showCurrentPageReport]="true"
+    [rowsPerPageOptions]="[10,25,50]" responsiveLayout="scroll" [paginator]="true"
+    currentPageReportTemplate="Prikaz {first} do {last} od {totalRecords} zapisa"
+    [globalFilterFields]="['username', 'first_name', 'last_name', 'email', 'company_name', 'role_name']">
+    <ng-template pTemplate="caption">
+        <div class="table-header space-between">
+            <div>
+                <button pButton type="button" class="p-button-primary" icon="pi pi-user-plus"
+                    (click)="toggleAddUserForm(false)"></button>&nbsp;
+                <button pButton label="" class="p-button-outlined" icon="pi pi-filter-slash"
+                    (click)="clearFilters(dt)"></button>
+            </div>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+        <tr>
+            <th pSortableColumn="username">
+                <div class="flex justify-content-between align-items-center">
+                    Korisničko ime
+                    <p-sortIcon field="username"></p-sortIcon>
+                    <p-columnFilter type="text" field="username" display="menu" class="ml-auto"></p-columnFilter>
+                </div>
+            </th>
+            <th pSortableColumn="email">
+                <div class="flex justify-content-between align-items-center">
+                    E-mail
+                    <p-sortIcon field="email"></p-sortIcon>
+                    <p-columnFilter type="text" field="email" display="menu" class="ml-auto"></p-columnFilter>
+                </div>
+            </th>
+            <th pSortableColumn="first_name">
+                <div class="flex justify-content-between align-items-center">
+                    Ime
+                    <p-sortIcon field="first_name"></p-sortIcon>
+                    <p-columnFilter type="text" field="first_name" display="menu" class="ml-auto"></p-columnFilter>
+                </div>
+            </th>
+            <th pSortableColumn="last_name">
+                <div class="flex justify-content-between align-items-center">
+                    Prezime
+                    <p-sortIcon field="last_name"></p-sortIcon>
+                    <p-columnFilter type="text" field="last_name" display="menu" class="ml-auto"></p-columnFilter>
+                </div>
+            </th>
+            <th pSortableColumn="company_name">
+                <div class="flex justify-content-between align-items-center">
+                    Poduzeće
+                    <p-sortIcon field="company_name"></p-sortIcon>
+                    <p-columnFilter type="text" field="company_name" display="menu" class="ml-auto"></p-columnFilter>
+                </div>
+            </th>
+            <th pSortableColumn="phone_no">
+                <div class="flex justify-content-between align-items-center">
+                    Kontakt
+                    <p-sortIcon field="phone_no"></p-sortIcon>
+                    <p-columnFilter type="text" field="phone_no" display="menu" class="ml-auto"></p-columnFilter>
+                </div>
+            </th>
+            <th pSortableColumn="role_name">
+                <div class="flex justify-content-between align-items-center">
+                    Tip uloge
+                    <p-sortIcon field="role_name"></p-sortIcon>
+                    <p-columnFilter type="text" field="role_name" display="menu" class="ml-auto"></p-columnFilter>
+                </div>
+            </th>
+            <th pSortableColumn="discount_percentage">
+                <div class="flex justify-content-between align-items-center">
+                    Popust(%)
+                    <p-sortIcon field="discount_percentage"></p-sortIcon>
+                    <p-columnFilter type="numeric" field="discount_percentage" display="menu" class="ml-auto"></p-columnFilter>
+                </div>
+            </th>
+            <th></th>
+            <th></th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-user>
+        <tr>
+            <td>
+                <span class="p-column-title">Korisničko ime</span>
+                {{user.username}}
+            </td>
+            <td>
+                <span class="p-column-title">E-mail</span>
+                {{user.email}}
+            </td>
+            <td>
+                <span class="p-column-title">Ime</span>
+                {{user.first_name}}
+            </td>
+            <td>
+                <span class="p-column-title">Prezime</span>
+                {{user.last_name}}
+            </td>
+            <td>
+                <span class="p-column-title">Poduzeće</span>
+                {{user.company_name}}
+            </td>
+            <td>
+                <span class="p-column-title">Kontakt</span>
+                {{user.phone_no}}
+            </td>
+            <td>
+                <span class="p-column-title">Tip uloge</span>
+                {{user.role_name}}
+            </td>
+            <td>
+                <span class="p-column-title">Popust(%)</span>
+                {{user.discount_percentage}}
+            </td>
+            <td class="text-center">
+                <button pButton type="button" class="p-button-secondary" icon="pi pi-cog"
+                    (click)="toggleEditUserForm(false, user)"></button>
+            </td>
+            <td class="text-center">
+                <button pButton type="button" class="p-button-danger" icon="pi pi-trash"
+                    (click)="toggleDeleteUserDialog(user)"></button>
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+        <tr>
+            <td colspan="8">Korisnici nisu pronađeni.</td>
+        </tr>
+    </ng-template>
+</p-table>

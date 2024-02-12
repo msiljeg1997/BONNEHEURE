@@ -1,0 +1,65 @@
+<p-table #dt [value]="logs" dataKey="id" [rowHover]="true" [rows]="10" [showCurrentPageReport]="true"
+    [rowsPerPageOptions]="[10,25,50]" responsiveLayout="scroll" [paginator]="true"
+    currentPageReportTemplate="Prikaz {first} do {last} od {totalRecords} zapisa"
+    [globalFilterFields]="['id', 'request_origin', 'request_path', 'request_referer', 'datetime']">
+    <ng-template pTemplate="caption">
+        <div class="table-header space-between">
+            <div>
+                <button pButton label="" class="p-button-outlined" icon="pi pi-filter-slash" (click)="clearFilters(dt)"></button>
+            </div>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+        <tr>
+            <th pSortableColumn="id">
+                <div class="flex justify-content-between align-items-center">
+                    ID
+                    <p-sortIcon field="id"></p-sortIcon>
+                    <p-columnFilter type="numeric" field="id" display="menu" class="ml-auto"></p-columnFilter>
+                </div>
+            </th>
+            <th pSortableColumn="request_origin">
+                <div class="flex justify-content-between align-items-center">
+                    Origin
+                    <p-sortIcon field="request_origin"></p-sortIcon>
+                    <p-columnFilter type="text" field="request_origin" display="menu" class="ml-auto"></p-columnFilter>
+                </div>
+            </th>
+            <th pSortableColumn="request_path">
+                <div class="flex justify-content-between align-items-center">
+                    Path
+                    <p-sortIcon field="request_path"></p-sortIcon>
+                    <p-columnFilter type="text" field="request_path" display="menu" class="ml-auto"></p-columnFilter>
+                </div>
+            </th>
+            <th pSortableColumn="request_referer">
+                <div class="flex justify-content-between align-items-center">
+                    Referer
+                    <p-sortIcon field="request_referer"></p-sortIcon>
+                    <p-columnFilter type="text" field="request_referer" display="menu" class="ml-auto"></p-columnFilter>
+                </div>
+            </th>
+            <th pSortableColumn="datetime">
+                <div class="flex justify-content-between align-items-center">
+                    Datum
+                    <p-sortIcon field="datetime"></p-sortIcon>
+                    <p-columnFilter type="date" field="datetime" display="menu" class="ml-auto"></p-columnFilter>
+                </div>
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-log>
+        <tr>
+            <td>{{log.id}}</td>
+            <td>{{log.request_origin}}</td>
+            <td>{{log.request_path}}</td>
+            <td>{{log.request_referer}}</td>
+            <td>{{log.datetime}}</td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+        <tr>
+            <td colspan="8">Logovi nisu pronađeni.</td>
+        </tr>
+    </ng-template>
+</p-table>

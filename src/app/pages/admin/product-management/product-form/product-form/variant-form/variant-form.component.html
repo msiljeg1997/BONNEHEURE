@@ -1,0 +1,205 @@
+<app-image-settings *ngIf="this.displayEditImageSettings" [display]="this.displayEditImageSettings"
+    (closeDialogEmitter)="toggleEditImageSettingsForm($event)" [image]="this.selectedImage"></app-image-settings>
+
+<p-dialog header="{{ 'Varijanta' }}" [(visible)]="display" [closable]="false" [modal]="true"
+    [breakpoints]="{'960px': '80vw'}" [style]="{width: '70vw'}" [draggable]="false">
+
+    <ng-template pTemplate="header">
+        <h3 class="text-muted">{{variant.name}}({{variant.id}})</h3>
+    </ng-template>
+
+    <form [formGroup]="formGroup">
+        <div class="">
+            <p-accordion>
+                <ng-container *ngIf="isEditing">
+                    <p-accordionTab header="Opcije">
+                        <div class="row">
+                            <div class="col-6 col-md-3 col-lg-2">
+                                <div class="p-inputgroup">
+                                    <label for="disabled" class="form-control-label">Sakriven:</label>&nbsp;
+                                    <input id="disabled" class="form-check-input" type="checkbox"
+                                        [(ngModel)]="variant.disabled" formControlName="disabled">
+                                </div>
+                            </div>
+                        </div>
+                    </p-accordionTab>
+                </ng-container>
+
+                <p-accordionTab header="Osnovne informacije" [selected]="true">
+                    <div class="row">
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <label for="name" class="form-control-label">Naziv:</label>
+                            <div class="p-inputgroup">
+                                <input id="name" type="text" pInputText [(ngModel)]="variant.name"
+                                    formControlName="name">
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <label for="description" class="form-control-label">Opis:</label>
+                            <div class="p-inputgroup">
+                                <input id="description" type="text" pInputText [(ngModel)]="variant.description"
+                                    formControlName="description">
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="my-4" />
+                    <div class="row">
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <label for="price_eur" class="form-control-label">Cijena(€):</label>
+                            <div class="p-inputgroup">
+                                <input id="price_eur" type="number" pInputText [(ngModel)]="variant.price_eur"
+                                    formControlName="price_eur">
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-4 text-muted">
+                            <label for="price_hrk" class="form-control-label">Cijena(HRK):</label>
+                            <div class="p-inputgroup">
+                                <input id="price_hrk" type="text" pInputText
+                                    [ngModel]="getProductPriceHrk() | currency:'HRK'" readonly
+                                    formControlName="price_hrk">
+                            </div>
+                        </div>
+
+                        <ng-container *ngIf="isEditing">
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <label for="discount_percentage" class="form-control-label">Popust(%):</label>
+                                <div class="p-inputgroup">
+                                    <input id="discount_percentage" type="number" pInputText
+                                        [(ngModel)]="variant.discount_percentage" formControlName="discount_percentage">
+                                </div>
+                            </div>
+                        </ng-container>
+                    </div>
+                    <ng-container *ngIf="isEditing">
+                        <div class="row">
+                            <div class="col-12 col-md-6 col-lg-4 text-muted">
+                                <label for="discount_price_eur" class="form-control-label">Cijena s
+                                    popustom(€):</label>
+                                <div class="p-inputgroup">
+                                    <input id="discount_price_eur" type="text" pInputText
+                                        [ngModel]="getProductDiscountPriceEur() | currency:'EUR'" readonly
+                                        formControlName="discount_price_eur">
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-4 text-muted">
+                                <label for="discount_price_hrk" class="form-control-label">Cijena s
+                                    popustom(HRK):</label>
+                                <div class="p-inputgroup">
+                                    <input id="discount_price_hrk" type="text" pInputText
+                                        [ngModel]="getProductDiscountPriceHrk() | currency:'HRK'" readonly
+                                        formControlName="discount_price_hrk">
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                    <ng-container *ngIf="isEditing">
+                        <hr class="my-4" />
+                        <div class="row">
+                            <div class="col-12 col-md-4">
+                                <label for="unit_of_measure" class="form-control-label">Jedinična mjera:</label>
+                                <div class="p-inputgroup">
+                                    <input id="unit_of_measure" type="text" pInputText
+                                        [(ngModel)]="variant.unit_of_measure" formControlName="unit_of_measure">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-4">
+                                <label for="availability_status" class="form-control-label">Stanje:</label>
+                                <div class="p-inputgroup">
+                                    <p-dropdown id="availability_status" appendTo="body"
+                                        [options]="this.availabilityStatuses" [(ngModel)]="variant.availability_status"
+                                        [autoDisplayFirst]="false" formControlName="availability_status">
+                                    </p-dropdown>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                    <hr class="my-4" />
+                    <div class="row">
+                        <div class="col-12">
+                            <label for="detailed_description" class="form-control-label">Detaljni opis:</label>
+                            <div class="p-inputgroup">
+                                <textarea id="detailed_description" pInputTextArea
+                                    [(ngModel)]="variant.detailed_description" rows="5" cols="150"
+                                    formControlName="detailed_description"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </p-accordionTab>
+
+                <ng-container *ngIf="isEditing">
+                    <p-accordionTab header="Slike">
+                        <div class="row">
+                            <div class="col-12">
+                                <p-carousel [value]="variantImages" [numVisible]="3" [numScroll]="3" [circular]="false"
+                                    [responsiveOptions]="responsiveOptions">
+                                    <ng-template let-image pTemplate="item">
+                                        <div class="product-item">
+                                            <div class="product-item-content">
+                                                <div class="mb-3">
+                                                    <p-image
+                                                        src="{{baseUrl}}/{{variant.item_id}}/variant_images/{{variant.id}}/{{image.name}}"
+                                                        [alt]="image.alt_text" class="product-image" height="150"
+                                                        width="150" appendTo="body" [preview]="true">
+                                                    </p-image>
+                                                </div>
+                                                <div>
+                                                    <h4 class="mb-1">{{image.alt_text}}</h4>
+                                                    <div class="car-buttons mt-5">
+                                                        <p-button type="button"
+                                                            styleClass="p-button-danger p-button-rounded mr-2"
+                                                            icon="pi pi-trash" (click)="toggleDeleteImageDialog(image)">
+                                                        </p-button>
+                                                        <p-button type="button"
+                                                            styleClass="p-button-help p-button-rounded" icon="pi pi-cog"
+                                                            (click)="toggleEditImageSettingsForm(false, image)">
+                                                        </p-button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </ng-template>
+                                </p-carousel>
+                            </div>
+                        </div>
+                        <hr class="my-4" />
+                        <div class="row">
+                            <div class="col-12">
+                                <label>{{ 'Učitaj sliku' }}:</label>
+                                <input #fileInput type="file" class="btn bt-default" id="fileInput" accept="image/*"
+                                    (change)="onFileChange($event)">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <label for="fileUploadAltText" class="form-control-label">Opis:</label>
+                                <div class="p-inputgroup">
+                                    <input id="fileUploadAltText" type="text" pInputText [(ngModel)]="fileUploadAltText"
+                                        [ngModelOptions]="{standalone: true}">
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-12">
+                                <button class="btn btn-primary btn-sm" (click)="uploadFile()">Učitaj</button>
+                            </div>
+                        </div>
+                    </p-accordionTab>
+                </ng-container>
+            </p-accordion>
+        </div>
+    </form>
+
+    <ng-template pTemplate="footer">
+        <div class="row space-between">
+            <button class="btn btn-danger" (click)="closeDialog(false)"><i
+                    class="pi pi-minus-circle">Poništi</i></button>
+            <button class="btn btn-success" [disabled]="isFormInvalid()" (click)="saveChanges()"><i
+                    class="pi pi-check">Spremi</i></button>
+        </div>
+    </ng-template>
+
+</p-dialog>

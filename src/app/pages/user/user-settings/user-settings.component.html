@@ -1,0 +1,22 @@
+<div class="container">
+  <form>
+    <div class="form-group">
+      <label for="nameSurname">Ime i Prezime:</label>
+      <input type="text" class="form-control" id="nameSurname">
+    </div>
+    <div class="form-group">
+      <label for="address">Adresa:</label>
+      <input type="text" class="form-control" id="address" *ngFor="let addr of address; let i=index">
+      <button type="button" class="btn btn-outline-secondary" (click)="addAddress()">Dodaj adresu</button>
+    </div>
+    <div class="form-group">
+      <label for="mobilePhone">Kontakt broj:</label>
+      <input type="text" class="form-control" id="mobilePhone">
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email">
+    </div>
+    <button type="button" class="btn btn-outline-secondary" (click)="saveChanges()">Spremi lokalno</button>
+  </form>
+</div>

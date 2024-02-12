@@ -1,0 +1,83 @@
+<app-kongres-predavac-form *ngIf="this.displayEditPredavacForm" [display]="this.displayEditPredavacForm"
+    [isEditing]="this.isEditing" (closeDialogEmitter)="toggleEditKongresPredavacForm($event)"
+    [predavac]="this.selectedPredavac" [predavaci]="this.predavaci"></app-kongres-predavac-form>
+
+<p-table #dt [value]="predavaci" dataKey="id" [rowHover]="true" [rows]="10" [showCurrentPageReport]="true"
+    [rowsPerPageOptions]="[10,25,50]" responsiveLayout="scroll" [paginator]="true"
+    currentPageReportTemplate="Prikaz {first} do {last} od {totalRecords} zapisa"
+    [globalFilterFields]="['id', 'first_name', 'last_name', 'title']">
+    <ng-template pTemplate="caption">
+        <div class="table-header space-between">
+            <div>
+                <button pButton type="button" class="p-button-primary" icon="pi pi-folder"
+                    (click)="toggleAddKongresPredavacForm()"></button>&nbsp;
+                <button pButton label="" class="p-button-outlined" icon="pi pi-filter-slash"
+                    (click)="clearFilters(dt)"></button>
+            </div>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+        <tr>
+            <th pSortableColumn="id">
+                <div class="flex justify-content-between align-items-center">
+                    ID
+                    <p-sortIcon field="id"></p-sortIcon>
+                    <p-columnFilter type="numeric" field="id" display="menu" class="ml-auto"></p-columnFilter>
+                </div>
+            </th>
+            <th pSortableColumn="photo_name">
+                <div class="flex justify-content-between align-items-center">
+                    Slika
+                    <p-sortIcon field="photo_name"></p-sortIcon>
+                    <p-columnFilter type="text" field="photo_name" display="menu" class="ml-auto"></p-columnFilter>
+                </div>
+            </th>
+            <th pSortableColumn="first_name">
+                <div class="flex justify-content-between align-items-center">
+                    Ime
+                    <p-sortIcon field="first_name"></p-sortIcon>
+                    <p-columnFilter type="text" field="first_name" display="menu" class="ml-auto"></p-columnFilter>
+                </div>
+            </th>
+            <th pSortableColumn="last_name">
+                <div class="flex justify-content-between align-items-center">
+                    Prezime
+                    <p-sortIcon field="last_name"></p-sortIcon>
+                    <p-columnFilter type="text" field="last_name" display="menu" class="ml-auto"></p-columnFilter>
+                </div>
+            </th>
+            <th pSortableColumn="title">
+                <div class="flex justify-content-between align-items-center">
+                    Titula
+                    <p-sortIcon field="title"></p-sortIcon>
+                    <p-columnFilter type="text" field="title" display="menu" class="ml-auto"></p-columnFilter>
+                </div>
+            </th>
+            <th></th>
+            <th></th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-predavac>
+        <tr>
+            <td>{{predavac.id}}</td>
+            <td><img *ngIf="predavac.photo_name" src="{{baseUrl}}/{{predavac.photo_name}}" width="100"
+                    class="shadow-4" /></td>
+            <td>{{predavac.first_name}}</td>
+            <td>{{predavac.last_name}}</td>
+            <td>{{predavac.title}}</td>
+            <td class="text-center">
+                <button pButton type="button" class="p-button-secondary" icon="pi pi-cog"
+                    (click)="toggleEditKongresPredavacForm(false, predavac)"></button>
+            </td>
+            <td class="text-center">
+                <button pButton type="button" class="p-button-danger" icon="pi pi-trash"
+                    (click)="toggleDeleteKongresPredavacDialog(predavac)"></button>
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+        <tr>
+            <td colspan="8">Kategorije nisu pronađene.</td>
+        </tr>
+    </ng-template>
+</p-table>

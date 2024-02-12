@@ -1,0 +1,143 @@
+<div class="container">
+    <div #scrollTarget class="md-stepper-horizontal orange">
+        <div class="md-step" [ngClass]="{'active': step == 1}">
+            <div class="md-step-circle"><span>1</span></div>
+            <div class="md-step-title">Košarica</div>
+            <div class="md-step-bar-left"></div>
+            <div class="md-step-bar-right"></div>
+        </div>
+        <div class="md-step" [ngClass]="{'active': step == 2}">
+            <div class="md-step-circle"><span>2</span></div>
+            <div class="md-step-title">Dostava</div>
+            <div class="md-step-bar-left"></div>
+            <div class="md-step-bar-right"></div>
+        </div>
+        <div class="md-step" [ngClass]="{'active': step == 3}">
+            <div class="md-step-circle"><span>3</span></div>
+            <div class="md-step-title">Plaćanje</div>
+            <div class="md-step-bar-left"></div>
+            <div class="md-step-bar-right"></div>
+        </div>
+    </div>
+    <hr class="my-4" />
+
+    <ng-container *ngIf="cartService.cart && cartService.cart.length > 0">
+        <div class="row">
+            <div *ngIf="step == 1" class="col-12 col-md-9">
+                <ng-container *ngFor="let cartItem of cartService.cart">
+                    <app-cart-item [item]="cartItem"></app-cart-item>
+                </ng-container>
+            </div>
+
+            <div *ngIf="step > 1 && step < 3" class="col-12 col-md-9">
+                <app-cart-delivery></app-cart-delivery>
+            </div>
+
+            <div *ngIf="step > 2" class="col-12 col-md-9">
+                <app-cart-payment></app-cart-payment>
+            </div>
+
+            <div class="col-12 col-md-3">
+                <table>
+                    <tr class="price">
+                        <th>
+                            <div>Ukupno (bez PDV-a):
+                            </div>
+                        </th>
+                        <th><span>{{cartService.total_price_no_vat | currency:'EUR'}}</span></th>
+                    </tr>
+                    <tr class="price">
+                        <th>
+                            <label>Ukupno PDV:</label>
+                        </th>
+                        <th><span>{{cartService.total_vat | currency:'EUR'}}</span></th>
+                    </tr>
+                    <tr class="price">
+                        <th>
+                            <label>Ukupno (sa PDV-om):</label>
+                        </th>
+                        <th><span>{{cartService.total_price_no_discount | currency:'EUR'}}</span></th>
+                    </tr>
+                    <tr class="price" *ngIf="cartService.special_discount_percentage > 0">
+                        <th>
+                            <label>Rabat(%):</label>
+                        </th>
+                        <th><span class="text-danger">{{cartService.special_discount_percentage + '%'}}</span></th>
+                    </tr>
+                    <tr class="price">
+                        <th>
+                            <label>Popust (sa PDV-om):</label>
+                        </th>
+                        <th><span class="text-danger">{{cartService.total_discount_amount | currency:'EUR'}}</span></th>
+                    </tr>
+                    <tr class="total_price">
+                        <th>
+                            <label>Konačna cijena:</label>
+                        </th>
+                        <th><span>{{cartService.total_price | currency:'EUR'}}</span></th>
+                    </tr>
+                    <tr class="price" *ngIf="cartService.cart_order_details.county">
+                        <th>
+                            <label>Dostava:</label>
+                        </th>
+                        <th><span>{{cartService.cart_order_details.getDeliveryPrice(cartService.total_price) |
+                                currency:'EUR'}}</span></th>
+                    </tr>
+                    <tr class="total_price" *ngIf="cartService.cart_order_details.county">
+                        <th>
+                            <label><u>Ukupno:</u></label>
+                        </th>
+                        <th><u><span>{{(cartService.total_price + cartService.cart_order_details.getDeliveryPrice(cartService.total_price)) | currency:'EUR'}}</span></u></th>
+                    </tr>
+                    <tr>
+                        <p class="text-danger">Za narudžbe iznad 70,00 € dostava je besplatna!</p>
+                    </tr>
+                </table>
+                <div class="row max-width" *ngIf="step < 3">
+                    <button type="button" [disabled]="(cartService.change_made && step == 1) || (!cartService.formGroupDelivery.valid && step == 2)"
+                        class="btn btn-success btn-sm mt-1 mb-1 ml-11px"
+                        (click)="changeStep('up'); scrollTo(scrollTarget)">
+                        <i class="pi pi-step-forward-alt">
+                        </i>
+                        <b> Nastavi </b>
+                    </button>
+                </div>
+                <div class="row max-width" *ngIf="step > 2">
+                    <button type="button" [disabled]="cartService.change_made || (!cartService.formGroupBusinessBill.valid && cartService.cart_order_details.is_business_bill)"
+                        class="btn btn-success btn-sm mt-1 mb-1 ml-11px"
+                        (click)="this.cartService.pay_with_card ? this.payCart() : cartService.orderCart()">
+                        <i class="pi pi-shopping-cart">
+                        </i>
+                        <b> {{this.cartService.pay_with_card ? 'Plati' : 'Potvrdi'}} </b>
+                    </button>
+                </div>
+                <div class="row max-width" *ngIf="step > 1">
+                    <button type="button" [disabled]="cartService.change_made"
+                        class="btn btn-danger btn-sm mt-1 mb-1 ml-11px"
+                        (click)="changeStep('down'); scrollTo(scrollTarget)">
+                        <i class="pi pi-step-backward-alt">
+                        </i>
+                        <b> Nazad </b>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</div>
+
+<form #corvusForm name="form" style="display:none" method="post" [action]="cartService.corvus_info.payment_url">
+    <div style="display:none;">
+        <input name="version" type="text" [value]="cartService.corvus_info.version" hidden="true"><br>
+        <input name="store_id" type="text" [value]="cartService.corvus_info.store_id" hidden="true"><br>
+        <input name="order_number" type="text" [value]="cartService.corvus_info.order_number" hidden="true"><br>
+        <input name="language" type="text" [value]="cartService.corvus_info.language" hidden="true"><br>
+        <input name="currency" type="text" [value]="cartService.corvus_info.currency" hidden="true"><br>
+        <input name="amount" type="text" [value]="cartService.corvus_info.amount" hidden="true"><br>
+        <input name="cart" type="text" [value]="cartService.corvus_info.cart" hidden="true"><br>
+        <input name="signature" type="text" [value]="cartService.corvus_info.signature" hidden="true"><br>
+        <input name="require_complete" type="text" [value]="cartService.corvus_info.require_complete" hidden="true"><br>
+    </div>
+
+    <!-- on completed load submit to CorvusPay -->
+    <a #submitPayment onclick="this.parentElement.submit(); return false;"></a>
+</form>

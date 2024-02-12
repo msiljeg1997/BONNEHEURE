@@ -1,0 +1,221 @@
+<p-dialog header="{{ 'user_form_header' }}" [(visible)]="display" [closable]="false" [modal]="true"
+    [breakpoints]="{'960px': '80vw'}" [style]="{width: '90vw'}" [draggable]="false">
+
+    <ng-template pTemplate="header">
+        <h3 class="text-muted">ID: {{order.id}}</h3>
+    </ng-template>
+
+    <form>
+        <h5 class="text-muted">Osnovne informacije</h5>
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-4">
+                <label for="id" class="form-control-label">ID:</label>
+                <div class="p-inputgroup">
+                    <input id="id" name="id" type="text" pInputText [disabled]="true" [ngModel]="order.id">
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <label for="datetime" class="form-control-label">Datum i vrijeme:</label>
+                <div class="p-inputgroup">
+                    <input id="datetime" name="datetime" type="text" pInputText [disabled]="true"
+                        [ngModel]="order.datetime | date:'dd.MM.YYYY. HH:mm'">
+                </div>
+            </div>
+        </div>
+
+        <hr class="my-4" />
+        <h5 class="text-muted">Račun info</h5>
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-4">
+                <label for="is_business_bill" class="form-control-label">R1:</label>
+                <div class="p-inputgroup">
+                    <input id="is_business_bill" name="is_business_bill" type="text" pInputText [disabled]="true" [ngModel]="order.is_business_bill ? 'Da' : 'Ne'">
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <label for="bill_name" class="form-control-label">{{order.is_business_bill ? 'Naziv tvrtke' : 'Ime i prezime'}}</label>
+                <div class="p-inputgroup">
+                    <input id="bill_name" name="bill_name" type="text" pInputText [disabled]="true" [ngModel]="order.bill_name">
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <label for="bill_address" class="form-control-label">Adresa:</label>
+                <div class="p-inputgroup">
+                    <input id="bill_address" name="bill_address" type="text" pInputText [disabled]="true" [ngModel]="order.bill_address">
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <label for="bill_city" class="form-control-label">Grad:</label>
+                <div class="p-inputgroup">
+                    <input id="bill_city" name="bill_city" type="text" pInputText [disabled]="true" [ngModel]="order.bill_city">
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <label for="bill_oib" class="form-control-label">Oib:</label>
+                <div class="p-inputgroup">
+                    <input id="bill_oib" name="bill_oib" type="text" pInputText [disabled]="true" [ngModel]="order.bill_oib">
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <label for="bill_post_code" class="form-control-label">Poštanski broj:</label>
+                <div class="p-inputgroup">
+                    <input id="bill_post_code" name="bill_post_code" type="text" pInputText [disabled]="true"
+                        [ngModel]="order.bill_post_code">
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <label for="bill_email" class="form-control-label">E-mail:</label>
+                <div class="p-inputgroup">
+                    <input id="bill_email" name="bill_email" type="text" pInputText [disabled]="true" [ngModel]="order.bill_email">
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <label for="bill_phone_no" class="form-control-label">Kontakt:</label>
+                <div class="p-inputgroup">
+                    <input id="bill_phone_no" name="bill_phone_no" type="text" pInputText [disabled]="true"
+                        [ngModel]="order.bill_phone_no">
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <label for="bill_first_name" class="form-control-label">Ime:</label>
+                <div class="p-inputgroup">
+                    <input id="bill_first_name" name="bill_first_name" type="text" pInputText [disabled]="true"
+                        [ngModel]="order.bill_first_name">
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <label for="bill_last_name" class="form-control-label">Prezime:</label>
+                <div class="p-inputgroup">
+                    <input id="bill_last_name" name="bill_last_name" type="text" pInputText [disabled]="true"
+                        [ngModel]="order.bill_last_name">
+                </div>
+            </div>
+        </div>
+
+        <hr class="my-4" />
+        <h5 class="text-muted">Dostava info</h5>
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-4">
+                <label for="ship_first_name" class="form-control-label">Ime:</label>
+                <div class="p-inputgroup">
+                    <input id="ship_first_name" name="ship_first_name" type="text" pInputText [disabled]="true"
+                        [ngModel]="order.ship_first_name">
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <label for="ship_last_name" class="form-control-label">Prezime:</label>
+                <div class="p-inputgroup">
+                    <input id="ship_last_name" name="ship_last_name" type="text" pInputText [disabled]="true"
+                        [ngModel]="order.ship_last_name">
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <label for="ship_phone_no" class="form-control-label">Kontakt:</label>
+                <div class="p-inputgroup">
+                    <input id="ship_phone_no" name="ship_phone_no" type="text" pInputText [disabled]="true"
+                        [ngModel]="order.ship_phone_no">
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <label for="ship_email" class="form-control-label">E-mail:</label>
+                <div class="p-inputgroup">
+                    <input id="ship_email" name="ship_email" type="text" pInputText [disabled]="true"
+                        [ngModel]="order.ship_email">
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <label for="ship_address" class="form-control-label">Adresa:</label>
+                <div class="p-inputgroup">
+                    <input id="ship_address" name="ship_address" type="text" pInputText [disabled]="true"
+                        [ngModel]="order.ship_address">
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <label for="ship_city" class="form-control-label">Grad:</label>
+                <div class="p-inputgroup">
+                    <input id="ship_city" name="ship_city" type="text" pInputText [disabled]="true"
+                        [ngModel]="order.ship_city">
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <label for="ship_post_code" class="form-control-label">Poštanski broj:</label>
+                <div class="p-inputgroup">
+                    <input id="ship_post_code" name="ship_post_code" type="text" pInputText [disabled]="true"
+                        [ngModel]="order.ship_post_code">
+                </div>
+            </div>
+            <div class="col-12">
+                <label for="remark" class="form-control-label">Napomena:</label>
+                <div class="p-inputgroup">
+                    <input id="remark" name="remark" type="text" pInputText [disabled]="true"
+                        [ngModel]="order.remark">
+                </div>
+            </div>
+        </div>
+
+        <hr class="my-4" />
+        <h5 class="text-muted">Iznosi</h5>
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-4">
+                <label for="total_price_no_discount" class="form-control-label">Cijena bez popusta:</label>
+                <div class="p-inputgroup">
+                    <input id="total_price_no_discount" name="total_price_no_discount" type="text" pInputText [disabled]="true"
+                        [ngModel]="order.total_price_no_discount | currency:'EUR'">
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <label for="total_price" class="form-control-label">Cijena sa popustom:</label>
+                <div class="p-inputgroup">
+                    <input id="total_price" name="total_price" type="text" pInputText [disabled]="true"
+                        [ngModel]="order.total_price | currency:'EUR'">
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <label for="total_price_no_vat" class="form-control-label">Cijena bez PDV-a:</label>
+                <div class="p-inputgroup">
+                    <input id="total_price_no_vat" name="total_price_no_vat" type="text" pInputText [disabled]="true"
+                        [ngModel]="order.total_price_no_vat | currency:'EUR'">
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <label for="total_vat" class="form-control-label">PDV:</label>
+                <div class="p-inputgroup">
+                    <input id="total_vat" name="total_vat" type="text" pInputText [disabled]="true"
+                        [ngModel]="order.total_vat | currency:'EUR'">
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <label for="total_discount" class="form-control-label">Popust:</label>
+                <div class="p-inputgroup">
+                    <input id="total_discount" name="total_discount" type="text" pInputText [disabled]="true"
+                        [ngModel]="order.total_discount | currency:'EUR'">
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <label for="delivery" class="form-control-label">Dostava:</label>
+                <div class="p-inputgroup">
+                    <input id="delivery" name="delivery" type="text" pInputText [disabled]="true"
+                        [ngModel]="order.delivery | currency:'EUR'">
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <label for="is_payed" class="form-control-label">Plaćeno:</label>
+                <div class="p-inputgroup">
+                    <input id="is_payed" name="is_payed" type="text" pInputText [disabled]="true"
+                        [ngModel]="order.is_payed">
+                </div>
+            </div>
+        </div>
+
+        <hr class="my-4" />
+        <h5 class="text-muted">Artikli</h5>
+        <app-user-order-lines [orderLines]="orderLines"></app-user-order-lines>
+    </form>
+
+    <ng-template pTemplate="footer">
+        <div class="row space-between">
+            <button class="btn btn-danger" (click)="closeDialog()"><i class="pi pi-minus-circle">Zatvori</i></button>
+        </div>
+    </ng-template>
+
+</p-dialog>

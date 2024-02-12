@@ -1,0 +1,25 @@
+<p-blockUI [blocked]="uiService.requestCount != 0" [baseZIndex]="100000">
+    <img class="rotate " src="{{assetsUrl}}/logo192x192.png" alt="Wealth is health(WIH) logo image" />
+</p-blockUI>
+
+<p-toast></p-toast>
+
+<p-confirmDialog #cd header="Potvrda" acceptLabel="Potvrdi" rejectLabel="Poništi" appendTo="body" [baseZIndex]="99999">
+
+</p-confirmDialog>
+
+<p-dialog [visible]="uiService.previewImage" [baseZIndex]="99998" [closable]="false" [modal]="true" [draggable]="false"
+    [style]="{width: '80vw'}">
+    <ng-template pTemplate="header">
+        <h3>Pregled slike</h3>
+    </ng-template>
+
+    <p-image [src]="uiService.imagePath" [preview]="true"></p-image>
+
+    <ng-template pTemplate="footer">
+        <div class="row space-between">
+            <button class="btn btn-danger" (click)="uiService.togglePreviewImage()"><i
+                    class="pi pi-minus-circle">Zatvori</i></button>
+        </div>
+    </ng-template>
+</p-dialog>

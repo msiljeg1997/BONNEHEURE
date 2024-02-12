@@ -1,0 +1,150 @@
+<p-dialog header="{{ 'user_form_header' }}" [(visible)]="display" [closable]="false" [modal]="true"
+    [breakpoints]="{'960px': '80vw'}" [style]="{width: '65vw'}" [draggable]="false">
+
+    <ng-template pTemplate="header">
+        <h3>Uredi korisnika</h3>
+    </ng-template>
+
+    <div class="row">
+        <div class="col-12 col-md-3">
+            <button class="btn btn-secondary" (click)="this.toggleChangePasswordDialog()">Promjena lozinke</button>
+        </div>
+    </div>
+    <hr class="my-4" />
+    <form [formGroup]="formGroup">
+        <div class="container">
+            <h5 class="text-muted">OSNOVNE INFORMACIJE</h5>
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <label for="username" class="form-control-label">Korisničko ime:</label>
+                    <div class="p-inputgroup">
+                        <input id="username" type="text" pInputText [(ngModel)]="user.username"
+                            formControlName="username">
+                    </div>
+                    <p class="text-danger"><span *ngIf="formGroup.controls.username.status != 'VALID'">Korisničko ime je
+                            obavezno.</span></p>
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <label for="email" class="form-control-label">E-mail:</label>
+                    <div class="p-inputgroup">
+                        <input id="email" type="text" pInputText [(ngModel)]="user.email" formControlName="email">
+                    </div>
+                    <p class="text-danger"><span *ngIf="formGroup.controls.email.status != 'VALID'">Neispravna e-mail
+                            adresa.</span></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <label for="role_id" class="form-control-label">Tip korisnika:</label>
+                    <div class="p-inputgroup">
+                        <p-dropdown id="role_id" appendTo="body" [options]="this.userTypes" [(ngModel)]="user.role_id"
+                            [autoDisplayFirst]="false" formControlName="role_id">
+                        </p-dropdown>
+                    </div>
+                    <p class="text-danger"><span *ngIf="formGroup.controls.role_id.status != 'VALID'">Tip korisnika je
+                            obavezan.</span></p>
+                </div>
+            </div>
+            <hr class="my-4" />
+            <h5 class="text-muted">NEOBAVEZNE INFORMACIJE</h5>
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <label for="first_name" class="form-control-label">Ime:</label>
+                    <div class="p-inputgroup">
+                        <input id="first_name" type="text" pInputText [(ngModel)]="user.first_name"
+                            formControlName="first_name">
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <label for="last_name" class="form-control-label">Prezime:</label>
+                    <div class="p-inputgroup">
+                        <input id="last_name" type="text" pInputText [(ngModel)]="user.last_name"
+                            formControlName="last_name">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <label for="phone_no" class="form-control-label">Kontakt broj:</label>
+                    <div class="p-inputgroup">
+                        <input id="phone_no" type="text" pInputText [(ngModel)]="user.phone_no"
+                            formControlName="phone_no">
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <label for="company_name" class="form-control-label">Ime poduzeća:</label>
+                    <div class="p-inputgroup">
+                        <input id="company_name" type="text" pInputText [(ngModel)]="user.company_name"
+                            formControlName="company_name">
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4" />
+            <h5 class="text-muted">Postavke</h5>
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <label for="discount_percentage" class="form-control-label">Popust(%):</label>
+                    <div class="p-inputgroup">
+                        <input id="discount_percentage" type="number" pInputText [(ngModel)]="user.discount_percentage"
+                            formControlName="discount_percentage">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <ng-template pTemplate="footer">
+        <div class="row space-between">
+            <button class="btn btn-danger" (click)="closeDialog(false)"><i
+                    class="pi pi-minus-circle">Poništi</i></button>
+            <button class="btn btn-success" [disabled]="isFormInvalid()" (click)="saveChanges()"><i
+                    class="pi pi-check">Spremi</i></button>
+        </div>
+    </ng-template>
+
+</p-dialog>
+
+<p-dialog [(visible)]="displayChangePassword" [closable]="false" [modal]="true" [draggable]="false">
+    <ng-template pTemplate="header">
+        <h3 class="text-white">Promjena lozinke</h3>
+    </ng-template>
+
+    <ng-template pTemplate="body">
+        <form [formGroup]="formGroupPassword">
+            <div class="row">
+                <div class="col-12 md:col-6">
+                    <label for="password_change_pass" class="form-control-label">Lozinka:</label>
+                    <div class="p-inputgroup">
+                        <input id="password_change_pass" type="password" pInputText [(ngModel)]="password"
+                            formControlName="password">
+                    </div>
+                    <p class="text-danger"><span *ngIf="formGroupPassword.controls.password.status != 'VALID'">Lozinka
+                            mora sadržavati bar 8 znakova.</span></p>
+                </div>
+
+                <div class="col-12 md:col-6">
+                    <label for="password_change_confirm_pass" class="form-control-label">Potvrdi lozinku:</label>
+                    <div class="p-inputgroup">
+                        <input id="password_change_confirm_pass" type="password" pInputText
+                            [(ngModel)]="confirm_password" formControlName="confirm_password">
+                    </div>
+                    <p class="text-danger"><span
+                            *ngIf="formGroupPassword.controls.confirm_password.value != formGroupPassword.controls.password.value">Lozinke
+                            se ne podudaraju.</span></p>
+                </div>
+            </div>
+        </form>
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+        <div class="row space-between">
+            <button class="btn btn-success" [disabled]="isPasswordFormInvalid()" (click)="changePassword()"><i
+                    class="pi pi-check">Spremi</i></button>
+            <button class="btn btn-danger" (click)="toggleChangePasswordDialog()"><i
+                    class="pi pi-minus-circle">Poništi</i></button>
+        </div>
+    </ng-template>
+</p-dialog>

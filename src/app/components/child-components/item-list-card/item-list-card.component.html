@@ -1,0 +1,57 @@
+<div class="product-list-item">
+    <p-image *ngIf="item.getPreviewImageName() != ''"
+        src="{{baseUrl}}/{{item.getImagePath()}}/{{item.getPreviewImageName()}}" [alt]="item.getPreviewImageAltText()" class="pointer"
+        height="150" width="150" [preview]="false" [routerLink]="['/proizvod', item.getProductUrlName() + '_' + item.id]" appendTo="body">
+    </p-image>
+    <div class="product-list-detail">
+        <ng-container *ngIf="item.getDiscountPercentage() > 0">
+            <i class="pi pi-tag product-discount-icon"></i>
+            <span class="product-discount-text text-muted">-{{item.getDiscountPercentage()}}%</span>
+        </ng-container>
+        <h1 class="product-name" [routerLink]="['/proizvod', item.getProductUrlName() + '_' + item.id]">
+            {{item.getName()}}</h1>
+        <div class="product-description">{{item.getDescription()}}</div>
+        <div class="row">
+            <p-dropdown *ngIf="item.hasMoreThanOneVariant()" dataKey="id" optionLabel="name" id="selected_variant"
+                appendTo="body" [options]="item.variants!" [(ngModel)]="item.selected_variant"
+                [autoDisplayFirst]="false">
+            </p-dropdown>
+        </div>
+        <div *ngIf="item.getUnitOfMeasure() != ''" class="product-description text-muted">JM:
+            {{item.getUnitOfMeasure()}}</div>
+    </div>
+    <div class="product-list-action">
+        <span class="product-discount-text text-muted mb-3"><i class="pi pi-circle-fill" [ngClass]="{
+            'text-success': item.getAvailabilityStatus() == 'Na zalihi', 
+            'text-warning': item.getAvailabilityStatus() == '5 do 10 dana', 
+            'text-danger': item.getAvailabilityStatus() == 'Nedostupno'}"></i> {{item.getAvailabilityStatus()}}
+        </span>
+        <div *ngIf="item.getDiscountPriceEur() <= 0">
+            <div *ngIf="item.table_view_variant">
+                <p class="h6 pointer" [routerLink]="['/proizvod', item.getProductUrlName() + '_' + item.id]">Prikaži cijene</p>
+            </div>
+            <div *ngIf="!item.table_view_variant">
+                <p class="h6">Na upit</p>
+            </div>
+        </div>
+        <div *ngIf="item.getDiscountPriceEur() > 0">
+            <div>
+                <del class="product-price-old" *ngIf="item.getDiscountPercentage() > 0">{{item.getPriceEur() |
+                    currency:'EUR'}}</del>
+                <span class="product-price">{{item.getDiscountPriceEur() |
+                    currency:'EUR'}}</span>
+            </div>
+            <div>
+                <del class="product-price-old text-muted" *ngIf="item.getDiscountPercentage() > 0">{{item.getPriceHrk()
+                    | currency:'HRK'}}</del>
+                <span class="product-price text-muted">{{item.getDiscountPriceHrk() |
+                    currency:'HRK'}}</span>
+            </div>
+        </div>
+        <p-button *ngIf="item.getDiscountPriceEur() > 0" class="add-to-cart-button" icon="pi pi-shopping-cart"
+            (click)="cartService.addToCart(item, 1)">
+        </p-button>
+        <p-button *ngIf="item.getDiscountPriceEur() <= 0" class="add-to-cart-button" icon="pi pi-shopping-cart"
+            (click)="cartService.goToItem(item)"></p-button>
+    </div>
+</div>

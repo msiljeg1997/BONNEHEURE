@@ -1,0 +1,152 @@
+<p class="h3">Način plaćanja</p>
+<div class="row">
+    <div class="col-12 col-md-6 col-lg-4">
+        <div class="form-check">
+            <input class="form-check-input" name="form-check-input" type="checkbox"
+                [(ngModel)]="cartService.pay_on_delivery" id="pay_on_delivery"
+                (click)="changedPaymentMethod('pouzece')" />
+            <label class="form-check-label" for="pay_on_delivery"> Plaćanje pouzećem </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" name="form-check-input" type="checkbox"
+                [(ngModel)]="cartService.pay_with_card" id="pay_with_card" (click)="changedPaymentMethod('kartica')" />
+            <label class="form-check-label" for="pay_with_card"> Plaćanje karticom </label>
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4" *ngIf="cartService.pay_on_delivery">
+        <div class="form-check">
+            <i class="pi pi-info-circle"></i>
+            <p class="text-muted">Plaćanje prilikom pouzeća podrazumjeva plaćanje prilikom preuzimanja narudžbe od našeg
+                kurira.</p>
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4" *ngIf="cartService.pay_with_card">
+        <div class="form-check">
+            <i class="pi pi-info-circle"></i>
+            <p class="text-muted">Plaćanje karticom podrazumjeva plaćanje prilikom zaključivanja narudžbe.</p>
+
+            <a href="https://www.corvuspay.com/" target="_blank">
+                <img src="{{assetsUrl}}/corvuspay.png" style="max-width: 150px;">
+            </a>
+        </div>
+    </div>
+</div>
+<hr class="my-4" />
+<p class="h3">Račun</p>
+
+<div class="form-check">
+    <input class="form-check-input" name="form-check-input" type="checkbox" [disabled]="true"
+        [ngModel]="!cartService.cart_order_details.is_business_bill" id="pay_on_delivery" />
+    <label class="form-check-label" for="pay_on_delivery"> Običan račun </label>
+</div>
+<div class="form-check">
+    <input class="form-check-input" name="form-check-input" type="checkbox"
+        [(ngModel)]="cartService.cart_order_details.is_business_bill" id="pay_with_card" />
+    <label class="form-check-label" for="pay_with_card"> R1 račun(Tvrtka) </label>
+</div>
+
+<div class="form-check" *ngIf="!cartService.cart_order_details.is_business_bill">
+    <p class="text-muted">Ime i Prezime: {{cartService.cart_order_details.first_name}}
+        {{cartService.cart_order_details.last_name}}</p>
+    <p class="text-muted">Adresa: {{cartService.cart_order_details.address}} {{cartService.cart_order_details.city}}
+        {{cartService.cart_order_details.post_code}}</p>
+</div>
+<div class="row" *ngIf="cartService.cart_order_details.is_business_bill">
+    <form [formGroup]="cartService.formGroupBusinessBill">
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-4">
+                <label for="business_oib" class="form-control-label"><span class="text-danger"
+                        *ngIf="cartService.formGroupBusinessBill.controls.business_oib.status != 'VALID'">*</span>OIB:</label>
+                <div class="p-inputgroup">
+                    <input id="business_oib" type="text" [(ngModel)]="cartService.cart_order_details.business_oib"
+                        pInputText formControlName="business_oib">
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <label for="business_name" class="form-control-label"><span class="text-danger"
+                        *ngIf="cartService.formGroupBusinessBill.controls.business_name.status != 'VALID'">*</span>Naziv
+                    tvrtke:</label>
+                <div class="p-inputgroup">
+                    <input id="business_name" type="text" [(ngModel)]="cartService.cart_order_details.business_name"
+                        pInputText formControlName="business_name">
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <label for="business_address" class="form-control-label"><span class="text-danger"
+                        *ngIf="cartService.formGroupBusinessBill.controls.business_address.status != 'VALID'">*</span>Adresa:</label>
+                <div class="p-inputgroup">
+                    <input id="business_address" type="text"
+                        [(ngModel)]="cartService.cart_order_details.business_address" pInputText
+                        formControlName="business_address">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-4" *ngIf="cartService.cart_order_details.county">
+                <label for="business_city" class="form-control-label"><span class="text-danger"
+                        *ngIf="cartService.formGroupBusinessBill.controls.business_city.status != 'VALID'">*</span>Grad:</label>
+                <div class="p-inputgroup">
+                    <input id="business_city" type="text" [(ngModel)]="cartService.cart_order_details.business_city"
+                        pInputText formControlName="business_city">
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4" *ngIf="cartService.cart_order_details.county">
+                <label for="business_post_code" class="form-control-label"><span class="text-danger"
+                        *ngIf="cartService.formGroupBusinessBill.controls.business_post_code.status != 'VALID'">*</span>Poštanski
+                    broj:</label>
+                <div class="p-inputgroup">
+                    <input id="business_post_code" type="text"
+                        [(ngModel)]="cartService.cart_order_details.business_post_code" pInputText
+                        formControlName="business_post_code">
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4" *ngIf="cartService.cart_order_details.county">
+                <label for="business_email" class="form-control-label"><span class="text-danger"
+                        *ngIf="cartService.formGroupBusinessBill.controls.business_email.status != 'VALID'">*</span>E-mail
+                    adresa:</label>
+                <div class="p-inputgroup">
+                    <input id="business_email" type="text" [(ngModel)]="cartService.cart_order_details.business_email"
+                        pInputText formControlName="business_email">
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4" *ngIf="cartService.cart_order_details.county">
+                <label for="business_phone_no" class="form-control-label"><span class="text-danger"
+                        *ngIf="cartService.formGroupBusinessBill.controls.business_phone_no.status != 'VALID'">*</span>Kontakt
+                    broj:</label>
+                <div class="p-inputgroup">
+                    <input id="business_phone_no" type="text"
+                        [(ngModel)]="cartService.cart_order_details.business_phone_no" pInputText
+                        formControlName="business_phone_no">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-4" *ngIf="cartService.cart_order_details.county">
+                <label for="business_first_name" class="form-control-label"><span class="text-danger"
+                        *ngIf="cartService.formGroupBusinessBill.controls.business_first_name.status != 'VALID'">*</span>Ime:</label>
+                <div class="p-inputgroup">
+                    <input id="business_first_name" type="text"
+                        [(ngModel)]="cartService.cart_order_details.business_first_name" pInputText
+                        formControlName="business_first_name">
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4" *ngIf="cartService.cart_order_details.county">
+                <label for="business_last_name" class="form-control-label"><span class="text-danger"
+                        *ngIf="cartService.formGroupBusinessBill.controls.business_last_name.status != 'VALID'">*</span>Prezime:</label>
+                <div class="p-inputgroup">
+                    <input id="business_last_name" type="text"
+                        [(ngModel)]="cartService.cart_order_details.business_last_name" pInputText
+                        formControlName="business_last_name">
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

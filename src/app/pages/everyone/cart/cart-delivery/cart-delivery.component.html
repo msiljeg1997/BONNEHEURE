@@ -1,0 +1,93 @@
+<form [formGroup]="cartService.formGroupDelivery">
+    <div class="row">
+        <div class="col-12 col-md-6 col-lg-4">
+            <label for="first_name" class="form-control-label"><span class="text-danger"
+                    *ngIf="cartService.formGroupDelivery.controls.first_name.status != 'VALID'">*</span>Ime:</label>
+            <div class="p-inputgroup">
+                <input id="first_name" type="text" [(ngModel)]="cartService.cart_order_details.first_name" pInputText
+                    formControlName="first_name">
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4">
+            <label for="last_name" class="form-control-label"><span class="text-danger"
+                    *ngIf="cartService.formGroupDelivery.controls.last_name.status != 'VALID'">*</span>Prezime:</label>
+            <div class="p-inputgroup">
+                <input id="last_name" type="text" [(ngModel)]="cartService.cart_order_details.last_name" pInputText
+                    formControlName="last_name">
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4">
+            <label for="phone_no" class="form-control-label"><span class="text-danger"
+                    *ngIf="cartService.formGroupDelivery.controls.phone_no.status != 'VALID'">*</span>Kontakt
+                broj:</label>
+            <div class="p-inputgroup">
+                <input id="phone_no" type="text" [(ngModel)]="cartService.cart_order_details.phone_no" pInputText
+                    formControlName="phone_no">
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4">
+            <label for="email" class="form-control-label"><span class="text-danger"
+                    *ngIf="cartService.formGroupDelivery.controls.email.status != 'VALID'">*</span>E-mail adresa:</label>
+            <div class="p-inputgroup">
+                <input id="email" type="text" [(ngModel)]="cartService.cart_order_details.email" pInputText
+                    formControlName="email">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 col-md-6 col-lg-4">
+            <label for="county" class="form-control-label"><span class="text-danger"
+                    *ngIf="cartService.formGroupDelivery.controls.county.status != 'VALID'">*</span>Županija:</label>
+            <div class="p-inputgroup">
+                <p-dropdown id="county" appendTo="body" [(ngModel)]="cartService.cart_order_details.county"
+                    [showClear]="true" [options]="cartService.county_delivery_rates" optionLabel="name" [filter]="true"
+                    filterBy="name" [autoDisplayFirst]="false" formControlName="county">
+                </p-dropdown>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 col-md-6 col-lg-4" *ngIf="cartService.cart_order_details.county">
+            <label for="address" class="form-control-label"><span class="text-danger"
+                    *ngIf="cartService.formGroupDelivery.controls.address.status != 'VALID'">*</span>Adresa:</label>
+            <div class="p-inputgroup">
+                <input id="address" type="text" [(ngModel)]="cartService.cart_order_details.address" pInputText
+                    formControlName="address">
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4" *ngIf="cartService.cart_order_details.county">
+            <label for="city" class="form-control-label"><span class="text-danger"
+                    *ngIf="cartService.formGroupDelivery.controls.city.status != 'VALID'">*</span>Grad:</label>
+            <div class="p-inputgroup">
+                <input id="city" type="text" [(ngModel)]="cartService.cart_order_details.city" pInputText
+                    formControlName="city">
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4" *ngIf="cartService.cart_order_details.county">
+            <label for="post_code" class="form-control-label"><span class="text-danger"
+                    *ngIf="cartService.formGroupDelivery.controls.post_code.status != 'VALID'">*</span>Poštanski
+                broj:</label>
+            <div class="p-inputgroup">
+                <input id="post_code" type="text" [(ngModel)]="cartService.cart_order_details.post_code" pInputText
+                    formControlName="post_code">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12" *ngIf="cartService.cart_order_details.county">
+            <label for="remark" class="form-control-label">Napomena:</label>
+            <div class="p-inputgroup">
+                <input id="remark" type="text" [(ngModel)]="cartService.cart_order_details.remark" pInputText
+                    formControlName="remark">
+            </div>
+        </div>
+    </div>
+</form>

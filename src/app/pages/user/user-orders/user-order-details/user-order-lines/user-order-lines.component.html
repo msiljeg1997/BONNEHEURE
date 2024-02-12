@@ -1,0 +1,96 @@
+<p-table *ngIf="orderLines.length > 0" #dt [value]="orderLines" dataKey="id" [rowHover]="true" [rows]="10" [showCurrentPageReport]="true"
+    [rowsPerPageOptions]="[10,25,50]" responsiveLayout="scroll" [paginator]="true"
+    currentPageReportTemplate="Prikaz {first} do {last} od {totalRecords} zapisa"
+    [globalFilterFields]="['item_id', 'variant_id', 'name', 'variant_name', 'price_without_discount', 'price', 'vat', 'quantity', 'total_price']">
+    <ng-template pTemplate="caption">
+        <div class="table-header space-between">
+            <div>
+            </div>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+        <tr>
+            <th pSortableColumn="item_id">
+                <div class="flex justify-content-between align-items-center">
+                    ID
+                    <p-sortIcon field="item_id"></p-sortIcon>
+                    <p-columnFilter type="numeric" field="item_id" display="menu" class="ml-auto"></p-columnFilter>
+                </div>
+            </th>
+            <th pSortableColumn="variant_id">
+                <div class="flex justify-content-between align-items-center">
+                    ID varijante
+                    <p-sortIcon field="variant_id"></p-sortIcon>
+                    <p-columnFilter type="numeric" field="variant_id" display="menu" class="ml-auto"></p-columnFilter>
+                </div>
+            </th>
+            <th pSortableColumn="name">
+                <div class="flex justify-content-between align-items-center">
+                    Naziv
+                    <p-sortIcon field="name"></p-sortIcon>
+                    <p-columnFilter type="text" field="name" display="menu" class="ml-auto"></p-columnFilter>
+                </div>
+            </th>
+            <th pSortableColumn="variant_name">
+                <div class="flex justify-content-between align-items-center">
+                    Naziv varijante
+                    <p-sortIcon field="variant_name"></p-sortIcon>
+                    <p-columnFilter type="text" field="variant_name" display="menu" class="ml-auto"></p-columnFilter>
+                </div>
+            </th>
+            <th pSortableColumn="price_without_discount">
+                <div class="flex justify-content-between align-items-center">
+                    Cijena bez popusta
+                    <p-sortIcon field="price_without_discount"></p-sortIcon>
+                    <p-columnFilter type="numeric" field="price_without_discount" display="menu" class="ml-auto"></p-columnFilter>
+                </div>
+            </th>
+            <th pSortableColumn="price">
+                <div class="flex justify-content-between align-items-center">
+                    Cijena s popustom
+                    <p-sortIcon field="price"></p-sortIcon>
+                    <p-columnFilter type="numeric" field="price" display="menu" class="ml-auto"></p-columnFilter>
+                </div>
+            </th>
+            <th pSortableColumn="vat">
+                <div class="flex justify-content-between align-items-center">
+                    PDV
+                    <p-sortIcon field="vat"></p-sortIcon>
+                    <p-columnFilter type="numeric" field="vat" display="menu" class="ml-auto"></p-columnFilter>
+                </div>
+            </th>
+            <th pSortableColumn="quantity">
+                <div class="flex justify-content-between align-items-center">
+                    Količina
+                    <p-sortIcon field="quantity"></p-sortIcon>
+                    <p-columnFilter type="numeric" field="quantity" display="menu" class="ml-auto"></p-columnFilter>
+                </div>
+            </th>
+            <th pSortableColumn="total_price">
+                <div class="flex justify-content-between align-items-center">
+                    Ukupno
+                    <p-sortIcon field="total_price"></p-sortIcon>
+                    <p-columnFilter type="numeric" field="total_price" display="menu" class="ml-auto"></p-columnFilter>
+                </div>
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-orderLine>
+        <tr>
+            <td>{{orderLine.item_id}}</td>
+            <td>{{orderLine.variant_id}}</td>
+            <td>{{orderLine.name}}</td>
+            <td>{{orderLine.variant_name}}</td>
+            <td>{{orderLine.price_without_discount | currency:'EUR'}}</td>
+            <td>{{orderLine.price | currency:'EUR'}}</td>
+            <td>{{orderLine.vat | currency:'EUR'}}</td>
+            <td>{{orderLine.quantity}}</td>
+            <td>{{orderLine.total_price | currency:'EUR'}}</td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+        <tr>
+            <td colspan="8">Artikli nisu pronađeni.</td>
+        </tr>
+    </ng-template>
+</p-table>

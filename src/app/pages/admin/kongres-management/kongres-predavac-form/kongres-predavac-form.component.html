@@ -1,0 +1,142 @@
+<p-dialog header="{{ 'user_form_header' }}" [(visible)]="display" [closable]="false" [modal]="true"
+    [breakpoints]="{'960px': '80vw'}" [style]="{width: '65vw'}" [draggable]="false">
+
+    <ng-template pTemplate="header">
+        <h3>Predavac</h3>
+    </ng-template>
+
+    <form [formGroup]="formGroup">
+        <div>
+            <h5>Opcije</h5>
+            <div class="row">
+                <div class="col-6 col-md-3 col-lg-2">
+                    <div class="p-inputgroup">
+                        <label for="disabled" class="form-control-label">Onemogućen:</label>&nbsp;
+                        <input id="disabled" class="form-check-input" type="checkbox" [(ngModel)]="predavac.disabled"
+                            formControlName="disabled">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <h5 class="text-muted">Osnovne informacije</h5>
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <label for="first_name" class="form-control-label">Ime:</label>
+                    <div class="p-inputgroup">
+                        <input id="first_name" type="text" pInputText [(ngModel)]="predavac.first_name"
+                            formControlName="first_name">
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <label for="last_name" class="form-control-label">Prezime:</label>
+                    <div class="p-inputgroup">
+                        <input id="last_name" type="text" pInputText [(ngModel)]="predavac.last_name"
+                            formControlName="last_name">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <label for="title" class="form-control-label">Titula:</label>
+                <div class="p-inputgroup">
+                    <input id="title" type="text" pInputText [(ngModel)]="predavac.title" formControlName="title">
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <label for="theme" class="form-control-label">Tema:</label>
+                <div class="p-inputgroup">
+                    <input id="theme" type="text" pInputText [(ngModel)]="predavac.theme" formControlName="theme">
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <label for="theme_english" class="form-control-label">Tema(ENG):</label>
+                <div class="p-inputgroup">
+                    <input id="theme_english" type="text" pInputText [(ngModel)]="predavac.theme_english" formControlName="theme_english">
+                </div>
+            </div>
+            <hr class="my-4" />
+            <div class="row">
+                <div class="col-12">
+                    <label for="text1" class="form-control-label">Text 1:</label>
+                    <div class="p-inputgroup">
+                        <textarea id="text1" pInputTextArea [(ngModel)]="predavac.text1" rows="5" cols="150"
+                            formControlName="text1"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <label for="text1_english" class="form-control-label">Text 1(ENG):</label>
+                    <div class="p-inputgroup">
+                        <textarea id="text1_english" pInputTextArea [(ngModel)]="predavac.text1_english" rows="5" cols="150"
+                            formControlName="text1_english"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <label for="text2" class="form-control-label">Text 2:</label>
+                    <div class="p-inputgroup">
+                        <textarea id="text2" pInputTextArea [(ngModel)]="predavac.text2" rows="5" cols="150"
+                            formControlName="text2"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <label for="text2_english" class="form-control-label">Text 2(ENG):</label>
+                    <div class="p-inputgroup">
+                        <textarea id="text2_english" pInputTextArea [(ngModel)]="predavac.text2_english" rows="5" cols="150"
+                            formControlName="text2_english"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <label for="text3" class="form-control-label">Text 3:</label>
+                    <div class="p-inputgroup">
+                        <textarea id="text3" pInputTextArea [(ngModel)]="predavac.text3" rows="5" cols="150"
+                            formControlName="text3"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <label for="text3_english" class="form-control-label">Text 3(ENG):</label>
+                    <div class="p-inputgroup">
+                        <textarea id="text3_english" pInputTextArea [(ngModel)]="predavac.text3_english" rows="5" cols="150"
+                            formControlName="text3_english"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="my-4" />
+            <div *ngIf="predavac.id! > 0" class="row">
+                <div class="col-12">
+                    <label>{{ 'Učitaj sliku' }}:</label>
+                    <input #fileInput type="file" class="btn bt-default" id="fileInput" accept="image/*"
+                        (change)="onFileChange($event)">
+                </div>
+            </div>
+            <br>
+            <div *ngIf="predavac.id! > 0" class="row">
+                <div class="col-12">
+                    <button class="btn btn-primary btn-sm" (click)="uploadFile()">Učitaj</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <ng-template pTemplate="footer">
+        <div class="row space-between">
+            <button class="btn btn-danger" (click)="closeDialog(false)"><i
+                    class="pi pi-minus-circle">Poništi</i></button>
+            <button class="btn btn-success" [disabled]="isFormInvalid()" (click)="saveChanges()"><i
+                    class="pi pi-check">Spremi</i></button>
+        </div>
+    </ng-template>
+
+</p-dialog>

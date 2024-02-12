@@ -1,0 +1,71 @@
+<app-group-form *ngIf="this.displayEditProductCategoryForm" [display]="this.displayEditProductCategoryForm" [isEditing]="this.isEditing"
+(closeDialogEmitter)="toggleEditCategoryForm($event)" [category]="this.selectedCategory" [productCategories]="this.categories"></app-group-form>
+
+<p-table #dt [value]="categories" dataKey="id" [rowHover]="true" [rows]="10" [showCurrentPageReport]="true"
+    [rowsPerPageOptions]="[10,25,50]" responsiveLayout="scroll" [paginator]="true"
+    currentPageReportTemplate="Prikaz {first} do {last} od {totalRecords} zapisa"
+    [globalFilterFields]="['id', 'description', 'category_description', 'featured', 'price_eur', 'price_hrk']">
+    <ng-template pTemplate="caption">
+        <div class="table-header space-between">
+            <div>
+                <button pButton type="button" class="p-button-primary" icon="pi pi-folder" (click)="toggleAddCategoryForm()"></button>&nbsp;
+                <button pButton label="" class="p-button-outlined" icon="pi pi-filter-slash" (click)="clearFilters(dt)"></button>
+            </div>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+        <tr>
+            <th pSortableColumn="id">
+                <div class="flex justify-content-between align-items-center">
+                    ID
+                    <p-sortIcon field="id"></p-sortIcon>
+                    <p-columnFilter type="numeric" field="id" display="menu" class="ml-auto"></p-columnFilter>
+                </div>
+            </th>
+            <th pSortableColumn="description">
+                <div class="flex justify-content-between align-items-center">
+                    Naziv
+                    <p-sortIcon field="description"></p-sortIcon>
+                    <p-columnFilter type="text" field="description" display="menu" class="ml-auto"></p-columnFilter>
+                </div>
+            </th>
+            <th pSortableColumn="order">
+                <div class="flex justify-content-between align-items-center">
+                    Redoslijed
+                    <p-sortIcon field="order"></p-sortIcon>
+                    <p-columnFilter type="numeric" field="order" display="menu" class="ml-auto"></p-columnFilter>
+                </div>
+            </th>
+            <th pSortableColumn="parent_category_id">
+                <div class="flex justify-content-between align-items-center">
+                    Kategorija iznad
+                    <p-sortIcon field="parent_category_id"></p-sortIcon>
+                    <p-columnFilter type="numeric" field="parent_category_id" display="menu" class="ml-auto"></p-columnFilter>
+                </div>
+            </th>
+            <th></th>
+            <th></th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-category>
+        <tr>
+            <td>{{category.id}}</td>
+            <td>{{category.description}}</td>
+            <td>{{category.order}}</td>
+            <td>{{category.parent_category_id}}</td>
+            <td class="text-center">
+                <button pButton type="button" class="p-button-secondary" icon="pi pi-cog"
+                    (click)="toggleEditCategoryForm(false, category)"></button>
+            </td>
+            <td class="text-center">
+                <button pButton type="button" class="p-button-danger" icon="pi pi-trash"
+                    (click)="toggleDeleteCategoryDialog(category)"></button>
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+        <tr>
+            <td colspan="8">Kategorije nisu pronađene.</td>
+        </tr>
+    </ng-template>
+</p-table>

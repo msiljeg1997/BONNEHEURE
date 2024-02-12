@@ -1,0 +1,106 @@
+<app-user-order-details *ngIf="this.displayOrderDetails" [display]="this.displayOrderDetails"
+    (closeDialogEmitter)="toggleOrderDetails()" [order]="this.selectedOrder"></app-user-order-details>
+    
+<div class="container">
+    <p-table *ngIf="orders.length > 0" #dt [value]="orders" dataKey="id" [rowHover]="true" [rows]="10"
+        [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]" responsiveLayout="scroll" [paginator]="true"
+        currentPageReportTemplate="Prikaz {first} do {last} od {totalRecords} zapisa"
+        [globalFilterFields]="['id', 'datetime', 'ship_first_name', 'ship_last_name', 'ship_email', 'ship_address', 'ship_city', 'total_price', 'is_payed']">
+        <ng-template pTemplate="caption">
+            <div class="table-header space-between">
+                <div>
+                </div>
+            </div>
+        </ng-template>
+        <ng-template pTemplate="header">
+            <tr>
+                <th pSortableColumn="id">
+                    <div class="flex justify-content-between align-items-center">
+                        ID
+                        <p-sortIcon field="id"></p-sortIcon>
+                        <p-columnFilter type="numeric" field="id" display="menu" class="ml-auto"></p-columnFilter>
+                    </div>
+                </th>
+                <th pSortableColumn="datetime">
+                    <div class="flex justify-content-between align-items-center">
+                        Datum i vrijeme
+                        <p-sortIcon field="datetime"></p-sortIcon>
+                        <p-columnFilter type="date" field="datetime" display="menu" class="ml-auto"></p-columnFilter>
+                    </div>
+                </th>
+                <th pSortableColumn="ship_first_name">
+                    <div class="flex justify-content-between align-items-center">
+                        Ime
+                        <p-sortIcon field="ship_first_name"></p-sortIcon>
+                        <p-columnFilter type="text" field="ship_first_name" display="menu"
+                            class="ml-auto"></p-columnFilter>
+                    </div>
+                </th>
+                <th pSortableColumn="ship_last_name">
+                    <div class="flex justify-content-between align-items-center">
+                        Prezime
+                        <p-sortIcon field="ship_last_name"></p-sortIcon>
+                        <p-columnFilter type="text" field="ship_last_name" display="menu"
+                            class="ml-auto"></p-columnFilter>
+                    </div>
+                </th>
+                <th pSortableColumn="ship_email">
+                    <div class="flex justify-content-between align-items-center">
+                        E-mail
+                        <p-sortIcon field="ship_email"></p-sortIcon>
+                        <p-columnFilter type="text" field="ship_email" display="menu" class="ml-auto"></p-columnFilter>
+                    </div>
+                </th>
+                <th pSortableColumn="ship_address">
+                    <div class="flex justify-content-between align-items-center">
+                        Adresa
+                        <p-sortIcon field="ship_address"></p-sortIcon>
+                        <p-columnFilter type="text" field="ship_address" display="menu"
+                            class="ml-auto"></p-columnFilter>
+                    </div>
+                </th>
+                <th pSortableColumn="ship_city">
+                    <div class="flex justify-content-between align-items-center">
+                        Grad
+                        <p-sortIcon field="ship_city"></p-sortIcon>
+                        <p-columnFilter type="text" field="ship_city" display="menu" class="ml-auto"></p-columnFilter>
+                    </div>
+                </th>
+                <th pSortableColumn="total_price">
+                    <div class="flex justify-content-between align-items-center">
+                        Cijena
+                        <p-sortIcon field="total_price"></p-sortIcon>
+                        <p-columnFilter type="text" field="total_price" display="menu" class="ml-auto"></p-columnFilter>
+                    </div>
+                </th>
+                <th></th>
+                <th></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-order>
+            <tr>
+                <td>{{order.id}}</td>
+                <td>{{order.datetime | date:'dd.MM.YYYY. HH:mm'}}</td>
+                <td>{{order.ship_first_name}}</td>
+                <td>{{order.ship_last_name}}</td>
+                <td>{{order.ship_email}}</td>
+                <td>{{order.ship_address}}</td>
+                <td>{{order.ship_city}}</td>
+                <td>{{order.total_price | currency:'EUR'}}</td>
+                <td class="text-center">
+                    <button pButton type="button" class="p-button-secondary" icon="pi pi-history"
+                        (click)="repeatOrderDialog(order)"></button>
+                </td>
+                <td class="text-center">
+                    <button pButton type="button" class="p-button-secondary" icon="pi pi-window-maximize"
+                        (click)="toggleOrderDetails(order)"></button>
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage">
+            <tr>
+                <td colspan="8">Narudžbe nisu pronađene.</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

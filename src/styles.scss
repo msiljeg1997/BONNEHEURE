@@ -1,0 +1,266 @@
+/* You can add global styles to this file, and also import other style files */
+$GLOBAL-BACKGROUND-COLOR: #efefef;
+
+// WIH BEAUTY
+$THEME-COLOR: #FA89AE;
+$SECONDARY-COLOR: #87213C;
+
+// // WIH MEDICINE
+// $THEME-COLOR: #64BDEB;
+// $SECONDARY-COLOR: #094B74;
+
+.p-carousel-items-content {
+    padding-bottom: 10px !important;
+}
+
+.my-4 {
+    color: $THEME-COLOR !important;
+}
+
+.p-avatar-circle {
+    background-color: $SECONDARY-COLOR !important;
+}
+
+.p-avatar-circle:hover {
+    background-color: $THEME-COLOR !important;
+}
+
+.p-badge-primary {
+    background-color: $THEME-COLOR !important;
+}
+
+.p-badge-primary:hover {
+    background-color: $SECONDARY-COLOR !important;
+}
+
+.p-dataview-layout-options>button {
+    background: $THEME-COLOR !important;
+    border-color: $THEME-COLOR !important;
+}
+
+.p-dataview-layout-options>button:hover {
+    background: $SECONDARY-COLOR !important;
+}
+
+.p-dataview-layout-options>.p-highlight {
+    background: $SECONDARY-COLOR !important;
+}
+
+.p-menuitem-link-active {
+    background: $GLOBAL-BACKGROUND-COLOR !important;
+    border: 1px solid !important;
+    border-color: $THEME-COLOR !important;
+}
+
+.btn-secondary {
+    background: $THEME-COLOR !important;
+    border-color: $THEME-COLOR !important;    
+}
+
+.btn-secondary:hover {
+    background: $SECONDARY-COLOR !important;
+}
+
+.global-border-custom {
+    background: $GLOBAL-BACKGROUND-COLOR !important;
+    border: 1px solid !important;
+    border-color: $THEME-COLOR !important;
+}
+
+.p-galleria-content {
+    background: $GLOBAL-BACKGROUND-COLOR !important;
+    border: 1px solid !important;
+    border-color: $THEME-COLOR !important;
+}
+
+.p-paginator .p-paginator-first {
+    color: $THEME-COLOR Im !important;
+}
+
+.md-step>.md-step-circle {
+    background-color: $THEME-COLOR !important;
+}
+
+.active>.md-step-circle {
+    background-color: $SECONDARY-COLOR !important;
+}
+
+.add-to-cart-button-theme-color {
+    background: $THEME-COLOR !important;
+    border-color: $THEME-COLOR !important;
+}
+
+.add-to-cart-button-theme-color:hover {
+    background: $SECONDARY-COLOR !important;
+}
+
+.add-to-cart-button>button {
+    background: $THEME-COLOR !important;
+    border-color: $THEME-COLOR !important;
+}
+
+.add-to-cart-button>button:hover {
+    background: $SECONDARY-COLOR !important;
+}
+
+.p-paginator-pages>.p-highlight {
+    background: $THEME-COLOR !important;
+    border-color: $THEME-COLOR !important;
+}
+
+.add-to-cart-button>button {
+    background: $THEME-COLOR !important;
+    border-color: $THEME-COLOR !important;
+}
+
+.product-grid-item {
+    border-color: $THEME-COLOR !important;
+}
+
+.product-list-item {
+    border: 1px solid !important;
+    border-color: $THEME-COLOR !important;
+}
+
+.p-menubar {
+    background: $GLOBAL-BACKGROUND-COLOR !important;
+    border-color: $THEME-COLOR !important;
+}
+
+.p-panelmenu .p-panelmenu-header>a {
+    border-color: $THEME-COLOR !important;
+    background: $GLOBAL-BACKGROUND-COLOR !important;
+}
+
+.p-dataview .p-dataview-header {
+    background: $GLOBAL-BACKGROUND-COLOR !important;
+    border: 1px solid !important;
+    border-color: $THEME-COLOR !important;
+}
+
+.global-background-color {
+    background-color: $GLOBAL-BACKGROUND-COLOR !important;
+    border-color: $THEME-COLOR !important;
+}
+
+// Spacing between rows in p-table
+.p-datatable .p-datatable-tbody>tr>td {
+    padding-left: 1rem !important;
+    padding-top: 0rem !important;
+    padding-bottom: 0rem !important;
+    padding-right: 0rem !important;
+}
+
+.p-datatable .p-datatable-thead>tr>th {
+    padding: 0.5rem 1rem !important;
+}
+
+.p-dialog-header,
+.p-dialog-footer {
+    background-color: $GLOBAL-BACKGROUND-COLOR !important;
+}
+
+.space-between {
+    justify-content: space-between;
+    display: flex;
+}
+
+// https://github.com/primefaces/primeng/issues/9741
+.p-inputgroup p-dropdown {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.p-dialog .p-dialog-footer button {
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+}
+
+.product-item .product-item-content {
+    background-color: $GLOBAL-BACKGROUND-COLOR !important;
+}
+
+.product-list-item {
+    background-color: $GLOBAL-BACKGROUND-COLOR !important;
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+}
+
+.container {
+    max-width: 1640px !important;
+}
+
+.p-grid {
+    display: flex !important;
+    flex-wrap: wrap !important;
+}
+
+.p-panelmenu {
+    width: 100% !important;
+}
+
+.padding-rem {
+    padding: 1.15rem 1.15rem;
+}
+
+.text-left {
+    text-align: left !important;
+}
+
+.text-right {
+    text-align: right !important;
+}
+
+@media screen and (max-width: 768px) {
+    .text-right {
+        text-align: center !important;
+    }
+
+    .text-left {
+        text-align: center !important;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .max-search-bar {
+        width: 40vw;
+    }
+}
+
+@media screen and (max-width: 1200px) and (min-width: 560px) {
+    .product-grid-item-content>p-image>.p-image-preview-container>img {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .product-grid-item-content>p-image>.p-image-preview-container>img {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+.p-galleria .p-galleria-thumbnail-container {
+    background-color: $GLOBAL-BACKGROUND-COLOR !important;
+}
+
+.p-galleria-item {
+    background-color: $GLOBAL-BACKGROUND-COLOR !important;
+    padding-top: 1.5em;
+}
+
+.p-galleria .p-galleria-thumbnail-container .p-galleria-thumbnail-prev,
+.p-galleria .p-galleria-thumbnail-container .p-galleria-thumbnail-next {
+    color: black !important;
+}
+
+p-image {
+    box-shadow: none !important;
+}
+
+.invalid-border {
+    border-color: #dc3545;
+}
+

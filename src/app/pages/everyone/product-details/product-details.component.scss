@@ -1,0 +1,38 @@
+p-image {
+    width: 300px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    margin-right: 2em 2em 2em 2em;
+}
+
+p-image {
+    width: fit-content;
+}
+
+textarea {
+    border: none;
+    resize: none;
+}
+
+p {
+    white-space: pre-line;
+}
+
+.price-left {
+    margin-right: 0.5em;
+}
+
+.max-width-input {
+    max-width: 50px;
+}
+
+.max-width {
+    width: 100%;
+}
+
+.ml-11px {
+    margin-left: 11px;
+}
+
+.variant-table-text {
+    font-size: small;
+}

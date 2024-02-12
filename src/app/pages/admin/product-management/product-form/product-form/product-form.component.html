@@ -1,0 +1,336 @@
+<app-image-settings *ngIf="this.displayEditImageSettings" [display]="this.displayEditImageSettings"
+    (closeDialogEmitter)="toggleEditImageSettingsForm($event)" [image]="this.selectedImage"></app-image-settings>
+
+<app-variant-form *ngIf="this.displayEditVariantForm" [display]="this.displayEditVariantForm"
+    [isEditing]="this.isEditingVariant" (closeDialogEmitter)="toggleEditVariantForm($event)"
+    [variant]="this.selectedVariant">
+</app-variant-form>
+
+<p-dialog header="{{ 'user_form_header' }}" [(visible)]="display" [closable]="false" [modal]="true"
+    [breakpoints]="{'960px': '80vw'}" [style]="{width: '90vw'}" [draggable]="false">
+
+    <ng-template pTemplate="header">
+        <h3 class="text-muted">{{product.name}}({{product.id}})</h3>
+    </ng-template>
+
+    <form [formGroup]="formGroup">
+        <div class="">
+            <p-accordion>
+                <ng-container *ngIf="isEditing">
+                    <p-accordionTab header="Opcije">
+                        <div class="row">
+                            <div class="col-6 col-md-3 col-lg-2">
+                                <div class="p-inputgroup">
+                                    <label for="disabled" class="form-control-label">Sakriven:</label>&nbsp;
+                                    <input id="disabled" class="form-check-input" type="checkbox"
+                                        [(ngModel)]="product.disabled" formControlName="disabled">
+                                </div>
+                            </div>
+
+                            <div class="col-6 col-md-3">
+                                <div class="p-inputgroup">
+                                    <label for="featured" class="form-control-label">Istaknut:</label>&nbsp;
+                                    <input id="featured" class="form-check-input" type="checkbox"
+                                        [(ngModel)]="product.featured" formControlName="featured">
+                                </div>
+                            </div>
+
+                            <div class="col-6 col-md-3">
+                                <div class="p-inputgroup">
+                                    <label for="table_view_variant" class="form-control-label">Tablična varijanta:</label>&nbsp;
+                                    <input id="table_view_variant" class="form-check-input" type="checkbox"
+                                        [(ngModel)]="product.table_view_variant" formControlName="table_view_variant">
+                                </div>
+                            </div>
+                        </div>
+                    </p-accordionTab>
+                </ng-container>
+
+                <p-accordionTab header="Osnovne informacije" [selected]="true">
+                    <div class="row">
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <label for="name" class="form-control-label">Naziv:</label>
+                            <div class="p-inputgroup">
+                                <input id="name" type="text" pInputText [(ngModel)]="product.name"
+                                    formControlName="name">
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <label for="description" class="form-control-label">Opis:</label>
+                            <div class="p-inputgroup">
+                                <input id="description" type="text" pInputText [(ngModel)]="product.description"
+                                    formControlName="description">
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <label for="category_id" class="form-control-label">Kategorija:</label>
+                            <div class="p-inputgroup">
+                                <p-dropdown id="category_id" appendTo="body" [options]="this.productCategories"
+                                    [showClear]="true" optionLabel="description" optionValue="id" [filter]="true"
+                                    filterBy="description" [(ngModel)]="product.category_id" [autoDisplayFirst]="false"
+                                    formControlName="category_id">
+                                </p-dropdown>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="my-4" />
+                    <div class="row">
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <label for="price_eur" class="form-control-label">Cijena(€):</label>
+                            <div class="p-inputgroup">
+                                <input id="price_eur" type="number" pInputText [(ngModel)]="product.price_eur"
+                                    formControlName="price_eur">
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-4 text-muted">
+                            <label for="price_hrk" class="form-control-label">Cijena(HRK):</label>
+                            <div class="p-inputgroup">
+                                <input id="price_hrk" type="text" pInputText
+                                    [ngModel]="getProductPriceHrk() | currency:'HRK'" readonly
+                                    formControlName="price_hrk">
+                            </div>
+                        </div>
+
+                        <ng-container *ngIf="isEditing">
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <label for="discount_percentage" class="form-control-label">Popust(%):</label>
+                                <div class="p-inputgroup">
+                                    <input id="discount_percentage" type="number" pInputText
+                                        [(ngModel)]="product.discount_percentage" formControlName="discount_percentage">
+                                </div>
+                            </div>
+                        </ng-container>
+                    </div>
+                    <ng-container *ngIf="isEditing">
+                        <div class="row">
+                            <div class="col-12 col-md-6 col-lg-4 text-muted">
+                                <label for="discount_price_eur" class="form-control-label">Cijena s
+                                    popustom(€):</label>
+                                <div class="p-inputgroup">
+                                    <input id="discount_price_eur" type="text" pInputText
+                                        [ngModel]="getProductDiscountPriceEur() | currency:'EUR'" readonly
+                                        formControlName="discount_price_eur">
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-4 text-muted">
+                                <label for="discount_price_hrk" class="form-control-label">Cijena s
+                                    popustom(HRK):</label>
+                                <div class="p-inputgroup">
+                                    <input id="discount_price_hrk" type="text" pInputText
+                                        [ngModel]="getProductDiscountPriceHrk() | currency:'HRK'" readonly
+                                        formControlName="discount_price_hrk">
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                    <ng-container *ngIf="isEditing">
+                        <hr class="my-4" />
+                        <div class="row">
+                            <div class="col-12 col-md-4">
+                                <label for="unit_of_measure" class="form-control-label">Jedinična mjera:</label>
+                                <div class="p-inputgroup">
+                                    <input id="unit_of_measure" type="text" pInputText
+                                        [(ngModel)]="product.unit_of_measure" formControlName="unit_of_measure">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-4">
+                                <label for="availability_status" class="form-control-label">Stanje:</label>
+                                <div class="p-inputgroup">
+                                    <p-dropdown id="availability_status" appendTo="body"
+                                        [options]="this.availabilityStatuses" [(ngModel)]="product.availability_status"
+                                        [autoDisplayFirst]="false" formControlName="availability_status">
+                                    </p-dropdown>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                    <hr class="my-4" />
+                    <div class="row">
+                        <div class="col-12">
+                            <label for="detailed_description" class="form-control-label">Detaljni opis:</label>
+                            <div class="p-inputgroup">
+                                <textarea id="detailed_description" pInputTextArea
+                                    [(ngModel)]="product.detailed_description" rows="5" cols="150"
+                                    formControlName="detailed_description"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </p-accordionTab>
+
+                <ng-container *ngIf="isEditing">
+                    <p-accordionTab header="Slike">
+                        <div class="row">
+                            <div class="col-12">
+                                <p-carousel [value]="productImages" [numVisible]="3" [numScroll]="3" [circular]="false"
+                                    [responsiveOptions]="responsiveOptions">
+                                    <ng-template let-image pTemplate="item">
+                                        <div class="product-item">
+                                            <div class="product-item-content">
+                                                <div class="mb-3">
+                                                    <p-image src="{{baseUrl}}/{{product.id}}/{{image.name}}"
+                                                        [alt]="image.alt_text" class="product-image" height="150"
+                                                        width="150" appendTo="body" [preview]="true">
+                                                    </p-image>
+                                                </div>
+                                                <div>
+                                                    <h4 class="mb-1">{{image.alt_text}}</h4>
+                                                    <div class="car-buttons mt-5">
+                                                        <p-button type="button"
+                                                            styleClass="p-button-danger p-button-rounded mr-2"
+                                                            icon="pi pi-trash" (click)="toggleDeleteImageDialog(image)">
+                                                        </p-button>
+                                                        <p-button type="button"
+                                                            styleClass="p-button-help p-button-rounded" icon="pi pi-cog"
+                                                            (click)="toggleEditImageSettingsForm(false, image)">
+                                                        </p-button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </ng-template>
+                                </p-carousel>
+                            </div>
+                        </div>
+                        <hr class="my-4" />
+                        <div class="row">
+                            <div class="col-12">
+                                <label>{{ 'Učitaj sliku' }}:</label>
+                                <input #fileInput type="file" class="btn bt-default" id="fileInput" accept="image/*"
+                                    (change)="onFileChange($event)">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <label for="fileUploadAltText" class="form-control-label">Opis:</label>
+                                <div class="p-inputgroup">
+                                    <input id="fileUploadAltText" type="text" pInputText [(ngModel)]="fileUploadAltText"
+                                        [ngModelOptions]="{standalone: true}">
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-12">
+                                <button class="btn btn-primary btn-sm" (click)="uploadFile()">Učitaj</button>
+                            </div>
+                        </div>
+                    </p-accordionTab>
+
+                    <p-accordionTab header="Varijante">
+                        <p-table #dt [value]="productVariants" dataKey="id" [rowHover]="true" [rows]="10"
+                            [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]" responsiveLayout="scroll"
+                            [paginator]="true"
+                            currentPageReportTemplate="Prikaz {first} do {last} od {totalRecords} zapisa"
+                            [globalFilterFields]="['id', 'name', 'description', 'price_eur', 'price_hrk', 'discount_percentage']">
+                            <ng-template pTemplate="caption">
+                                <div class="table-header space-between">
+                                    <div>
+                                        <button pButton type="button" class="p-button-primary" icon="pi pi-box"
+                                            (click)="toggleAddVariantForm()"></button>&nbsp;
+                                        <button pButton label="" class="p-button-outlined" icon="pi pi-filter-slash"
+                                            (click)="clearFilters(dt)"></button>
+                                    </div>
+                                </div>
+                            </ng-template>
+                            <ng-template pTemplate="header">
+                                <tr>
+                                    <th pSortableColumn="id">
+                                        <div class="flex justify-content-between align-items-center">
+                                            ID
+                                            <p-sortIcon field="id"></p-sortIcon>
+                                            <p-columnFilter type="numeric" field="id" display="menu" class="ml-auto">
+                                            </p-columnFilter>
+                                        </div>
+                                    </th>
+                                    <th pSortableColumn="name">
+                                        <div class="flex justify-content-between align-items-center">
+                                            Naziv
+                                            <p-sortIcon field="name"></p-sortIcon>
+                                            <p-columnFilter type="text" field="name" display="menu" class="ml-auto">
+                                            </p-columnFilter>
+                                        </div>
+                                    </th>
+                                    <th>Slika</th>
+                                    <th pSortableColumn="description">
+                                        <div class="flex justify-content-between align-items-center">
+                                            Opis
+                                            <p-sortIcon field="description"></p-sortIcon>
+                                            <p-columnFilter type="text" field="description" display="menu"
+                                                class="ml-auto"></p-columnFilter>
+                                        </div>
+                                    </th>
+                                    <th pSortableColumn="price_eur">
+                                        <div class="flex justify-content-between align-items-center">
+                                            Cijena(€)
+                                            <p-sortIcon field="price_eur"></p-sortIcon>
+                                            <p-columnFilter type="numeric" field="price_eur" display="menu"
+                                                class="ml-auto"></p-columnFilter>
+                                        </div>
+                                    </th>
+                                    <th pSortableColumn="price_hrk">
+                                        <div class="flex justify-content-between align-items-center">
+                                            Cijena(HRK)
+                                            <p-sortIcon field="price_hrk"></p-sortIcon>
+                                            <p-columnFilter type="numeric" field="price_hrk" display="menu"
+                                                class="ml-auto"></p-columnFilter>
+                                        </div>
+                                    </th>
+                                    <th pSortableColumn="discount_percentage">
+                                        <div class="flex justify-content-between align-items-center">
+                                            Popust(%)
+                                            <p-sortIcon field="discount_percentage"></p-sortIcon>
+                                            <p-columnFilter type="numeric" field="discount_percentage" display="menu"
+                                                class="ml-auto"></p-columnFilter>
+                                        </div>
+                                    </th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </ng-template>
+                            <ng-template pTemplate="body" let-variant>
+                                <tr>
+                                    <td>{{variant.id}}</td>
+                                    <td>{{variant.name}}</td>
+                                    <td><img *ngIf="variant.preview_image_name"
+                                            src="{{baseUrl}}/{{variant.product_id}}/{{variant.id}}/{{variant.preview_image_name}}"
+                                            [alt]="variant.preview_image_alt_text" width="100" class="shadow-4" /></td>
+                                    <td>{{variant.description}}</td>
+                                    <td>{{variant.price_eur | currency:'EUR'}}</td>
+                                    <td>{{variant.price_hrk | currency:'HRK'}}</td>
+                                    <td>{{variant.discount_percentage}}</td>
+                                    <td class="text-center">
+                                        <button pButton type="button" class="p-button-secondary" icon="pi pi-cog"
+                                            (click)="toggleEditVariantForm(false, variant)"></button>
+                                    </td>
+                                    <td class="text-center">
+                                        <button pButton type="button" class="p-button-danger" icon="pi pi-trash"
+                                            (click)="toggleDeleteVariantDialog(variant)"></button>
+                                    </td>
+                                </tr>
+                            </ng-template>
+                            <ng-template pTemplate="emptymessage">
+                                <tr>
+                                    <td colspan="8">Varijante nisu pronađene.</td>
+                                </tr>
+                            </ng-template>
+                        </p-table>
+                    </p-accordionTab>
+                </ng-container>
+            </p-accordion>
+        </div>
+    </form>
+
+    <ng-template pTemplate="footer">
+        <div class="row space-between">
+            <button class="btn btn-danger" (click)="closeDialog(false)"><i
+                    class="pi pi-minus-circle">Poništi</i></button>
+            <button class="btn btn-success" [disabled]="isFormInvalid()" (click)="saveChanges()"><i
+                    class="pi pi-check">Spremi</i></button>
+        </div>
+    </ng-template>
+
+</p-dialog>
