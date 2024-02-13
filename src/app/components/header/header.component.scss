@@ -56,3 +56,31 @@ a {
     font-size: 1.5em; 
     padding-bottom: 10px;
 }
+.welcome_promo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.promo_content {
+    position: relative;
+    width: 1492px;
+    height: 540px;
+    background-image: url('/assets/welcome_slika.jpg');
+    background-size: cover;
+    background-position: center;
+}
+.promo_content_text {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    width: 667px;
+    height: 367px;
+    background-color: white;
+}
