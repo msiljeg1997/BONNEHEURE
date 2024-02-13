@@ -41,3 +41,137 @@
         </div>
     </div>
 </div>
+
+<div class="main_content">
+    <div class="product_details">
+        <div class="product_details_header_text">
+            <h1>BONNEHEURE PROIZVODI</h1>
+        </div>
+        <div class="product_wrapper">
+            <div class="product_one_container">
+                <div class="child image">
+                    <img src="assets/proizvod_1_mock.png" alt="Product Image">
+                </div>
+                <div class="child white-div"></div>
+                <div class="child carousel">
+                    <p-galleria [value]="product.getImages()" [responsiveOptions]="responsiveOptions"
+                        [containerStyle]="{'max-width': '640px'}" [numVisible]="5">
+                        <ng-template pTemplate="item" let-image>
+                            <p-image src="{{baseUrl}}/{{product.getImagePath()}}/{{image.name}}" [alt]="image.alt_text ?? ''"
+                                height="300" width="300" [preview]="true" class="global-border-custom" appendTo="body">
+                            </p-image>
+                        </ng-template>
+                        <ng-template pTemplate="thumbnail" let-image>
+                            <div class="grid grid-nogutter justify-content-center global-border-custom">
+                                <p-image src="{{baseUrl}}/{{product.getImagePath()}}/{{image.name}}"
+                                    [alt]="image.alt_text ?? ''" height="50" width="50" [preview]="false" appendTo="body">
+                                </p-image>
+                            </div>
+                        </ng-template>
+                    </p-galleria>
+                </div>
+            </div>
+        </div>
+        <div class="product_wrapper">
+            <div class="product_one_container">
+                <div class="child image">
+                    <img src="assets/proizvod_2_mock.png" alt="Product Image">
+                </div>
+                <div class="child white-div"></div>
+                <div class="child carousel">
+                    <p-galleria [value]="product.getImages()" [responsiveOptions]="responsiveOptions"
+                        [containerStyle]="{'max-width': '640px'}" [numVisible]="5">
+                        <ng-template pTemplate="item" let-image>
+                            <p-image src="{{baseUrl}}/{{product.getImagePath()}}/{{image.name}}" [alt]="image.alt_text ?? ''"
+                                height="300" width="300" [preview]="true" class="global-border-custom" appendTo="body">
+                            </p-image>
+                        </ng-template>
+                        <ng-template pTemplate="thumbnail" let-image>
+                            <div class="grid grid-nogutter justify-content-center global-border-custom">
+                                <p-image src="{{baseUrl}}/{{product.getImagePath()}}/{{image.name}}"
+                                    [alt]="image.alt_text ?? ''" height="50" width="50" [preview]="false" appendTo="body">
+                                </p-image>
+                            </div>
+                        </ng-template>
+                    </p-galleria>
+                </div>
+            </div>
+        </div>
+        <div class="product_wrapper">
+            <div class="product_one_container">
+                <div class="child image">
+                    <img src="assets/proizvod_3_mock.png" alt="Product Image">
+                </div>
+                <div class="child white-div"></div>
+                <div class="child carousel">
+                    <p-galleria [value]="product.getImages()" [responsiveOptions]="responsiveOptions"
+                        [containerStyle]="{'max-width': '640px'}" [numVisible]="5">
+                        <ng-template pTemplate="item" let-image>
+                            <p-image src="{{baseUrl}}/{{product.getImagePath()}}/{{image.name}}" [alt]="image.alt_text ?? ''"
+                                height="300" width="300" [preview]="true" class="global-border-custom" appendTo="body">
+                            </p-image>
+                        </ng-template>
+                        <ng-template pTemplate="thumbnail" let-image>
+                            <div class="grid grid-nogutter justify-content-center global-border-custom">
+                                <p-image src="{{baseUrl}}/{{product.getImagePath()}}/{{image.name}}"
+                                    [alt]="image.alt_text ?? ''" height="50" width="50" [preview]="false" appendTo="body">
+                                </p-image>
+                            </div>
+                        </ng-template>
+                    </p-galleria>
+                </div>
+            </div>
+        </div>
+        <div class="product_wrapper">
+            <div class="product_one_container">
+                <div class="child image">
+                    <img src="assets/proizvod_4_mock.jpg" alt="Product Image">
+                </div>
+                <div class="child white-div"></div>
+                <div class="child carousel">
+                    <p-galleria [value]="product.getImages()" [responsiveOptions]="responsiveOptions"
+                        [containerStyle]="{'max-width': '640px'}" [numVisible]="5">
+                        <ng-template pTemplate="item" let-image>
+                            <p-image src="{{baseUrl}}/{{product.getImagePath()}}/{{image.name}}" [alt]="image.alt_text ?? ''"
+                                height="300" width="300" [preview]="true" class="global-border-custom" appendTo="body">
+                            </p-image>
+                        </ng-template>
+                        <ng-template pTemplate="thumbnail" let-image>
+                            <div class="grid grid-nogutter justify-content-center global-border-custom">
+                                <p-image src="{{baseUrl}}/{{product.getImagePath()}}/{{image.name}}"
+                                    [alt]="image.alt_text ?? ''" height="50" width="50" [preview]="false" appendTo="body">
+                                </p-image>
+                            </div>
+                        </ng-template>
+                    </p-galleria>
+                </div>
+            </div>
+        </div>
+        <div class="product_wrapper">
+            <div class="product_one_container">
+                <div class="child image">
+                    <img src="assets/proizvod_5_mock.jpg" alt="Product Image">
+                </div>
+                <div class="child white-div"></div>
+                <div class="child carousel">
+                    <p-galleria [value]="product.getImages()" [responsiveOptions]="responsiveOptions"
+                        [containerStyle]="{'max-width': '640px'}" [numVisible]="5">
+                        <ng-template pTemplate="item" let-image>
+                            <p-image src="{{baseUrl}}/{{product.getImagePath()}}/{{image.name}}" [alt]="image.alt_text ?? ''"
+                                height="300" width="300" [preview]="true" class="global-border-custom" appendTo="body">
+                            </p-image>
+                        </ng-template>
+                        <ng-template pTemplate="thumbnail" let-image>
+                            <div class="grid grid-nogutter justify-content-center global-border-custom">
+                                <p-image src="{{baseUrl}}/{{product.getImagePath()}}/{{image.name}}"
+                                    [alt]="image.alt_text ?? ''" height="50" width="50" [preview]="false" appendTo="body">
+                                </p-image>
+                            </div>
+                        </ng-template>
+                    </p-galleria>
+                </div>
+            </div>
+        </div>
+        <!-- Repeat for each product_one_container -->
+    </div>
+</div>
