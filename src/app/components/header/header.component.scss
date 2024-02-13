@@ -94,7 +94,7 @@ a {
     font-size: 28px;
     font-family: avenir-lt-w01_35-light1475496, avenir-lt-w05_35-light, sans-serif; //dodaj avenir font
     margin-bottom: 50px;
-    padding: 30px;
+    padding: 25px;
     margin-top: 40px;
     text-align: center;
     font-weight:lighter;
@@ -110,7 +110,7 @@ a {
 }
 
 .main_content {
-    height: 2600px;                    // za mjenjanje content size kombiniras ovaj height sa product_details height.
+    height: 3000px;                    // za mjenjanje content size kombiniras ovaj height sa product_details height.
     background-color: #e8e6e6;       // proporcijalna desktop razlika izmedu njih je contenta je 100px
 }
 .product_details {
@@ -118,7 +118,7 @@ a {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 2500px;
+    height: 2900px;
     width: auto;
     background-color: #e8e6e6;  
     padding-top: 50px; // pazi za responsive
@@ -133,18 +133,17 @@ a {
 
 .product_wrapper {
     margin: 60px 0;
-    background-color: blue;
 }
 .product_one_container {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     width: 970px;
-    height: 350px;
+    height: 400px;
 }
 
 .product_one_container .child {
-    height: 350px;
+    height: 400px;
 }
 
 .product_one_container .child.image {
@@ -159,9 +158,50 @@ a {
 
 .product_one_container .child.carousel {
     flex-grow: 1;
+    background-color: yellow;
 }
 .product_one_container .child.white-div {
     background-color: white;
     width: 433px;
     height: 100%;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.product_one_container .child.white-div h1 {
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 22px;
+    line-height: 1.4em;
+    font-family: 'avenir-lt-w01_35-light1475496', 'avenir-lt-w05_35-light', sans-serif;
+    padding: 30px;
+    text-align: center;
+    letter-spacing: 0.1em;
+}
+.product_one_container .child.white-div p {
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 14px;
+    line-height: 1.4em;
+    font-family: 'avenir-lt-w01_35-light1475496', 'avenir-lt-w05_35-light', sans-serif;
+    padding: 10px;
+    text-align: left;
+    letter-spacing: 0.1em;
+}
+
+.btn_proizvod{
+    align-self: center;
+    border-radius: 0; 
+    background-color: rgba(173, 216, 230, 0.5);
+    border: none; 
+    padding: 10px 20px; 
+    text-decoration: none; 
+    cursor: pointer; 
+    width: 200px;
+
+}
+.btn_proizvod_container{
+    align-self: center;
+
 }
