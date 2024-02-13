@@ -1,3 +1,4 @@
+<!--
 <header class="header_color" style="height: 146px;">
     <div class="container">
         <p-menubar [model]="navbarService.menuItems" [autoDisplay]="true">
@@ -15,5 +16,14 @@
                 </a>
             </ng-template>
         </p-menubar>
+    </div>
+</header>
+-->
+<header class="header_color" style="height: 146px; display: flex; justify-content: center; align-items: center;">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+        <p-menubar [model]="menuItems"></p-menubar>
+        <img src="assets/loggo_bigger.jpeg" alt="Logo" style="width: auto; height: 700px;">
+        <input type="text" placeholder="Search">
+        <i class="fa fa-shopping-bag"></i>
     </div>
 </header>
