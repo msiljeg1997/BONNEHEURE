@@ -19,11 +19,14 @@
     </div>
 </header>
 -->
-<header class="header_color" style="height: 146px; display: flex; justify-content: center; align-items: center;">
-    <div class="container" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+<header class="header_color">
+    <div class="container container_ispodHeader">
         <p-menubar [model]="menuItems"></p-menubar>
         <img src="assets/loggo_bigger.jpeg" alt="Logo" style="width: auto; height: 700px;">
-        <input type="text" placeholder="Search">
-        <i class="fa fa-shopping-bag"></i>
+        <div class="search-container">
+            <i class="pi pi-search search-icon"></i>
+            <input type="text" placeholder="Search" class="search-input">
+        </div>
+        <i class="pi pi-shopping-bag shopping_bag_icon"></i>
     </div>
 </header>

@@ -24,4 +24,22 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+
+
+  menuItems = [
+    {
+        label: 'Trgovina',
+        url: 'http://www.your-homepage-url.com'
+    },
+    {
+        label: 'Kontakt',
+        url: 'http://www.your-about-url.com'
+    },
+    {
+        label: 'O nama',
+        url: 'http://www.your-shop-url.com'
+    }
+];
+
 }

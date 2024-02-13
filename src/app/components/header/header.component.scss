@@ -10,9 +10,49 @@ a {
 }
 
 
-.center-logo {
+.header_color{
+    height: 146px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+.center-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.custom-header {
+    height: 146px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container_ispodHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.shopping_bag_icon{
+    font-size: 2em;
+}
+.search-container {
+    display: flex;
+    align-items: center;
+    padding-top: 50px;
+}
+
+.search-input {
+    border: none;
+    border-bottom: 1px solid black;
+    background: transparent;
+    outline: none;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    font-size: 1.2m;
+}
+.search-icon {
+    font-size: 1.5em; 
+    padding-bottom: 10px;
+}
