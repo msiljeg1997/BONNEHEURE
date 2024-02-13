@@ -1,10 +1,16 @@
+
+<div class="container">
+    
+</div>
+
+
 <div class="container">
     <hr class="my-4" />
     <p-carousel *ngIf="itemService.featuredItems && itemService.featuredItems.length > 3" #carouselAction [value]="itemService.featuredItems" [numVisible]="4" [numScroll]="1"
         [responsiveOptions]="responsiveOptions">
         <ng-template pTemplate="header">
             <div class="text-center">
-                <p class="h3 text-muted">ISTAKNUTO</p>
+                <p class="h3 text-muted">ISTRAŽITE KOLEKCIJU</p>
             </div>
         </ng-template>
         <ng-template let-product pTemplate="item">

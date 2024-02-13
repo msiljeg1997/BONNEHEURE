@@ -1,8 +1,11 @@
-<header class="global-background-color">
+<header class="header_color" style="height: 146px;">
     <div class="container">
         <p-menubar [model]="navbarService.menuItems" [autoDisplay]="true">
             <ng-template pTemplate="start">
                 <a href="https://www.wih.hr"><img src="{{assetsUrl}}/logo192x192.png" height="50" class="mr-2"></a>
+            </ng-template>
+            <ng-template pTemplate="center" class="center-logo">
+                <img src="assets/logo_bigger.jfif" alt="Logo">
             </ng-template>
             <ng-template pTemplate="end">
                 <input type="text" class="max-search-bar" pInputText placeholder="Pretraži" [(ngModel)]="itemService.searchText" (input)="itemService.applySearchFilter(false)">
