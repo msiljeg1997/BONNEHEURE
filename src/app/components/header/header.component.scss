@@ -22,6 +22,9 @@ a {
     justify-content: center;
     align-items: center;
 }
+.slikaLogo {
+    margin-left: 70px; //moglo bi raditi probleme na responsive stranici pazi!!
+}
 .custom-header {
     height: 146px;
     display: flex;
@@ -67,7 +70,7 @@ a {
 
 .promo_content {
     position: relative;
-    width: 1492px;
+    width: 1700px;
     height: 540px;
     background-image: url('/assets/welcome_slika.jpg');
     background-size: cover;
@@ -80,7 +83,27 @@ a {
     bottom: 0;
     left: 0;
     margin: auto;
-    width: 667px;
+    width: 700px;
     height: 367px;
     background-color: white;
+}
+
+.promo_content_text h1 {
+    letter-spacing: 0.1em;
+    font-size: 28px;
+    font-family: avenir-lt-w01_35-light1475496, avenir-lt-w05_35-light, sans-serif; //dodaj avenir font
+    margin-bottom: 50px;
+    padding: 30px;
+    margin-top: 40px;
+    text-align: center;
+    font-weight:lighter;
+}
+
+.promo_content_text h3 {
+    letter-spacing: normal;
+    font-size: 20px;
+    font-family: avenir-lt-w01_35-light1475496, avenir-lt-w05_35-light, sans-serif;
+    padding: 10px;
+    text-align: center;
+    font-weight:lighter;
 }
