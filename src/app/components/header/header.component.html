@@ -59,18 +59,16 @@
                         <button class="btn_proizvod">Vidi više</button>
                     </div>
                 </div>
-                <div class="child carousel">
-                    <p-galleria [value]="product.getImages()" [responsiveOptions]="responsiveOptions"
-                        [containerStyle]="{'max-width': '640px'}" [numVisible]="5">
-                        <ng-template pTemplate="item" let-image>
-                            <p-image src="{{baseUrl}}/{{product.getImagePath()}}/{{image.name}}" [alt]="image.alt_text ?? ''"
-                                height="300" width="300" [preview]="true" class="global-border-custom" appendTo="body">
-                            </p-image>
+                <div style="width: 350px; height: 400px; overflow: auto; background-color: #e8e6e6;">
+                    <p-galleria [value]="images" [responsiveOptions]="responsiveOptions" [numVisible]="5" style="background-color: #e8e6e6;" class="p-galleria_home">
+                        <ng-template pTemplate="item" let-item>
+                            <p-image src="assets/{{item.name}}" [alt]="item.alt_text ?? ''" height="285px" width="340px" class="global-border-custom" style="max-width: 100%; max-height: 100%;">
+                                </p-image>
                         </ng-template>
-                        <ng-template pTemplate="thumbnail" let-image>
+                        <ng-template pTemplate="thumbnail" let-item>
                             <div class="grid grid-nogutter justify-content-center global-border-custom">
-                                <p-image src="{{baseUrl}}/{{product.getImagePath()}}/{{image.name}}"
-                                    [alt]="image.alt_text ?? ''" height="50" width="50" [preview]="false" appendTo="body">
+                                <p-image src="assets/{{item.name}}"
+                                     height="50" width="50" [preview]="false" appendTo="body">
                                 </p-image>
                             </div>
                         </ng-template>
@@ -90,18 +88,16 @@
                         <button class="btn_proizvod">Vidi više</button>
                     </div>
                 </div>
-                <div class="child carousel">
-                    <p-galleria [value]="product.getImages()" [responsiveOptions]="responsiveOptions"
-                        [containerStyle]="{'max-width': '640px'}" [numVisible]="5">
-                        <ng-template pTemplate="item" let-image>
-                            <p-image src="{{baseUrl}}/{{product.getImagePath()}}/{{image.name}}" [alt]="image.alt_text ?? ''"
-                                height="300" width="300" [preview]="true" class="global-border-custom" appendTo="body">
-                            </p-image>
+                <div style="width: 350px; height: 400px; overflow: auto; background-color: #e8e6e6;">
+                    <p-galleria [value]="images" [responsiveOptions]="responsiveOptions" [numVisible]="5" style="background-color: #e8e6e6;" class="p-galleria_home">
+                        <ng-template pTemplate="item" let-item>
+                            <p-image src="assets/{{item.name}}" [alt]="item.alt_text ?? ''" height="285px" width="340px" class="global-border-custom" style="max-width: 100%; max-height: 100%;">
+                                </p-image>
                         </ng-template>
-                        <ng-template pTemplate="thumbnail" let-image>
+                        <ng-template pTemplate="thumbnail" let-item>
                             <div class="grid grid-nogutter justify-content-center global-border-custom">
-                                <p-image src="{{baseUrl}}/{{product.getImagePath()}}/{{image.name}}"
-                                    [alt]="image.alt_text ?? ''" height="50" width="50" [preview]="false" appendTo="body">
+                                <p-image src="assets/{{item.name}}"
+                                     height="50" width="50" [preview]="false" appendTo="body">
                                 </p-image>
                             </div>
                         </ng-template>
@@ -121,18 +117,16 @@
                         <button class="btn_proizvod">Vidi više</button>
                     </div>
                 </div>
-                <div class="child carousel">
-                    <p-galleria [value]="product.getImages()" [responsiveOptions]="responsiveOptions"
-                        [containerStyle]="{'max-width': '640px'}" [numVisible]="5">
-                        <ng-template pTemplate="item" let-image>
-                            <p-image src="{{baseUrl}}/{{product.getImagePath()}}/{{image.name}}" [alt]="image.alt_text ?? ''"
-                                height="300" width="300" [preview]="true" class="global-border-custom" appendTo="body">
-                            </p-image>
+                <div style="width: 350px; height: 400px; overflow: auto; background-color: #e8e6e6;">
+                    <p-galleria [value]="images" [responsiveOptions]="responsiveOptions" [numVisible]="5" style="background-color: #e8e6e6;" class="p-galleria_home">
+                        <ng-template pTemplate="item" let-item>
+                            <p-image src="assets/{{item.name}}" [alt]="item.alt_text ?? ''" height="285px" width="340px" class="global-border-custom" style="max-width: 100%; max-height: 100%;">
+                                </p-image>
                         </ng-template>
-                        <ng-template pTemplate="thumbnail" let-image>
+                        <ng-template pTemplate="thumbnail" let-item>
                             <div class="grid grid-nogutter justify-content-center global-border-custom">
-                                <p-image src="{{baseUrl}}/{{product.getImagePath()}}/{{image.name}}"
-                                    [alt]="image.alt_text ?? ''" height="50" width="50" [preview]="false" appendTo="body">
+                                <p-image src="assets/{{item.name}}"
+                                     height="50" width="50" [preview]="false" appendTo="body">
                                 </p-image>
                             </div>
                         </ng-template>
@@ -152,18 +146,16 @@
                         <button class="btn_proizvod">Vidi više</button>
                     </div>
                 </div>
-                <div class="child carousel">
-                    <p-galleria [value]="product.getImages()" [responsiveOptions]="responsiveOptions"
-                        [containerStyle]="{'max-width': '640px'}" [numVisible]="5">
-                        <ng-template pTemplate="item" let-image>
-                            <p-image src="{{baseUrl}}/{{product.getImagePath()}}/{{image.name}}" [alt]="image.alt_text ?? ''"
-                                height="300" width="300" [preview]="true" class="global-border-custom" appendTo="body">
-                            </p-image>
+                <div style="width: 350px; height: 400px; overflow: auto; background-color: #e8e6e6;">
+                    <p-galleria [value]="images" [responsiveOptions]="responsiveOptions" [numVisible]="5" style="background-color: #e8e6e6;" class="p-galleria_home">
+                        <ng-template pTemplate="item" let-item>
+                            <p-image src="assets/{{item.name}}" [alt]="item.alt_text ?? ''" height="285px" width="340px" class="global-border-custom" style="max-width: 100%; max-height: 100%;">
+                                </p-image>
                         </ng-template>
-                        <ng-template pTemplate="thumbnail" let-image>
+                        <ng-template pTemplate="thumbnail" let-item>
                             <div class="grid grid-nogutter justify-content-center global-border-custom">
-                                <p-image src="{{baseUrl}}/{{product.getImagePath()}}/{{image.name}}"
-                                    [alt]="image.alt_text ?? ''" height="50" width="50" [preview]="false" appendTo="body">
+                                <p-image src="assets/{{item.name}}"
+                                     height="50" width="50" [preview]="false" appendTo="body">
                                 </p-image>
                             </div>
                         </ng-template>
@@ -183,18 +175,16 @@
                         <button class="btn_proizvod">Vidi više</button>
                     </div>
                 </div>
-                <div class="child carousel">
-                    <p-galleria [value]="product.getImages()" [responsiveOptions]="responsiveOptions"
-                        [containerStyle]="{'max-width': '640px'}" [numVisible]="5">
-                        <ng-template pTemplate="item" let-image>
-                            <p-image src="{{baseUrl}}/{{product.getImagePath()}}/{{image.name}}" [alt]="image.alt_text ?? ''"
-                                height="300" width="300" [preview]="true" class="global-border-custom" appendTo="body">
-                            </p-image>
+                <div style="width: 350px; height: 400px; overflow: auto; background-color: #e8e6e6;">
+                    <p-galleria [value]="images" [responsiveOptions]="responsiveOptions" [numVisible]="5" style="background-color: #e8e6e6;" class="p-galleria_home">
+                        <ng-template pTemplate="item" let-item>
+                            <p-image src="assets/{{item.name}}" [alt]="item.alt_text ?? ''" height="285px" width="340px" class="global-border-custom" style="max-width: 100%; max-height: 100%;">
+                                </p-image>
                         </ng-template>
-                        <ng-template pTemplate="thumbnail" let-image>
+                        <ng-template pTemplate="thumbnail" let-item>
                             <div class="grid grid-nogutter justify-content-center global-border-custom">
-                                <p-image src="{{baseUrl}}/{{product.getImagePath()}}/{{image.name}}"
-                                    [alt]="image.alt_text ?? ''" height="50" width="50" [preview]="false" appendTo="body">
+                                <p-image src="assets/{{item.name}}"
+                                     height="50" width="50" [preview]="false" appendTo="body">
                                 </p-image>
                             </div>
                         </ng-template>

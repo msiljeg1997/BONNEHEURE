@@ -7,6 +7,7 @@ import { environment } from 'src/environments/environment';
 import { UiService } from '../ui/ui.service';
 import { ApiService } from 'src/app/services/api.service';
 import { Product } from 'src/app/models/api/api-response';
+import { GalleriaModule } from 'primeng/galleria';
 
 @Component({
   selector: 'app-header',
@@ -120,6 +121,21 @@ getProductDetails(): void {
     this.uiService.showError("Greška kod dohvata proizvoda.");
   }
 }
+
+getImagePathMock(): any[] {
+  return [
+    {name: 'proizvod_1_mock.png'},
+    {name: 'proizvod_2_mock.png'},
+    {name: 'proizvod_3_mock.png'},
+    {name: 'proizvod_4_mock.png'},
+  ]
+}
+images = [
+  {name: 'proizvod_1_mock.png'},
+  {name: 'proizvod_2_mock.png'},
+  {name: 'proizvod_3_mock.png'},
+  {name: 'proizvod_4_mock.png'},
+];
 
 
 }

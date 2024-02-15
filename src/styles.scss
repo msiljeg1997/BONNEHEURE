@@ -1,9 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 $GLOBAL-BACKGROUND-COLOR: #ffffff;
+$HOMEPAGE-BACKGROUND-COLOR: #e8e6e6;
 
 // WIH BEAUTY
-$THEME-COLOR: #FA89AE;
-$SECONDARY-COLOR: #87213C;
+$THEME-COLOR: #ffffff;
+$SECONDARY-COLOR: #ffffff;
 
 // // WIH MEDICINE
 // $THEME-COLOR: #64BDEB;
@@ -251,6 +252,7 @@ $SECONDARY-COLOR: #87213C;
     padding-top: 1.5em;
 }
 
+
 .p-galleria .p-galleria-thumbnail-container .p-galleria-thumbnail-prev,
 .p-galleria .p-galleria-thumbnail-container .p-galleria-thumbnail-next {
     color: black !important;
@@ -261,6 +263,6 @@ p-image {
 }
 
 .invalid-border {
-    border-color: #dc3545;
+    border-color: #49c4e9;
 }
 
