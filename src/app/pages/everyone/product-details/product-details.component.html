@@ -6,7 +6,7 @@
                 [containerStyle]="{'max-width': '750px'}" [numVisible]="5">
                 <ng-template pTemplate="item" let-image>
                     <p-image src="{{baseUrl}}/{{product.getImagePath()}}/{{image.name}}" [alt]="image.alt_text ?? ''"
-                        height="400" width="400" [preview]="true" fullScreen="ture" class="global-border-custom" appendTo="body">
+                        height="400" width="400" [preview]="false" fullScreen="false" class="global-border-custom" appendTo="body"  (click)="openDialog()">
                     </p-image>
                 </ng-template>
                 <ng-template pTemplate="thumbnail" let-image>
@@ -17,6 +17,21 @@
                     </div>
                 </ng-template>
             </p-galleria>
+            <p-dialog [(visible)]="display" [modal]="true" [style]="{width: '100vw'}" [maximizable]="true" [contentStyle]="{'height': '100vh'}" [modal]="true" [baseZIndex]="10000" class="dialog-centered">
+                <p-galleria [value]="product.getImages()" [responsiveOptions]="responsiveOptions"
+                    [containerStyle]="{'max-width': '750px'}" [numVisible]="5">
+                    <ng-template pTemplate="item" let-image>
+                        <img src="{{baseUrl}}/{{product.getImagePath()}}/{{image.name}}" [alt]="image.alt_text ?? ''"
+                        height="700" width="700" class="global-border-custom">
+                    </ng-template>
+                    <ng-template pTemplate="thumbnail" let-image>
+                        <div class="grid grid-nogutter justify-content-center global-border-custom">
+                            <img src="{{baseUrl}}/{{product.getImagePath()}}/{{image.name}}"
+                                [alt]="image.alt_text ?? ''" height="100" width="100">
+                        </div>
+                    </ng-template>
+                </p-galleria>
+            </p-dialog>
         </div>
         <div class="col-12 col-md-4 divObrdub">
             <h1 class="h2">{{product.getName()}}</h1>

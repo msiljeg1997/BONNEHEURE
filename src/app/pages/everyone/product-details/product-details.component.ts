@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Dialog } from 'primeng/dialog';
 import { UiService } from 'src/app/components/ui/ui.service';
 import { Product } from 'src/app/models/api/api-response';
 import { ApiService } from 'src/app/services/api.service';
@@ -10,13 +11,17 @@ import { environment } from 'src/environments/environment';
   templateUrl: './product-details.component.html',
   styleUrls: ['./product-details.component.scss']
 })
-export class ProductDetailsComponent implements OnInit {
+export class ProductDetailsComponent implements OnInit, AfterViewInit {
+
+  @ViewChild(Dialog) dialog?: Dialog;
 
   public baseUrl: string = environment.productImagesUrl;
 
   public product: Product = new Product();
 
   public product_quantity: number = 0;
+
+
 isMobile = window.innerWidth < 450;
 
   responsiveOptions: any[] = [
@@ -40,9 +45,24 @@ isMobile = window.innerWidth < 450;
     private apiService: ApiService,
     public cartService: CartService
   ) { }
+  ngAfterViewInit(): void {
+    if (this.dialog) {
+      this.dialog.maximize();
+    }
+  }
 
   ngOnInit(): void {
     this.getProductDetails();
+  }
+
+
+  display: boolean = false;
+
+  openDialog() {
+    this.display = true;
+    setTimeout(() => {
+      this.dialog?.maximize();
+    });
   }
 
   getProductIdFromUrl(): number {

@@ -14,14 +14,6 @@ body {
    
 }
 
-@font-face {
-    font-family: 'Avenir';
-    src: url('assets\Avenir Light.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-@import '~@fortawesome/fontawesome-free/css/all.css';
-
 // // WIH MEDICINE
 // $THEME-COLOR: #64BDEB;
 // $SECONDARY-COLOR: #094B74;
@@ -325,4 +317,13 @@ background-color: rgba(122, 226, 155, 0.564) !important;
 }
 .text-bg-secondary{
     background-color: #ebe6e6 !important;
+}
+ .p-dialog-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.p-dialog .p-dialog-content {
+background-color: #151515a9 !important;
 }
