@@ -19,179 +19,44 @@
     </div>
 </header>
 -->
-<header class="header_color">
+<header class="header_color" *ngIf="!isMobile">
     <div class="container container_ispodHeader">
         <p-menubar [model]="menuItems"></p-menubar>
-        <div class="logo-wrapper">
-            <img src="assets/loggo_bigger.jpeg" alt="Logo" style="width: auto; height: 700px;" class="slikaLogo">
+        <div class="logo-wrapper" routerLink="/home">
+            <img src="assets/loggo_bigger.jpeg" alt="Logo" class="slikaLogo">
         </div>
         <div class="search-container">
             <i class="pi pi-search search-icon"></i>
-            <input type="text" placeholder="Search" class="search-input">
+            <input type="text" class="search-input"  [(ngModel)]="itemService.searchText" (input)="itemService.applySearchFilter(false)">
+
         </div>
-        <i class="pi pi-shopping-bag shopping_bag_icon"></i>
+        <i  class="pi pi-shopping-bag Mshopping_bag_icon" routerLink="/cart">
+            <span class="cart-item-count" *ngIf="(cartService?.currentCartItemCount | async) ?? 0 > 0">{{ (cartService.currentCartItemCount | async) ?? 0 }}</span>
+          </i>
     </div>
 </header>
-
-<div class="welcome_promo">
-    <div class="promo_content">
-        <div class="promo_content_text">
-            <h1>ISTRAŽITE BONNEHEURE KOLEKCIJU</h1>
-            <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</h3>
+<div *ngIf="isMobile">
+    <header class="headerM"> 
+        <div class="Mlogo-wrapper" routerLink="/home">
+            <img src="assets/logo_smaller.jpeg" alt="Logo" class="slikaLogo">
         </div>
-    </div>
+        <div class="container Mcontainer_ispodHeader">
+            <p-menubar [model]="menuItems">
+                
+                <div class="Msearch-container">
+                    <i class="pi pi-search Msearch-icon"></i>
+                    <input type="text" class="Msearch-input"  [(ngModel)]="itemService.searchText" (input)="itemService.applySearchFilter(false)">
+                    
+                    <i class="pi pi-shopping-bag Mshopping_bag_icon" routerLink="/cart">
+                        <span class="cart-item-count" *ngIf="(cartService?.currentCartItemCount | async) ?? 0 > 0">{{ (cartService.currentCartItemCount | async) ?? 0 }}</span>
+                      </i>
+                    
+                       
+                  
+                   
+                </div>
+            </p-menubar>
+        </div>
+    </header>
 </div>
 
-<div class="main_content">
-    <div class="product_details">
-        <div class="product_details_header_text">
-            <h1>BONNEHEURE PROIZVODI</h1>
-        </div>
-        <div class="product_wrapper">
-            <div class="product_one_container">
-                <div class="child image">
-                    <img src="assets/proizvod_1_mock.png" alt="Product Image">
-                </div>
-                <div class="child white-div">
-                    <h1>Krema za obnavljanje kolagena</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla</p>
-                    <div class="btn_proizvod_container">
-                        <button class="btn_proizvod">Vidi više</button>
-                    </div>
-                </div>
-                <div style="width: 350px; height: 400px; overflow: auto; background-color: #e8e6e6;">
-                    <p-galleria [value]="images" [responsiveOptions]="responsiveOptions" [numVisible]="5" style="background-color: #e8e6e6;" class="p-galleria_home">
-                        <ng-template pTemplate="item" let-item>
-                            <p-image src="assets/{{item.name}}" [alt]="item.alt_text ?? ''" height="285px" width="340px" class="global-border-custom" style="max-width: 100%; max-height: 100%;">
-                                </p-image>
-                        </ng-template>
-                        <ng-template pTemplate="thumbnail" let-item>
-                            <div class="grid grid-nogutter justify-content-center global-border-custom">
-                                <p-image src="assets/{{item.name}}"
-                                     height="50" width="50" [preview]="false" appendTo="body">
-                                </p-image>
-                            </div>
-                        </ng-template>
-                    </p-galleria>
-                </div>
-            </div>
-        </div>
-        <div class="product_wrapper">
-            <div class="product_one_container">
-                <div class="child image">
-                    <img src="assets/proizvod_2_mock.png" alt="Product Image">
-                </div>
-                <div class="child white-div">
-                    <h1>Maska za obnavljanje kolagena</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla</p>
-                    <div class="btn_proizvod_container">
-                        <button class="btn_proizvod">Vidi više</button>
-                    </div>
-                </div>
-                <div style="width: 350px; height: 400px; overflow: auto; background-color: #e8e6e6;">
-                    <p-galleria [value]="images" [responsiveOptions]="responsiveOptions" [numVisible]="5" style="background-color: #e8e6e6;" class="p-galleria_home">
-                        <ng-template pTemplate="item" let-item>
-                            <p-image src="assets/{{item.name}}" [alt]="item.alt_text ?? ''" height="285px" width="340px" class="global-border-custom" style="max-width: 100%; max-height: 100%;">
-                                </p-image>
-                        </ng-template>
-                        <ng-template pTemplate="thumbnail" let-item>
-                            <div class="grid grid-nogutter justify-content-center global-border-custom">
-                                <p-image src="assets/{{item.name}}"
-                                     height="50" width="50" [preview]="false" appendTo="body">
-                                </p-image>
-                            </div>
-                        </ng-template>
-                    </p-galleria>
-                </div>
-            </div>
-        </div>
-        <div class="product_wrapper">
-            <div class="product_one_container">
-                <div class="child image">
-                    <img src="assets/proizvod_3_mock.png" alt="Product Image">
-                </div>
-                <div class="child white-div">
-                    <h1>Hidratantni sprej za obnavljanje kolagena</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla</p>
-                    <div class="btn_proizvod_container">
-                        <button class="btn_proizvod">Vidi više</button>
-                    </div>
-                </div>
-                <div style="width: 350px; height: 400px; overflow: auto; background-color: #e8e6e6;">
-                    <p-galleria [value]="images" [responsiveOptions]="responsiveOptions" [numVisible]="5" style="background-color: #e8e6e6;" class="p-galleria_home">
-                        <ng-template pTemplate="item" let-item>
-                            <p-image src="assets/{{item.name}}" [alt]="item.alt_text ?? ''" height="285px" width="340px" class="global-border-custom" style="max-width: 100%; max-height: 100%;">
-                                </p-image>
-                        </ng-template>
-                        <ng-template pTemplate="thumbnail" let-item>
-                            <div class="grid grid-nogutter justify-content-center global-border-custom">
-                                <p-image src="assets/{{item.name}}"
-                                     height="50" width="50" [preview]="false" appendTo="body">
-                                </p-image>
-                            </div>
-                        </ng-template>
-                    </p-galleria>
-                </div>
-            </div>
-        </div>
-        <div class="product_wrapper">
-            <div class="product_one_container">
-                <div class="child image">
-                    <img src="assets/proizvod_4_mock.jpg" alt="Product Image">
-                </div>
-                <div class="child white-div">
-                    <h1>Gel za obnavljanje kolagena</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla</p>
-                    <div class="btn_proizvod_container">
-                        <button class="btn_proizvod">Vidi više</button>
-                    </div>
-                </div>
-                <div style="width: 350px; height: 400px; overflow: auto; background-color: #e8e6e6;">
-                    <p-galleria [value]="images" [responsiveOptions]="responsiveOptions" [numVisible]="5" style="background-color: #e8e6e6;" class="p-galleria_home">
-                        <ng-template pTemplate="item" let-item>
-                            <p-image src="assets/{{item.name}}" [alt]="item.alt_text ?? ''" height="285px" width="340px" class="global-border-custom" style="max-width: 100%; max-height: 100%;">
-                                </p-image>
-                        </ng-template>
-                        <ng-template pTemplate="thumbnail" let-item>
-                            <div class="grid grid-nogutter justify-content-center global-border-custom">
-                                <p-image src="assets/{{item.name}}"
-                                     height="50" width="50" [preview]="false" appendTo="body">
-                                </p-image>
-                            </div>
-                        </ng-template>
-                    </p-galleria>
-                </div>
-            </div>
-        </div>
-        <div class="product_wrapper">
-            <div class="product_one_container">
-                <div class="child image">
-                    <img src="assets/proizvod_5_mock.jpg" alt="Product Image">
-                </div>
-                <div class="child white-div">
-                    <h1>Paket proizvoda za obnavljanje kolagena</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla</p>
-                    <div class="btn_proizvod_container">
-                        <button class="btn_proizvod">Vidi više</button>
-                    </div>
-                </div>
-                <div style="width: 350px; height: 400px; overflow: auto; background-color: #e8e6e6;">
-                    <p-galleria [value]="images" [responsiveOptions]="responsiveOptions" [numVisible]="5" style="background-color: #e8e6e6;" class="p-galleria_home">
-                        <ng-template pTemplate="item" let-item>
-                            <p-image src="assets/{{item.name}}" [alt]="item.alt_text ?? ''" height="285px" width="340px" class="global-border-custom" style="max-width: 100%; max-height: 100%;">
-                                </p-image>
-                        </ng-template>
-                        <ng-template pTemplate="thumbnail" let-item>
-                            <div class="grid grid-nogutter justify-content-center global-border-custom">
-                                <p-image src="assets/{{item.name}}"
-                                     height="50" width="50" [preview]="false" appendTo="body">
-                                </p-image>
-                            </div>
-                        </ng-template>
-                    </p-galleria>
-                </div>
-            </div>
-        </div>
-        <!-- Repeat for each product_one_container -->
-    </div>
-</div>

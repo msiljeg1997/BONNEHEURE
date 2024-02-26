@@ -80,11 +80,13 @@ import { ConfirmResetPasswordComponent } from './pages/everyone/forgot-password/
 import { UserOrderDetailsComponent } from './pages/user/user-orders/user-order-details/user-order-details.component';
 import { UserOrderLinesComponent } from './pages/user/user-orders/user-order-details/user-order-lines/user-order-lines.component';
 import { PaginatorModule } from 'primeng/paginator';
-import { saveAs } from 'file-saver';
 import { KongresManagementComponent } from './pages/admin/kongres-management/kongres-management.component';
 import { KongresPredavacFormComponent } from './pages/admin/kongres-management/kongres-predavac-form/kongres-predavac-form.component';
 import { KongresRadionicaComponent } from './pages/admin/kongres-radionica/kongres-radionica.component';
 import { KongresRadionicaFormComponent } from './pages/admin/kongres-radionica/kongres-radionica-form/kongres-radionica-form.component';
+import { ProizvodiNaslovnaComponent } from './proizvodi-naslovna/proizvodi-naslovna.component';
+import { CartService } from './services/cart.service';
+
 
 @NgModule({
   declarations: [
@@ -138,6 +140,7 @@ import { KongresRadionicaFormComponent } from './pages/admin/kongres-radionica/k
     KongresPredavacFormComponent,
     KongresRadionicaComponent,
     KongresRadionicaFormComponent,
+    ProizvodiNaslovnaComponent,
   ],
   imports: [
     HttpClientModule,
@@ -175,6 +178,7 @@ import { KongresRadionicaFormComponent } from './pages/admin/kongres-radionica/k
     DecimalPipe,
     MessageService,
     ConfirmationService,
+CartService,
     {
       provide: HTTP_INTERCEPTORS,
       useFactory: function (uiService: UiService, authService: AuthService) {
@@ -182,7 +186,7 @@ import { KongresRadionicaFormComponent } from './pages/admin/kongres-radionica/k
       },
       multi: true,
       deps: [UiService, AuthService]
-    }
+    },
   ],
   bootstrap: [AppComponent]
 })

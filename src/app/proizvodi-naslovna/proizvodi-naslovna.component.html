@@ -1,0 +1,66 @@
+<div class="container">
+    <div class="row vh-40 rowprvi">
+        <div class="col-4 col-md-8 m-0">
+            <div class="container-fluid" style="height: 100%;">
+                <div class="row m-0" style="height: 100%; ">
+                    <div class="col-lg-3 p-0  prvaSlika" style="background-position: center; height: 100%;">
+                        <img *ngIf="item.getPreviewImageName() != ''"
+                        src="{{baseUrl}}/{{item.getImagePath()}}/{{item.getPreviewImageName()}}"  
+                        [alt]="item.getPreviewImageAltText()" [routerLink]="['/proizvod', item.getProductUrlName() + '_' + item.id]"
+
+                        class="object-fit-cover">
+                    </div>
+                    <div class="d-none d-lg-flex col-lg-9 flex-column justify-content-center align-items-center py-4 klasaTekst">
+                        <h3 style="text-align: center;"[routerLink]="['/proizvod', item.getProductUrlName() + '_' + item.id]">{{item.getName()}}</h3>
+                        <p style="text-align: center;">{{item.getDescription()}}</p>
+                        <div *ngIf="!isMobile" class="gumb_wrapperNaslovna" style="display: flex;">
+                            <button class="gumb"  [routerLink]="['/proizvod', item.getProductUrlName() + '_' + item.id]">Vidi više</button>
+                            <button class="gumb" (click)="cartService.addToCart(product, 1)" >Kupi</button>
+                        </div>
+                            <button class="gumb" *ngIf="isMobile"  [routerLink]="['/proizvod', item.getProductUrlName() + '_' + item.id]">Vidi više</button>
+                            <button class="gumb" *ngIf="isMobile" (click)="cartService.addToCart(product, 1)" >Kupi</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="!isMobile" class="col-6 col-md-4 pgalerija">
+            <p-galleria [value]="product.getImages()" [responsiveOptions]="responsiveOptions" [numVisible]="3" style="background-color: #e8e6e6;" class="p-galleria_home">
+            <ng-template pTemplate="item" let-image>
+                <p-image src="{{baseUrl}}/{{product.getImagePath()}}/{{image.name}}"
+                            [alt]="image.alt_text ?? ''"  [preview]="false" appendTo="body"
+                            class="global-border-custom klasaSlika">
+                        </p-image>
+            </ng-template>
+            <ng-template pTemplate="thumbnail" let-image>
+                <div class="grid grid-nogutter justify-content-center global-border-custom">
+                    <p-image src="{{baseUrl}}/{{product.getImagePath()}}/{{image.name}}" class="podSlika"
+                         height="50" width="50" [preview]="false" appendTo="body">
+                    </p-image>
+                </div>
+            </ng-template>
+        </p-galleria>
+    </div>
+    <div *ngIf="isMobile" class="col-8 col-md-8 pgalerija">
+        
+        <p-galleria [value]="product.getImages()" [numVisible]="5" [circular]="true" [showItemNavigators]="true" [showThumbnails]="false" [responsiveOptions]="responsiveOptions" [containerStyle]="{ 'max-width': '640px' }">
+            <ng-template pTemplate="item" let-image>
+                <img src="{{baseUrl}}/{{product.getImagePath()}}/{{image.name}}" style="width: 100%; height: 203px; display: block;" />
+            </ng-template>
+        </p-galleria>
+        <h3 class="product-title" [routerLink]="['/proizvod', item.getProductUrlName() + '_' + item.id]">{{item.getName()}}</h3>
+        <p class="p-style">
+            {{item.getDescription()}}
+        </p>
+        <div class="gumb_wrapper">
+            <button class="gumb"  [routerLink]="['/proizvod', item.getProductUrlName() + '_' + item.id]">Vidi više</button>
+            <button class="gumb" (click)="cartService.addToCart(product, 1)">Kupi</button>
+        </div>
+        
+</div>
+
+    </div>
+</div>
+
+
+
+

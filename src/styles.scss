@@ -1,10 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
 $GLOBAL-BACKGROUND-COLOR: #ffffff;
-$HOMEPAGE-BACKGROUND-COLOR: #e8e6e6;
-
+$HOMEPAGE-BACKGROUND-COLOR: #ffffff;
+$FONT-GLOBAL: 'Avenir', sans-serif;
 // WIH BEAUTY
 $THEME-COLOR: #ffffff;
 $SECONDARY-COLOR: #ffffff;
+$FONT-COLOR: #151515;
+
+body {
+    font-family: $FONT-GLOBAL !important;
+   font-weight: 100 !important;
+
+   
+}
+
+@font-face {
+    font-family: 'Avenir';
+    src: url('assets\Avenir Light.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@import '~@fortawesome/fontawesome-free/css/all.css';
 
 // // WIH MEDICINE
 // $THEME-COLOR: #64BDEB;
@@ -126,6 +142,7 @@ $SECONDARY-COLOR: #ffffff;
 .p-menubar {
     background: $GLOBAL-BACKGROUND-COLOR !important;
     border-color: $THEME-COLOR !important;
+white-space: nowrap !important;
 }
 
 .p-panelmenu .p-panelmenu-header>a {
@@ -189,7 +206,11 @@ $SECONDARY-COLOR: #ffffff;
 }
 
 .container {
-    max-width: 1640px !important;
+    max-width: 1400px !important;
+    @media (max-width: 430px) {
+        margin: 0px !important;
+        padding: 0px !important;
+}
 }
 
 .p-grid {
@@ -236,7 +257,7 @@ $SECONDARY-COLOR: #ffffff;
     }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 430px) {
     .product-grid-item-content>p-image>.p-image-preview-container>img {
         width: 120px;
         height: 120px;
@@ -266,3 +287,42 @@ p-image {
     border-color: #49c4e9;
 }
 
+.klasaSlika>span>img {
+    height: 288px;
+    width: 340px;
+
+    @media (max-width: 430px) {
+        height: 257px;
+        width: 100px;
+    }
+}
+
+.podSlika>span>img {
+    height: 50px;
+    width: 50px;
+}
+
+
+.gumb {
+    background-color: lightblue; 
+    border: none; 
+    color: rgb(22, 22, 22);
+    text-align: center; 
+    display: inline-block; 
+    font-size: 16px;
+    width: 100px; 
+    margin: 4px 2px; 
+    cursor: pointer; 
+}
+.p-menuitem-text{
+    color: $FONT-COLOR !important;
+}
+.add-to-cart-button > button{
+background-color: lightblue !important;
+}
+.p-button:enabled:hover{
+background-color: rgba(122, 226, 155, 0.564) !important;
+}
+.text-bg-secondary{
+    background-color: #ebe6e6 !important;
+}

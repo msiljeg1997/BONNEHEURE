@@ -1,0 +1,95 @@
+
+
+.product_wrapper {
+    margin: 60px 0;
+}
+
+
+.btn_proizvod{
+    align-self: center;
+    border-radius: 0; 
+    background-color: rgba(173, 216, 230, 0.5);
+    border: none; 
+    padding: 10px 20px; 
+    text-decoration: none; 
+    cursor: pointer; 
+    width: 200px;
+
+}
+.btn_proizvod_container{
+    align-self: center;
+
+}
+
+.p-galleria .p-galleria-thumbnail-container{
+    border: 0px;
+}
+
+.object-fit-cover{
+    height: 385px !important;
+    width: 100%;
+    @media (max-width: 430px) {
+        height: 100% !important;
+        box-sizing: border-box;
+    }
+}
+.pgalerija{
+    height: 385px !important;
+    background-color: rgba(230, 230, 230, 0.5);
+    @media (max-width: 430px) {
+        height: 100% !important;
+    }
+}
+.klasaTekst{
+    background-color: white;
+}
+
+.product-title {
+    text-align: center;
+    font-size: 15px;
+    padding: 10px 5px 0.5rem;
+    margin-bottom: 0;
+    background-color: white;
+}
+.row > *{
+    padding-left: 0px;
+    background-color: white;
+    overflow: hidden;
+    @media (max-width: 430px) {
+       padding-right: 0px;
+    }
+}
+.rowprvi{
+    margin-right: 0;
+    margin-left: 0;
+    @media (max-width: 430px) {
+       
+    }
+}
+.p-style {
+    text-align: center;
+    margin-top: 5px;
+    font-size: 14px;
+    background-color: white;
+    padding: 5px;
+}
+.gumb_wrapper{
+display: flex;
+justify-content: center;
+}
+.prvaSlika{
+    height: 100%;
+    @media(max-width: 430px){
+        height: 100%;
+        box-sizing: border-box;
+        ;
+    }
+}
+.container-fluid{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    @media(max-width: 430px){
+        padding-left: 12px;
+        padding-right: 0px;
+    }
+}

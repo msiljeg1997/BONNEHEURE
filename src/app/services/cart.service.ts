@@ -5,6 +5,7 @@ import { UiService } from '../components/ui/ui.service';
 import { CartItem, CartOrderDetails, CorvusInfo, CountyDeliveryRate, Product, ProductVariant } from '../models/api/api-response';
 import { ApiService } from './api.service';
 import { StorageService } from './storage.service';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -86,6 +87,10 @@ export class CartService {
     ])
   });
 
+  public cartItemCount = new BehaviorSubject<number>(0);
+  currentCartItemCount = this.cartItemCount.asObservable();
+  
+
   public cart: CartItem[] = [];
   public cart_order_details: CartOrderDetails = new CartOrderDetails();
 
@@ -114,6 +119,7 @@ export class CartService {
     this.getCart();
     this.getCountyDeliveryRates();
   }
+
 
   private makeCartItem($item: Product, $quantity: number): CartItem {
 
@@ -168,6 +174,7 @@ export class CartService {
     let cartItem = this.makeCartItem($item, $quantity);
 
     this.uiService.countRequestUp();
+
 
     try {
       this.apiService.postToCart(cartItem).subscribe(res => {
@@ -228,6 +235,13 @@ export class CartService {
           this.total_price_no_vat = res.data.total_price_no_vat;
           this.special_discount_percentage = res.data.special_discount_percentage;
           this.special_discount_amount = res.data.special_discount_amount;
+
+          // calculate the count of unique items
+          const uniqueItemCount = new Set(this.cart.map(item => item.item_id)).size;
+  
+          // update the cartItemCount
+          this.cartItemCount.next(uniqueItemCount);
+  
           this.change_made = false;
         } else {
           this.change_made = true;

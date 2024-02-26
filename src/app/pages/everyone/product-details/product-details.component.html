@@ -1,23 +1,24 @@
-<div *ngIf="product.id" class="container">
-    <div class="row">
-        <div class="col-12 col-md-4">
+<div *ngIf="product.id" class="container" style="margin-top:10px" >
+    <div class="ukrasnaTraka" *ngIf="!isMobile"></div>
+    <div class="row rowBox">
+        <div class="col-12 col-md-6 divObrdub">
             <p-galleria [value]="product.getImages()" [responsiveOptions]="responsiveOptions"
-                [containerStyle]="{'max-width': '640px'}" [numVisible]="5">
+                [containerStyle]="{'max-width': '750px'}" [numVisible]="5">
                 <ng-template pTemplate="item" let-image>
                     <p-image src="{{baseUrl}}/{{product.getImagePath()}}/{{image.name}}" [alt]="image.alt_text ?? ''"
-                        height="300" width="300" [preview]="true" class="global-border-custom" appendTo="body">
+                        height="400" width="400" [preview]="true" fullScreen="ture" class="global-border-custom" appendTo="body">
                     </p-image>
                 </ng-template>
                 <ng-template pTemplate="thumbnail" let-image>
                     <div class="grid grid-nogutter justify-content-center global-border-custom">
                         <p-image src="{{baseUrl}}/{{product.getImagePath()}}/{{image.name}}"
-                            [alt]="image.alt_text ?? ''" height="50" width="50" [preview]="false" appendTo="body">
+                            [alt]="image.alt_text ?? ''" height="100" width="100" [preview]="false" appendTo="body">
                         </p-image>
                     </div>
                 </ng-template>
             </p-galleria>
         </div>
-        <div class="col-12 col-md-5">
+        <div class="col-12 col-md-4 divObrdub">
             <h1 class="h2">{{product.getName()}}</h1>
             <hr class="my-4" />
             <p-dropdown *ngIf="product.hasMoreThanOneVariant()" dataKey="id" optionLabel="name" id="selected_variant"
@@ -30,7 +31,7 @@
             <h2 class="h5">{{product.getDescription()}}</h2>
             <p>{{product.getDetailedDescription()}}</p>
         </div>
-        <div class="col-12 col-md-3 global-background-color text-center global-border-custom">
+        <div class="col-12 col-md-2 divObrdub">
             <div class="mt-4">
                 <div *ngIf="product.getDiscountPriceEur() <= 0 && !product.table_view_variant">
                     <p class="h5">Na upit</p>
@@ -51,13 +52,14 @@
                         <span><strong>{{product.getDiscountPriceEur() | currency:'EUR'}}</strong></span>
                     </div>
                 </div>
-                <div *ngIf="product.getDiscountPriceEur() > 0 && !product.table_view_variant" class="input-group mb-4">
+                <div *ngIf="product.getDiscountPriceEur() > 0 && !product.table_view_variant" class="input-group mb-2">
                     <input class="form-control" type="number" min="1" step="1" [(ngModel)]="product_quantity">
-                    <span class="input-group-append">
-                        <p-button class="add-to-cart-button" icon="pi pi-shopping-cart"
-                            (click)="cartService.addToCart(product, product_quantity)"></p-button>
-                    </span>
+                    
                 </div>
+<span class="input-group-append">
+                    <button class="gumbProdDetails" 
+                        (click)="cartService.addToCart(product, product_quantity)">Dodaj u košaricu</button>
+                </span>
                 <div>
                     <p *ngIf="product.getUnitOfMeasure() != ''" class="text-muted mb-0">JM:
                         {{product.getUnitOfMeasure()}}</p>
@@ -93,7 +95,7 @@
                     <div class="row max-width text-right">
                         <button type="button"
                             class="btn btn-primary btn-sm mt-1 mb-1 ml-11px add-to-cart-button-theme-color"
-                            (click)="cartService.addToCartVariantTable(product, product.variants!)">
+                            (click)="cartService.addToCart(product, 1)">
                             <i class="pi pi-shopping-cart">
                             </i>
                             <b> Dodaj u košaricu </b>

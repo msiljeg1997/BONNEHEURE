@@ -23,8 +23,11 @@ a {
     align-items: center;
 }
 .slikaLogo {
-    margin-left: 70px; //moglo bi raditi probleme na responsive stranici pazi!!
+    width: 100%;
+    height: auto;
+    
 }
+
 .custom-header {
     height: 146px;
     display: flex;
@@ -38,12 +41,23 @@ a {
     width: 100%;
 }
 .shopping_bag_icon{
-    font-size: 2em;
+    font-size: 1.5em;
 }
 .search-container {
     display: flex;
     align-items: center;
-    padding-top: 50px;
+    padding-top: 0px;
+}
+.cart-item-count {
+    top: -10px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 5px 6px;
+    font-size: 0.6em;
+    min-width: 20px;
+    text-align: center;
 }
 
 .search-input {
@@ -52,161 +66,89 @@ a {
     background: transparent;
     outline: none;
     padding-left: 20px;
+margin-right: 20px;
+    width: 90%;
     padding-bottom: 10px;
-    font-size: 1.2m;
+    font-size: 1.2em;
+
+    &:hover, &:focus{
+        border: none;
+        border-bottom: 1px solid black;
+        background: transparent;
+        outline: none;
+    }
 }
 .search-icon {
-    font-size: 1.5em; 
+    font-size: 1.2em; 
     padding-bottom: 10px;
 }
-.welcome_promo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    background-color: #e8e6e6; 
-}
 
-.promo_content {
+@media screen and (max-width: 768px) { // For tablet devices
+    .logo-wrapper .slikaLogo {
+        width: 100%; // The image will take 70% of the width of its container
+    }
+    .container_ispodHeader{
+        flex-direction: column;
+    align-items: center;
+    }
+
+}
+.slikaLogo{
     position: relative;
-    width: 1700px;
-    height: 740px;
-    background-image: url('/assets/welcome_slika.jpg');
-    background-size: cover;
-    background-position: center;
-}
-.promo_content_text {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    margin: auto;
-    width: 800px;
-    height: 467px;
-    background-color: white;
+    z-index: -1;
 }
 
-.promo_content_text h1 {
-    letter-spacing: 0.1em;
-    font-size: 28px;
-    font-family: avenir-lt-w01_35-light1475496, avenir-lt-w05_35-light, sans-serif; //dodaj avenir font
-    margin-bottom: 50px;
-    padding: 25px;
-    margin-top: 40px;
-    text-align: center;
-    font-weight:lighter;
+
+.Mcontainer_ispodHeader{
+    margin-top: 30px;
 }
 
-.promo_content_text h3 {
-    letter-spacing: normal;
-    font-size: 20px;
-    font-family: avenir-lt-w01_35-light1475496, avenir-lt-w05_35-light, sans-serif;
-    padding: 10px;
-    text-align: center;
-    font-weight:lighter;
-}
 
-.main_content {
-    height: 3000px;                    // za mjenjanje content size kombiniras ovaj height sa product_details height.
-    background-color: #e8e6e6;       // proporcijalna desktop razlika izmedu njih je contenta je 100px
-}
-.product_details {
+.Msearch-container {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    height: 2900px;
-    width: auto;
-    background-color: #e8e6e6;  
-    padding-top: 50px; // pazi za responsive
-}
-.product_details_header_text{
-    font-size: 40px;
-    letter-spacing: 0.15em;
-    font-weight: lighter; //pazi na ovo kad zamjenis font 
-    font-family: avenir-lt-w01_35-light1475496, avenir-lt-w05_35-light, sans-serif; //dodaj avenir font
-
+    padding-top: 0px !important;
 }
 
-.product_wrapper {
-    margin: 60px 0;
+.Msearch-icon, .Mshopping_bag_icon {
+    font-size: 1.5em;
 }
-.product_one_container {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    width: 970px;
-    height: 400px;
+.Msearch-icon{
+    margin-right: 5px;
+    margin-left: 10px;
 }
-
-.product_one_container .child {
-    height: 400px;
+.Mshopping_bag_icon{
+    margin-right: 5px;
 }
 
-.product_one_container .child.image {
-    width: 170px;
-}
-
-.product_one_container .child.image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.product_one_container .child.carousel {
+.Msearch-input {
+    font-size: 1em;
+    border-bottom: none;
     flex-grow: 1;
-    background-color: yellow;
+    border: none;
+    border-bottom: 1px solid black;
+    margin-right: 25px;
+
+    &:hover, &:focus{
+        border: none;
+        border-bottom: 1px solid black;
+        background: transparent;
+        outline: none;
+    }
 }
 
-.product_one_container .child.white-div {
-    background-color: white;
-    width: 433px;
-    height: 100%;
-    margin-right: 10px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-}
-.product_one_container .child.white-div h1 {
-    font-style: normal;
-    font-weight: lighter;
-    font-size: 22px;
-    line-height: 1.4em;
-    font-family: 'avenir-lt-w01_35-light1475496', 'avenir-lt-w05_35-light', sans-serif;
-    padding: 30px;
-    text-align: center;
-    letter-spacing: 0.1em;
-}
-.product_one_container .child.white-div p {
-    font-style: normal;
-    font-weight: lighter;
-    font-size: 14px;
-    line-height: 1.4em;
-    font-family: 'avenir-lt-w01_35-light1475496', 'avenir-lt-w05_35-light', sans-serif;
+
+.Mlogo-wrapper {
     padding: 10px;
-    text-align: left;
-    letter-spacing: 0.1em;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    margin-left: 30px;
+    margin-right: 30px;
 }
 
-.btn_proizvod{
-    align-self: center;
-    border-radius: 0; 
-    background-color: rgba(173, 216, 230, 0.5);
-    border: none; 
-    padding: 10px 20px; 
-    text-decoration: none; 
-    cursor: pointer; 
-    width: 200px;
-
-}
-.btn_proizvod_container{
-    align-self: center;
-
-}
-
-.p-galleria .p-galleria-thumbnail-container{
-    border: 0px;
+.headerM{
+    margin-left: 12px;
+    margin-right: 12px;
+    margin-bottom: 30px;
 }

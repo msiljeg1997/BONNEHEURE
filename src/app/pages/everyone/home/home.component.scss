@@ -1,0 +1,159 @@
+.welcome_promo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background-color: #e8e6e6; 
+
+}
+
+.promo_content {
+    position: relative;
+    width: 1700px;
+    height: 740px;
+    background-image: url('/assets/welcome_slika.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    @media (max-width: 430px) {
+        position: static; 
+        width: 100%; 
+        height: auto; 
+        padding: 20px; 
+        
+    }
+}
+.promo_content_text {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    width: 800px;
+    height: 467px;
+    text-align: center;
+    background-color: white;
+    @media (max-width: 430px) {
+        position: static; 
+        width: 100%; 
+        height: auto; 
+        padding: 20px; 
+        background-color: white;
+    }
+    h1, h3 {
+        @media (max-width: 430px) {
+            text-align: center;
+            color: rgb(2, 2, 2);
+            
+            
+        }
+    }
+}
+
+.promo_content_text h1 {
+    font-size: 28px;
+    font-family: avenir-lt-w01_35-light1475496, avenir-lt-w05_35-light, sans-serif; //dodaj avenir font
+    margin-bottom: 50px;
+    padding: 25px;
+    margin-top: 40px;
+    text-align: center;
+    font-weight:lighter;
+    @media (max-width: 430px) {
+        position: static; 
+        width: 100%; 
+        height: auto; 
+        padding: 0px;
+        font-size: 15px;
+        margin-bottom: 5px;
+        margin-top: 5px;
+
+        
+    }
+}
+
+.promo_content_text h3{
+   
+    @media (max-width: 430px) {
+       
+        font-size: 15px !important;
+
+        
+    }
+}
+
+
+.product_details_h1{
+    letter-spacing: 0.3em;
+    @media (max-width: 430px)
+    {
+        text-align: center !important;
+       font-size: 20px !important;
+       margin-top: 50PX;
+       margin-bottom: 30PX;
+        
+    }
+}
+
+.promo_content_text h3 {
+    font-size: 20px;
+    text-align: center;
+    padding: 10px;
+    text-align: center;
+    font-weight:lighter;
+}
+
+.main_content {
+    height: auto;                    // za mjenjanje content size kombiniras ovaj height sa product_details height.
+    background-color: #e8e6e6;  
+    @media (max-width: 430px){
+        height: auto; //OVAJ
+    }     // proporcijalna desktop razlika izmedu njih je contenta je 100px
+}
+.product_details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+   
+    height: auto;
+    width: auto;
+    background-color: #e8e6e6;  
+    padding-top: 50px;
+    padding-bottom: 50px; // pazi za responsive
+    @media (max-width: 430px)
+    {
+        
+        padding-top: 0;
+        height: auto; //OVAJ
+        width: auto;
+       
+        
+    }
+
+}
+
+.product_details_header_text {
+    font-size: 40px;
+    text-align: center;
+}
+
+.product_wrapper {
+    margin: 60px 0;
+    @media (max-width: 430px){
+        margin:20px 0;
+    }
+}
+.welcome_h1{
+    margin-left: 85px;
+    margin-right: 85px;
+    text-align: center;
+    
+    @media(max-width: 430px){
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
