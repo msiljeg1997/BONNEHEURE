@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CartService } from 'src/app/services/cart.service';
 import { ItemService } from 'src/app/services/item.service';
@@ -8,6 +8,7 @@ import { ApiService } from 'src/app/services/api.service';
 import { Product } from 'src/app/models/api/api-response';
 import { GalleriaModule } from 'primeng/galleria';
 import { UiService } from '../components/ui/ui.service';
+import { Dialog } from 'primeng/dialog';
 
 
 @Component({
@@ -15,7 +16,7 @@ import { UiService } from '../components/ui/ui.service';
   templateUrl: './proizvodi-naslovna.component.html',
   styleUrls: ['./proizvodi-naslovna.component.scss']
 })
-export class ProizvodiNaslovnaComponent implements OnInit {
+export class ProizvodiNaslovnaComponent implements OnInit, AfterViewInit {
   @Input() item!: Product;
 
   public baseUrl: string = environment.productImagesUrl;
@@ -26,6 +27,7 @@ export class ProizvodiNaslovnaComponent implements OnInit {
 
   public product_quantity: number = 0;
   isMobile = window.innerWidth < 450;
+  @ViewChild('myDialog') dialog?: Dialog;
 
   responsiveOptions: any[] = [
     {
@@ -42,9 +44,7 @@ export class ProizvodiNaslovnaComponent implements OnInit {
     }
   ];
 
-  openDialog() {
-    this.display = true;
-  }
+
 
 
   public assetsUrl: string = environment.assetImagesUrl;
@@ -60,6 +60,11 @@ export class ProizvodiNaslovnaComponent implements OnInit {
 
   ) {
   }
+  ngAfterViewInit(): void {
+    if (this.dialog) {
+      this.dialog.maximize();
+    }
+  }
 
   ngOnInit(): void {
     this.getProductDetails();
@@ -71,6 +76,17 @@ export class ProizvodiNaslovnaComponent implements OnInit {
     console.log(this.product);
   }
 
+  openDialog() {
+    this.display = true;
+    setTimeout(() => {
+      this.dialog?.maximize();
+    });
+  }
+  onDialogShow() {
+    if (this.dialog) {
+      this.dialog.maximize();
+    }
+  }
 
   menuItems = [
     {

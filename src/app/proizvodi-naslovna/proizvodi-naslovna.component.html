@@ -26,7 +26,7 @@
         <div *ngIf="!isMobile" class="col-6 col-md-4 pgalerija">
             <p-galleria [value]="product.getImages()" [responsiveOptions]="responsiveOptions" [numVisible]="3" style="background-color: #e8e6e6;" class="p-galleria_home">
             <ng-template pTemplate="item" let-image>
-                <p-image src="{{baseUrl}}/{{product.getImagePath()}}/{{image.name}}"
+                <p-image  (click)="openDialog()"  src="{{baseUrl}}/{{product.getImagePath()}}/{{image.name}}"
                             [alt]="image.alt_text ?? ''"  [preview]="false" appendTo="body"
                             class="global-border-custom klasaSlika">
                         </p-image>
@@ -39,6 +39,22 @@
                 </div>
             </ng-template>
         </p-galleria>
+        <p-dialog #myDialog [(visible)]="display" (onShow)="onDialogShow()" [modal]="true" [style]="{width: '100vw'}" [maximizable]="true" [contentStyle]="{'height': '100vh'}" [modal]="true" [baseZIndex]="10000" class="dialog-centered">
+            <p-galleria [value]="product.getImages()" [responsiveOptions]="responsiveOptions"
+                [containerStyle]="{'max-width': '750px'}" [numVisible]="5">
+                <ng-template pTemplate="item" let-image>
+                    <img src="{{baseUrl}}/{{product.getImagePath()}}/{{image.name}}" [alt]="image.alt_text ?? ''"
+                    height="700" width="700" class="global-border-custom">
+                </ng-template>
+                <ng-template pTemplate="thumbnail" let-image>
+                    <div class="grid grid-nogutter justify-content-center global-border-custom">
+                        <img src="{{baseUrl}}/{{product.getImagePath()}}/{{image.name}}"
+                            [alt]="image.alt_text ?? ''" height="100" width="100">
+                    </div>
+                </ng-template>
+            </p-galleria>
+        </p-dialog>
+        
     </div>
     <div *ngIf="isMobile" class="col-8 col-md-8 pgalerija">
         
