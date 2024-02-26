@@ -17,7 +17,7 @@
                     </div>
                 </ng-template>
             </p-galleria>
-            <p-dialog [(visible)]="display" [modal]="true" [style]="{width: '100vw'}" [maximizable]="true" [contentStyle]="{'height': '100vh'}" [modal]="true" [baseZIndex]="10000" class="dialog-centered">
+            <p-dialog *ngIf="!isMobile" [(visible)]="display" [modal]="true" [style]="{width: '100vw'}" [maximizable]="true" [contentStyle]="{'height': '100vh'}" [modal]="true" [baseZIndex]="10000" class="dialog-centered">
                 <p-galleria [value]="product.getImages()" [responsiveOptions]="responsiveOptions"
                     [containerStyle]="{'max-width': '750px'}" [numVisible]="5">
                     <ng-template pTemplate="item" let-image>
@@ -32,6 +32,7 @@
                     </ng-template>
                 </p-galleria>
             </p-dialog>
+            
         </div>
         <div class="col-12 col-md-4 divObrdub">
             <h1 class="h2">{{product.getName()}}</h1>

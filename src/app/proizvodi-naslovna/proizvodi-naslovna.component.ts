@@ -22,7 +22,7 @@ export class ProizvodiNaslovnaComponent implements OnInit {
 
   public product: Product = new Product();
 
-  
+  display: boolean = false;
 
   public product_quantity: number = 0;
   isMobile = window.innerWidth < 450;
@@ -41,6 +41,10 @@ export class ProizvodiNaslovnaComponent implements OnInit {
       numVisible: 1
     }
   ];
+
+  openDialog() {
+    this.display = true;
+  }
 
 
   public assetsUrl: string = environment.assetImagesUrl;

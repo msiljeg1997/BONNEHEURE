@@ -44,9 +44,17 @@
         
         <p-galleria [value]="product.getImages()" [numVisible]="5" [circular]="true" [showItemNavigators]="true" [showThumbnails]="false" [responsiveOptions]="responsiveOptions" [containerStyle]="{ 'max-width': '640px' }">
             <ng-template pTemplate="item" let-image>
-                <img src="{{baseUrl}}/{{product.getImagePath()}}/{{image.name}}" style="width: 100%; height: 203px; display: block;" />
+                <img (click)="openDialog()" src="{{baseUrl}}/{{product.getImagePath()}}/{{image.name}}" style="width: 100%; height: 203px; display: block;" />
             </ng-template>
         </p-galleria>
+        <p-dialog [(visible)]="display" [modal]="true" [style]="{width: '100vw'}" [maximizable]="true" [contentStyle]="{'height': '100vh'}" [modal]="true" [baseZIndex]="10000" class="dialog-centeredM">
+        <p-galleria [value]="product.getImages()" [numVisible]="5" [circular]="true" [showItemNavigators]="true" [showThumbnails]="false" [responsiveOptions]="responsiveOptions" [containerStyle]="{ 'max-width': '640px' }">
+            <ng-template pTemplate="item" let-image>
+                <img src="{{baseUrl}}/{{product.getImagePath()}}/{{image.name}}" style="width: 100%; height: 500px; display: block;" />
+            </ng-template>
+        </p-galleria>
+        </p-dialog>
+
         <h3 class="product-title" [routerLink]="['/proizvod', item.getProductUrlName() + '_' + item.id]">{{item.getName()}}</h3>
         <p class="p-style">
             {{item.getDescription()}}
