@@ -36,10 +36,17 @@ export class AuthService {
     }
   }
 
-  public logout(): void {    
+  public logout(): void {
     localStorage.clear();
     sessionStorage.clear();
     this.navbarService.setMenuDefault();
     this.router.navigate(['/login']);
   }
+  public isAdminLoggedIn(): boolean {
+    const sessionRole = sessionStorage.getItem('role_name');
+    const localRole = localStorage.getItem('role_name');
+    return sessionRole === 'Admin' || localRole === 'Admin';
+  }
+
+
 }

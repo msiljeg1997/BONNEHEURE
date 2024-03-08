@@ -27,36 +27,39 @@
         </div>
         <div class="search-container">
             <i class="pi pi-search search-icon"></i>
-            <input type="text" class="search-input"  [(ngModel)]="itemService.searchText" (input)="itemService.applySearchFilter(false)">
+            <input type="text" class="search-input" [(ngModel)]="itemService.searchText"
+                (input)="itemService.applySearchFilter(false)">
 
         </div>
-        <i  class="pi pi-shopping-bag Mshopping_bag_icon" routerLink="/cart">
-            <span class="cart-item-count" *ngIf="(cartService?.currentCartItemCount | async) ?? 0 > 0">{{ (cartService.currentCartItemCount | async) ?? 0 }}</span>
-          </i>
+        <i class="pi pi-shopping-bag Mshopping_bag_icon" routerLink="/cart">
+            <span class="cart-item-count" *ngIf="(cartService?.currentCartItemCount | async) ?? 0 > 0">{{
+                (cartService.currentCartItemCount | async) ?? 0 }}</span>
+        </i>
     </div>
 </header>
 <div *ngIf="isMobile">
-    <header class="headerM"> 
+    <header class="headerM">
         <div class="Mlogo-wrapper" routerLink="/home">
             <img src="assets/logo_smaller.jpeg" alt="Logo" class="slikaLogo">
         </div>
         <div class="container Mcontainer_ispodHeader">
             <p-menubar [model]="menuItems">
-                
+
                 <div class="Msearch-container">
                     <i class="pi pi-search Msearch-icon"></i>
-                    <input type="text" class="Msearch-input"  [(ngModel)]="itemService.searchText" (input)="itemService.applySearchFilter(false)">
-                    
+                    <input type="text" class="Msearch-input" [(ngModel)]="itemService.searchText"
+                        (input)="itemService.applySearchFilter(false)">
+
                     <i class="pi pi-shopping-bag Mshopping_bag_icon" routerLink="/cart">
-                        <span class="cart-item-count" *ngIf="(cartService?.currentCartItemCount | async) ?? 0 > 0">{{ (cartService.currentCartItemCount | async) ?? 0 }}</span>
-                      </i>
-                    
-                       
-                  
-                   
+                        <span class="cart-item-count" *ngIf="(cartService?.currentCartItemCount | async) ?? 0 > 0">{{
+                            (cartService.currentCartItemCount | async) ?? 0 }}</span>
+                    </i>
+
+
+
+
                 </div>
             </p-menubar>
         </div>
     </header>
 </div>
-

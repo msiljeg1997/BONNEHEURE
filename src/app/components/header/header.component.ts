@@ -4,6 +4,7 @@ import { CartService } from 'src/app/services/cart.service';
 import { ItemService } from 'src/app/services/item.service';
 import { NavbarService } from 'src/app/services/navbar.service';
 import { ScrollServiceService } from 'src/app/scroll-service.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 
 @Component({
@@ -13,7 +14,7 @@ import { ScrollServiceService } from 'src/app/scroll-service.service';
 })
 export class HeaderComponent implements OnInit {
 
-  
+
 
 
   isMobile = window.innerWidth < 480;
@@ -26,27 +27,34 @@ export class HeaderComponent implements OnInit {
     public itemService: ItemService,
     public cartService: CartService,
     private router: Router,
-    private scrollService: ScrollServiceService
-    
+    private scrollService: ScrollServiceService,
+    private authService: AuthService,
+
   ) {
   }
+  ngOnInit() {
+    if (this.authService.isAdminLoggedIn()) {
+      this.menuItems.push({
+        label: 'Upravljanje',
+        command: () => {
+          this.router.navigate(['/admin-product-management']);
+        }
+      });
+    }
 
-  ngOnInit(): void {
-    
   }
-
 
 
   menuItems = [
-        {
-        label: 'Kontakt',
-        command: () => {
+    {
+      label: 'Kontakt',
+      command: () => {
         this.router.navigate(['/kontakt']);
       }
     },
     {
-        label: 'O nama',
-        command: () => {
+      label: 'O nama',
+      command: () => {
         this.router.navigate(['/about']);
       }
     },
@@ -56,7 +64,7 @@ export class HeaderComponent implements OnInit {
         this.router.navigate(['/home'], { fragment: 'proizvodi' });
       }
     },
-];
+  ];
 
 
 }
