@@ -15,7 +15,6 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 import { ProductManagementComponent } from './pages/admin/product-management/product-management.component';
 import { MenubarModule } from 'primeng/menubar';
 import { InputTextModule } from 'primeng/inputtext';
-import { ProductsComponent } from './pages/everyone/products/products.component';
 import { AboutUsComponent } from './pages/everyone/about-us/about-us.component';
 import { HomeComponent } from './pages/everyone/home/home.component';
 import { AvatarModule } from 'primeng/avatar';
@@ -54,12 +53,10 @@ import { LogManagementComponent } from './pages/admin/log-management/log-managem
 import { AccordionModule } from 'primeng/accordion';
 import { DataViewModule } from 'primeng/dataview';
 import { VariantFormComponent } from './pages/admin/product-management/product-form/product-form/variant-form/variant-form.component';
-import { ItemCardComponent } from './components/child-components/item-card/item-card.component';
 import { PanelMenuModule } from 'primeng/panelmenu';
 import { StepsModule } from 'primeng/steps';
 import { ProductDetailsComponent } from './pages/everyone/product-details/product-details.component';
 import { GalleriaModule } from 'primeng/galleria';
-import { ItemListCardComponent } from './components/child-components/item-list-card/item-list-card.component';
 import { CartItemComponent } from './pages/everyone/cart/cart-item/cart-item.component';
 import { CartDeliveryComponent } from './pages/everyone/cart/cart-delivery/cart-delivery.component';
 import { CartPaymentComponent } from './pages/everyone/cart/cart-payment/cart-payment.component';
@@ -80,10 +77,6 @@ import { ConfirmResetPasswordComponent } from './pages/everyone/forgot-password/
 import { UserOrderDetailsComponent } from './pages/user/user-orders/user-order-details/user-order-details.component';
 import { UserOrderLinesComponent } from './pages/user/user-orders/user-order-details/user-order-lines/user-order-lines.component';
 import { PaginatorModule } from 'primeng/paginator';
-import { KongresManagementComponent } from './pages/admin/kongres-management/kongres-management.component';
-import { KongresPredavacFormComponent } from './pages/admin/kongres-management/kongres-predavac-form/kongres-predavac-form.component';
-import { KongresRadionicaComponent } from './pages/admin/kongres-radionica/kongres-radionica.component';
-import { KongresRadionicaFormComponent } from './pages/admin/kongres-radionica/kongres-radionica-form/kongres-radionica-form.component';
 import { ProizvodiNaslovnaComponent } from './proizvodi-naslovna/proizvodi-naslovna.component';
 import { CartService } from './services/cart.service';
 
@@ -95,7 +88,6 @@ import { CartService } from './services/cart.service';
     FooterComponent,
     HeaderComponent,
     ProductManagementComponent,
-    ProductsComponent,
     AboutUsComponent,
     HomeComponent,
     UserManagementComponent,
@@ -114,9 +106,7 @@ import { CartService } from './services/cart.service';
     ImageSettingsComponent,
     LogManagementComponent,
     VariantFormComponent,
-    ItemCardComponent,
     ProductDetailsComponent,
-    ItemListCardComponent,
     CartItemComponent,
     CartDeliveryComponent,
     CartPaymentComponent,
@@ -136,10 +126,6 @@ import { CartService } from './services/cart.service';
     ConfirmResetPasswordComponent,
     UserOrderDetailsComponent,
     UserOrderLinesComponent,
-    KongresManagementComponent,
-    KongresPredavacFormComponent,
-    KongresRadionicaComponent,
-    KongresRadionicaFormComponent,
     ProizvodiNaslovnaComponent,
   ],
   imports: [
@@ -178,7 +164,7 @@ import { CartService } from './services/cart.service';
     DecimalPipe,
     MessageService,
     ConfirmationService,
-CartService,
+    CartService,
     {
       provide: HTTP_INTERCEPTORS,
       useFactory: function (uiService: UiService, authService: AuthService) {

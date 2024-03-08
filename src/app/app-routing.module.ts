@@ -24,13 +24,10 @@ import { ForgotPasswordComponent } from './pages/everyone/forgot-password/forgot
 import { HomeComponent } from './pages/everyone/home/home.component';
 import { LoginComponent } from './pages/everyone/login/login.component';
 import { ProductDetailsComponent } from './pages/everyone/product-details/product-details.component';
-import { ProductsComponent } from './pages/everyone/products/products.component';
 import { RegisterComponent } from './pages/everyone/register/register.component';
 import { VerifyRegistrationComponent } from './pages/everyone/register/verify-registration/verify-registration.component';
 import { UserOrdersComponent } from './pages/user/user-orders/user-orders.component';
 import { UserSettingsComponent } from './pages/user/user-settings/user-settings.component';
-import { KongresManagementComponent } from './pages/admin/kongres-management/kongres-management.component';
-import { KongresRadionicaComponent } from './pages/admin/kongres-radionica/kongres-radionica.component';
 
 const routes: Routes = [
   {
@@ -98,10 +95,6 @@ const routes: Routes = [
     component: DocumentCookiesComponent,
     canActivate: []
   }, {
-    path: 'products',
-    component: ProductsComponent,
-    canActivate: []
-  }, {
     path: 'proizvod/:name_id',
     component: ProductDetailsComponent,
     canActivate: []
@@ -128,16 +121,6 @@ const routes: Routes = [
   }, {
     path: 'admin-product-management',
     component: ProductManagementComponent,
-    canActivate: [AdminGuard],
-  }, 
-  {
-    path: 'admin-kongres-management',
-    component: KongresManagementComponent,
-    canActivate: [AdminGuard],
-  },
-  {
-    path: 'admin-kongres-radionice',
-    component: KongresRadionicaComponent,
     canActivate: [AdminGuard],
   },
   {

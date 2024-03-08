@@ -5,23 +5,11 @@
 export const environment = {
   production: false,
   name: "WIH.HR",
-  // apiUrl: 'http://localhost:8000/api',
-  // productImagesUrl: 'http://localhost:8000/product_images',
-  // assetImagesUrl: 'http://localhost:8000'
-  // apiUrl: 'https://wih.hr/public/api',
-  // productImagesUrl: 'https://wih.hr/public/product_images',
-  
-  // wih medicine
-  // apiUrl: 'https://wih.hr/medicine/public/api',
-  // productImagesUrl: 'https://wih.hr/medicine/public/product_images',
-  // predavaciImagesUrl: 'https://wih.hr/beauty/public/predavaci_images',
-  // assetImagesUrl: 'https://wih.hr/medicine/public'
-  
-  // wih beauty
-  apiUrl: 'https://wih.hr/beauty/public/api',
-  productImagesUrl: 'https://wih.hr/beauty/public/product_images',
-  predavaciImagesUrl: 'https://wih.hr/beauty/public/predavaci_images',
-  assetImagesUrl: 'https://wih.hr/beauty/public'
+
+  // prod
+  apiUrl: 'https://bonneheure.hr/public/api',
+  productImagesUrl: 'https://bonneheure.hr/public/product_images',
+  assetImagesUrl: 'https://bonneheure.hr/public'
 };
 
 /*
