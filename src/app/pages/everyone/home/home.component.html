@@ -18,11 +18,14 @@
 
     <div class="main_content">
         <div class="secondary_content p-2">
-            <div class="row d-flex justify-content-center">
+            <div class="klasaMobilnoMarginaBottom row d-flex justify-content-center">
                 <div class="col-lg-5 okviri position-relative m-0 mt-5 mb-5  d-flex">
                     <div class="textCol m-3">
                         <h3 class=" firstH3">KREMA NAMJENJENA OBNOVI KOLAGENA I REVITALIZACIJI BARIJERE KOŽE
                         </h3>
+                        <div class="firstPWrapperMobile d-flex justify-content-center">
+                            <p class="firstPMobile">Bonneheure – Collagen Repair Krema</p>
+                        </div>
                         <p class="firstP">
                             Collagen Repair krema popravlja i štiti kožu od vanjskih utjecaja čineći kožu glatkom i
                             hidratiziranom. Njezina inovativna formula osim što pomaže pri očuvanju teksture kože,
@@ -40,6 +43,10 @@
                 <div class="col-lg-5 okviri position-relative m-0 mt-5 mb-5 d-flex">
                     <div class="textCol m-3">
                         <h3 class="secondH3">EFIKASNA ZAŠTITA OD FOTOSTARENJA ZA OBNOVU I ZAŠTITU OŠTEĆENE KOŽE</h3>
+                        <div *ngIf="isMobile" class="imagewrapperSecond d-flex justify-content-center">
+                            <img class="secondPictureMobile " src="assets\maskMobile.jpeg">
+                            <p class="mobilePodopis">Bonneheure – Collagen Repair Maska</p>
+                        </div>
                         <p class="secondP">
                             Collagen Repair maska pruža djelotvornu zaštitu od „fotostarenja“ uzrokovanog UV zrakama.
                             Krema je osmišljena kako bi revitalizirala kožu i učinila je trenutno nahranjenom, glađom i
@@ -51,12 +58,15 @@
                         </p>
                     </div>
                     <div class="photoDivProizvodi2 position-absolute">
-                        <img class="secondPicture" src="assets\pasta_paketic.png">
+                        <img *ngIf="!isMobile" class="secondPicture" src="assets\pasta_paketic.png">
                     </div>
                 </div>
                 <div class="col-lg-5 okviri position-relative   m-0 mt-5 mb-5  d-flex">
                     <div class="textCol m-3">
                         <h3 class="thirdH3">DUBINSKA OBNOVA KOŽE I POVRATAK VLAGE I HIDRATACIJE</h3>
+                        <div *ngIf="isMobile" class="firstPWrapperMobile d-flex justify-content-center">
+                            <p class="firstPMobile">Bonneheure – Collagen Hydratation Sprej</p>
+                        </div>
                         <p class="thirdP">
                             Collagen Hydratation sprej osmišljen je kako bi zaštitio kožu od „fotostarenja“ uzrokovanog
                             izlaganju štetnim UV zrakama. Sprej osim što štiti koži, pomaže pri obnovi fotooštećenja i
@@ -66,13 +76,17 @@
                             nahranite i povratite joj vlagu i hidrataciju.
                     </div>
                     <div class="photoDivProizvodi3 position-absolute">
-                        <img class="thirdPicture" src="assets\sprej.png">
+                        <img *ngIf="!isMobile" class="thirdPicture" src="assets\sprej.png">
+                        <img *ngIf="isMobile" class="thirdPictureM" src="assets\repairSpraj.jpeg">
                     </div>
                 </div>
 
                 <div class="col-lg-5 okviri position-relative  m-0 mt-5 mb-5 d-flex">
                     <div class="textCol m-3">
                         <h3 class=" fourthH3">POVEĆANA OTPORNOST KOŽE I POVRATAK MLADOLIKOG IZGLEDA</h3>
+                        <div *ngIf="isMobile" class="firstPWrapperMobile d-flex justify-content-center">
+                            <p class="firstPMobile">Bonneheure – Collagen Repair Gel <br> (kolagen na steroidima)</p>
+                        </div>
                         <p class="fourthP">
                             Collagen Repair gel pomaže pri postizanju mladolikog izgleda kože. Osim što poboljšava
                             otpornost kože na vanjske utjecaje, kožu čini mlađom i naizgled zategnutom i hidratiziranom.
@@ -83,10 +97,11 @@
                         </p>
                     </div>
                     <div class="photoDivProizvodi4 position-absolute">
-                        <img class="fourthPicture" src="assets\gel.png">
+                        <img *ngIf="!isMobile" class="fourthPicture" src="assets\gel.png">
+                        <img *ngIf="isMobile" class="fourthPictureM" src="assets\repairGel.jpeg">
                     </div>
                 </div>
-                <div class="col-lg-10 okviri position-relative   m-0 mt-5 mb-5 d-flex">
+                <div *ngIf="!isMobile" class="col-lg-10 okviri position-relative   m-0 mt-5 mb-5 d-flex">
                     <div class="textCol textCol5 m-3">
                         <h3 class="fifthH3">
                             POVRATITE SVOJOJ KOŽI MLADOLIKOST I SJAJ U SAMO ČETIRI KORAKA</h3>
@@ -98,10 +113,40 @@
                             hidrataciju.
                         </p>
                     </div>
+
                     <div class="photoDivProizvodi5 position-absolute">
                         <img class="fifthPicture" src="assets\set.png">
                     </div>
                 </div>
+
+
+
+
+
+                <div *ngIf="isMobile"
+                    class="col-lg-12 okviri position-relative   m-0 mt-5 mb-5 d-flex justify-content-center">
+                    <div class="textColMobile textCol5Mobile m-3 position-relative">
+                        <h3 class="fifthH3Mobile">
+                            POVRATITE SVOJOJ KOŽI MLADOLIKOST I SJAJ U SAMO ČETIRI KORAKA</h3>
+                        <div class="imagewrapperSecond d-flex justify-content-center">
+                            <img class="secondPictureMobile " src="assets\paket.jpeg">
+                            <p class="mobilePodopis">Bonneheure – Collagen Repair Maska</p>
+                        </div>
+                        <p class="fifthPMobile">
+                            Vratite svojoj koži mladost i elastičnost u samo četiri koraka. Kupnjom Bonneheure proizvoda
+                            na bazi rekombinantnog humaniziranog kolagena, na prirodan način u samo četiri koraka
+                            doprinosite normalnoj fiziološke funkciji kože. U setu se nalazi Collagen Repair krema,
+                            maska, gel i hidratizirajući sprej koji će vašu kožu obnoviti, vratiti joj mladost, sjaj i
+                            hidrataciju.
+                        </p>
+                    </div>
+                </div>
+
+
+
+
+
+
 
 
             </div>

@@ -114,6 +114,8 @@
     background-color: #e8e6e6;
     @media (max-width: 430px) {
         height: auto; //OVAJ
+        align-self: start;
+        background-color: #ffffff;
     } // proporcijalna desktop razlika izmedu njih je contenta je 100px
 }
 .product_details {
@@ -170,6 +172,10 @@
 .secondary_content {
     margin-top: 50px;
     background-image: url("/assets/pozadina.jpeg");
+    @media (max-width: 430px) {
+        margin-bottom: 50px;
+    }
+    
 }
 .textCol {
     font-size: 1rem !important;
@@ -190,25 +196,66 @@
     width: 100px;
 }
 
+
+.firstP {
+    font-size: 1rem;
+    text-align: left;
+    margin-top: 0.5rem;
+    margin-right: 25%;
+    @media (max-width: 450px){
+        font-size: 15px;
+        margin-right: 35%;
+    
+    }
+    @media (max-width: 360px){
+        right: -70px;
+        top: calc(50% + 60px);
+    
+    }
+    @media (min-width: 991px) and (max-width: 1381px) {
+        margin-right: 32%;
+    }
+    
+}
 .photoDivProizvodi1 {
     right: -110px;
     top: calc(50% + 40px);
     transform: translateY(-50%);
     z-index: 1;
-}
-.firstP {
-    font-size: 1rem !important;
-    text-align: left;
-    margin-top: 0.5rem;
-    margin-right: 25%;
-    @media (min-width: 991px) and (max-width: 1381px) {
-        margin-right: 32%;
+    @media (max-width: 450px){
+        right: -40px;
+        top: calc(50% + 60px);
+    
     }
+    @media (max-width: 360px){
+        right: -60px;
+        top: calc(50% + 60px);
+    
+    }
+    @media (min-width: 375px) and (max-width: 450px)  {
+        right: -55px;
+        top: calc(50% + 80px);
+}
 }
 
 .firstPicture {
     height: 550px;
     width: auto;
+    @media (max-width: 450px){
+        height: 400px;
+        width: 250px;
+    
+    }
+    @media (max-width: 360px){
+        height: 450px;
+        width: 250px;
+    
+    }
+    //iphone pro
+    @media (min-width: 375px) and (max-width: 450px)  {
+        height: 450px;
+        width: 250px;
+}
 }
 
 .firstH3 {
@@ -217,15 +264,45 @@
     margin-bottom: 20px;
     margin-top: 10px;
     margin-right: 25%;
+    @media (max-width: 450px){
+        margin-right:0;
+    
+    }
 }
 .secondP {
-    font-size: 1rem !important;
+    font-size: 1rem;
     text-align: left;
     margin-top: 0.5rem;
     margin-left: 25%;
-    @media (min-width: 991px) and (max-width: 1381px) {
-        margin-left: 35%;
+    @media (max-width: 450px){
+        margin-left: 0;
+        font-size: 15px;
     }
+    @media (max-width: 360px){
+
+    
+    }
+    @media (min-width: 375px) and (max-width: 450px)  {
+
+    }
+}
+
+.mobilePodopis{
+    font-size: 15px;
+    font-weight: bold;
+}
+.firstPMobile{
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+}
+.imagewrapperSecond{
+    flex-direction: column;
+    align-items: center;
+}
+.secondPictureMobile{
+    width: 200px;
+    height: auto;
 }
 .secondH3 {
     font-size: 1.2rem;
@@ -233,16 +310,42 @@
     margin-bottom: 20px;
     margin-top: 10px;
     margin-left: 25%;
+    @media (max-width: 450px){
+    margin-left: 0;
+    }
+   
 }
 .photoDivProizvodi2 {
     left: -220px;
     top: calc(50% + 80px);
     transform: translateY(-50%) rotate(10deg);
     z-index: 1;
+    @media (max-width: 450px){
+        left: -0px;
+        transform: translateY(-50%) rotate(0deg);
+    }
+    @media (max-width: 360px){
+
+    
+    }
+    @media (min-width: 375px) and (max-width: 450px)  {
+
+    }
 }
 .secondPicture {
     height: 350px;
     width: auto;
+    @media (max-width: 450px){
+        height: 250px;
+        width: auto;
+    }
+    @media (max-width: 360px){
+
+    
+    }
+    @media (min-width: 375px) and (max-width: 450px)  {
+
+    }
 }
 
 .thirdH3 {
@@ -251,13 +354,27 @@
     margin-bottom: 20px;
     margin-top: 10px;
     margin-right: 25%;
+    margin-left: 25%;
+    @media (max-width: 450px){
+        margin-right: 0;
+        margin-left: 0;
+    }
 }
 .thirdP {
-    font-size: 1rem !important;
+    font-size: 1rem;
     text-align: left;
     margin-top: 0.5rem;
     margin-right: 25%;
-    @media (max-width: 430px) {
+    @media (max-width: 450px){
+    width: 65%;
+    font-size: 15px;
+    }
+    @media (max-width: 360px){
+        width: 60%;
+    
+    }
+    @media (min-width: 375px) and (max-width: 450px)  {
+        width: 58%;
     }
 }
 .photoDivProizvodi3 {
@@ -265,34 +382,86 @@
     top: calc(50% + 40px);
     transform: translateY(-50%) rotate(-10deg);
     z-index: 1;
+    @media (max-width: 450px){
+        transform: translateY(-50%) rotate(0deg);
+        right: -10px;
+        }
+        @media (max-width: 360px){
+            top: calc(50% + 30px);
+        
+        }
+        @media (min-width: 375px) and (max-width: 450px)  {
+    right: 0px;
+        }
 }
 .thirdPicture{
     height: 450px;
      width: auto;
 }
-.fourthH3 {
-    font-size: 1.2rem;
-    text-align: center;
-    margin-bottom: 20px;
-    margin-top: 10px;
-    margin-left: 25%;
-}
-.fourthP{
-    font-size: 1rem !important;
-    text-align: left;
-    margin-top: 0.5rem;
-    margin-left: 25%;
-    @media (min-width: 991px) and (max-width: 1381px) {
-        margin-left: 35%;
-    }
+.fourthPictureM{
+
+     @media (max-width: 450px){
+        height: 350px;
+        width: 150px;
+        }
+        @media (max-width: 360px){
+
+        }
+        @media (min-width: 375px) and (max-width: 450px)  {
+
+        }
 }
 .photoDivProizvodi4{
     left: -220px;
      top: calc(50% + 50px);
       transform: translateY(-50%) rotate(10deg);
        z-index: 1;
+       @media (max-width: 450px){
+        left: 230px;
+        transform: translateY(-50%) rotate(-1deg);
+        top: calc(50% + 75px);
+        }
+        @media (max-width: 360px){
+
+        }
+        @media (min-width: 375px) and (max-width: 450px)  {
+
+        }
 
 }
+.fourthH3 {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    @media (max-width: 450px){
+margin-left: 0;
+margin-right: 0;
+    }
+}
+.fourthP{
+    font-size: 1rem;
+    text-align: left;
+    margin-top: 0.5rem;
+    margin-left: 25%;
+    @media (min-width: 991px) and (max-width: 1381px) {
+        margin-left: 35%;
+    }
+        @media (max-width: 450px){
+          margin-right: 40%;
+          margin-left: 0;
+
+          font-size: 15px;
+            }
+            @media (max-width: 360px){
+    
+            }
+            @media (min-width: 375px) and (max-width: 450px)  {
+    
+            }
+
+}
+
 .fourthPicture{
     height: 350px;
      width: auto;
@@ -304,14 +473,35 @@
      text-align: center;
 
 }
+.fifthH3Mobile{
+    width: 327px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    font-size: 1.2rem;
+     text-align: center;
+}
 .fifthP{
-    font-size: 1rem !important;
+    font-size: 1rem;
      text-align:left;
       margin-top: 0.5rem;
+      @media (max-width: 450px){
+        font-size: 15px;
+        margin-left: 0;
+        margin-right: 0;
+          }
+          @media (max-width: 360px){
+  
+          }
+          @media (min-width: 375px) and (max-width: 450px)  {
+  
+          }
 
 }
 .textCol5{
     width: 50%;
+}
+.textCol5Mobile{
+    width: 100%;
 }
 .photoDivProizvodi5{
     right: 0px;
@@ -321,6 +511,11 @@
        @media (min-width: 1200px) and (max-width: 1315px) {
 
     } 
+}
+.klasaMobilnoMarginaBottom{
+    @media (max-width: 450px){
+        margin-bottom: 50px;
+    }
 }
 .fifthPicture {
     height: auto;
