@@ -291,16 +291,58 @@ body, html {
         top: calc(50% + 60px);
     }
 }
-
+.cijeneWrapperCssLijevo{
+    font-size: 12px;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-right: 25%;
+    @media (max-width: 479px) {
+        margin-right: 0;
+    }
+    @media (min-width: 480px) and (max-width: 990px) {
+        margin-left: 0;
+        margin-right: 0;
+        top: calc(50% + 60px);
+    }
+}
+.cijeneWrapperCssDesno{
+    font-size: 12px;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-left: 25%;
+    @media (max-width: 479px) {
+        margin-left: 0;
+    }
+    @media (min-width: 480px) and (max-width: 990px) {
+        margin-left: 0;
+        margin-right: 0;
+        top: calc(50% + 60px);
+    }
+}
 .mobilePodopis {
     font-size: 15px;
     font-weight: bold;
     text-align: center;
+    margin-bottom: 0;
+}
+.cijene1, .cijene2 {
+    font-size: 12px;
+    font-weight: lighter;
+    color: #2b2b2b;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding: 0;
+}
+.cijene2{
+    margin-bottom: 20px !important;
 }
 .firstPMobile {
     font-size: 15px;
     font-weight: bold;
     text-align: center;
+    margin-bottom: 0;
 }
 .imagewrapperSecond {
     flex-direction: column;
