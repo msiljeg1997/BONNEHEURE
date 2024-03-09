@@ -141,7 +141,7 @@ const routes: Routes = [
     canActivate: [AdminGuard],
   }, {
     path: '**',
-    redirectTo: 'products'
+    redirectTo: '/home'
   }
 ];
 
