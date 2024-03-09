@@ -15,6 +15,11 @@ body, html {
     margin: 0;
     background-color: #e8e6e6;
 }
+.welcome{
+    @media (max-width: 479px) {
+    font-weight: bold;   
+}
+}
 .promo_content {
     position: relative;
     width: 1700px;
