@@ -14,6 +14,17 @@ body {
    
 }
 
+
+
+.p-menubar-root-list{
+    flex-wrap: nowrap !important; //OVO PAZI TO RJESI POSLJE PRIVREMENO RIJESENJE 
+}
+.p-menubar .p-menubar-root-list {
+    @media (max-width: 960px) {
+        position: relative !important;
+        
+    }
+}
 // // WIH MEDICINE
 // $THEME-COLOR: #64BDEB;
 // $SECONDARY-COLOR: #094B74;

@@ -18,6 +18,8 @@ import { Dialog } from 'primeng/dialog';
 })
 export class ProizvodiNaslovnaComponent implements OnInit, AfterViewInit {
   @Input() item!: Product;
+  @Input() imgIndex?: number;
+
 
   public baseUrl: string = environment.productImagesUrl;
 

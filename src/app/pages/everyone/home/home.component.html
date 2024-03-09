@@ -3,11 +3,10 @@
         <div class="promo_content">
             <div class="promo_content_text">
                 <h1 class="welcome">ISTRAŽITE BONNEHEURE KOLEKCIJU</h1>
-                <h3 class="welcome_h1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</h3>
+                <h3 class="welcome_h1">Istražite kolekciju rekombinantnog humaniziranog kolagena tipa III
+                    Nazivaju ga i "liquid skin" s podudarnosti većom od 97,50% u odnosu na ljudski kolagen.
+                    Pozivamo Vas a probate tehnologiju kolagena koja još nije postajala na području Europske Unije, do
+                    sada!</h3>
             </div>
         </div>
     </div>
@@ -36,7 +35,7 @@
                         </p>
                     </div>
                     <div class="photoDivProizvodi1 position-absolute">
-                        <img class="firstPicture" src="assets\pasta_bh.png">
+                        <img class="firstPicture" src="assets\kremica.png">
                     </div>
                 </div>
 
@@ -85,7 +84,7 @@
                     <div class="textCol m-3">
                         <h3 class=" fourthH3">POVEĆANA OTPORNOST KOŽE I POVRATAK MLADOLIKOG IZGLEDA</h3>
                         <div *ngIf="isMobile" class="firstPWrapperMobile d-flex justify-content-center">
-                            <p class="firstPMobile">Bonneheure – Collagen Repair Gel <br> (kolagen na steroidima)</p>
+                            <p class="firstPMobile">Bonneheure – Collagen Repair Gel</p>
                         </div>
                         <p class="fourthP">
                             Collagen Repair gel pomaže pri postizanju mladolikog izgleda kože. Osim što poboljšava
@@ -158,8 +157,8 @@
             <div class="product_details_header_text">
                 <h1 class="product_details_h1" id="proizvodi">BONNEHEURE PROIZVODI</h1>
             </div>
-            <div class="product_wrapper" *ngFor="let product of itemService.featuredItems">
-                <app-proizvodi-naslovna [item]="product"></app-proizvodi-naslovna>
+            <div class="product_wrapper" *ngFor="let product of itemService.featuredItems; let i = index">
+                <app-proizvodi-naslovna [item]="product" [imgIndex]="i+1"></app-proizvodi-naslovna>
             </div>
         </div>
 

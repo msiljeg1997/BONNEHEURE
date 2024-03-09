@@ -22,7 +22,7 @@ export class ProductDetailsComponent implements OnInit, AfterViewInit {
   public product_quantity: number = 0;
 
 
-isMobile = window.innerWidth < 450;
+  isMobile = window.innerWidth < 479;
 
   responsiveOptions: any[] = [
     {

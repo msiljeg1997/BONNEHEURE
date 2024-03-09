@@ -17,7 +17,7 @@ export class HeaderComponent implements OnInit {
 
 
 
-  isMobile = window.innerWidth < 480;
+  isMobile = window.innerWidth < 479;
 
 
 

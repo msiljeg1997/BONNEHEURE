@@ -11,7 +11,7 @@ import { environment } from 'src/environments/environment';
 export class HomeComponent implements OnInit {
 
   public baseUrl: string = environment.productImagesUrl;
-  isMobile = window.innerWidth < 450;
+  isMobile = window.innerWidth < 479;
 
   public responsiveOptions = [
     {

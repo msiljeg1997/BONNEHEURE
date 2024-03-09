@@ -24,7 +24,7 @@
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
-    @media (max-width: 430px) {
+    @media (max-width: 469px) {
         position: static;
         width: 100%;
         height: auto;
@@ -56,7 +56,7 @@
     }
     h1,
     h3 {
-        @media (max-width: 430px) {
+        @media (max-width: 479px) {
             text-align: center;
             color: rgb(2, 2, 2);
         }
@@ -74,7 +74,7 @@
     @media (max-width: 850px) {
         margin-bottom: 20px;
     }
-    @media (max-width: 430px) {
+    @media (max-width: 479px) {
         position: static;
         width: 100%;
         height: auto;
@@ -86,14 +86,14 @@
 }
 
 .promo_content_text h3 {
-    @media (max-width: 430px) {
+    @media (max-width: 479px) {
         font-size: 15px !important;
     }
 }
 
 .product_details_h1 {
     letter-spacing: 0.3em;
-    @media (max-width: 430px) {
+    @media (max-width: 479px) {
         text-align: center !important;
         font-size: 20px !important;
         margin-top: 50px;
@@ -112,7 +112,7 @@
 .main_content {
     height: auto; // za mjenjanje content size kombiniras ovaj height sa product_details height.
     background-color: #e8e6e6;
-    @media (max-width: 430px) {
+    @media (max-width: 479px) {
         height: auto; //OVAJ
         align-self: start;
         background-color: #ffffff;
@@ -128,7 +128,7 @@
     background-color: #e8e6e6;
     padding-top: 50px;
     padding-bottom: 50px; // pazi za responsive
-    @media (max-width: 430px) {
+    @media (max-width: 479px) {
         padding-top: 0;
         height: auto; //OVAJ
         width: auto;
@@ -142,7 +142,7 @@
 
 .product_wrapper {
     margin: 60px 0;
-    @media (max-width: 430px) {
+    @media (max-width: 479px) {
         margin: 20px 0;
     }
 }
@@ -172,7 +172,7 @@
 .secondary_content {
     margin-top: 50px;
     background-image: url("/assets/pozadina.jpeg");
-    @media (max-width: 430px) {
+    @media (max-width: 479px) {
         margin-bottom: 50px;
     }
     
@@ -202,7 +202,7 @@
     text-align: left;
     margin-top: 0.5rem;
     margin-right: 25%;
-    @media (max-width: 450px){
+    @media (max-width: 479px){
         font-size: 15px;
         margin-right: 35%;
     
@@ -218,12 +218,12 @@
     
 }
 .photoDivProizvodi1 {
-    right: -110px;
+    right: -10px;
     top: calc(50% + 40px);
     transform: translateY(-50%);
-    z-index: 1;
-    @media (max-width: 450px){
-        right: -40px;
+    z-index: 4;
+    @media (max-width: 479px){
+        right: -90px;
         top: calc(50% + 60px);
     
     }
@@ -232,30 +232,22 @@
         top: calc(50% + 60px);
     
     }
-    @media (min-width: 375px) and (max-width: 450px)  {
-        right: -55px;
+    @media (min-width: 375px) and (max-width: 479px)  {
+        right: -0px;
         top: calc(50% + 80px);
 }
 }
 
 .firstPicture {
-    height: 550px;
+    height: 350px;
     width: auto;
-    @media (max-width: 450px){
-        height: 400px;
-        width: 250px;
-    
-    }
-    @media (max-width: 360px){
-        height: 450px;
-        width: 250px;
+    @media (max-width: 479px){
+        height: auto;
+        width: 100px;
     
     }
     //iphone pro
-    @media (min-width: 375px) and (max-width: 450px)  {
-        height: 450px;
-        width: 250px;
-}
+   
 }
 
 .firstH3 {
@@ -264,7 +256,7 @@
     margin-bottom: 20px;
     margin-top: 10px;
     margin-right: 25%;
-    @media (max-width: 450px){
+    @media (max-width: 479px){
         margin-right:0;
     
     }
@@ -274,7 +266,7 @@
     text-align: left;
     margin-top: 0.5rem;
     margin-left: 25%;
-    @media (max-width: 450px){
+    @media (max-width: 479px){
         margin-left: 0;
         font-size: 15px;
     }
@@ -282,7 +274,7 @@
 
     
     }
-    @media (min-width: 375px) and (max-width: 450px)  {
+    @media (min-width: 375px) and (max-width: 479px)  {
 
     }
 }
@@ -320,7 +312,7 @@
     top: calc(50% + 80px);
     transform: translateY(-50%) rotate(10deg);
     z-index: 1;
-    @media (max-width: 450px){
+    @media (max-width: 479px){
         left: -0px;
         transform: translateY(-50%) rotate(0deg);
     }
@@ -328,14 +320,14 @@
 
     
     }
-    @media (min-width: 375px) and (max-width: 450px)  {
+    @media (min-width: 375px) and (max-width: 479px)  {
 
     }
 }
 .secondPicture {
     height: 350px;
     width: auto;
-    @media (max-width: 450px){
+    @media (max-width: 479px){
         height: 250px;
         width: auto;
     }
@@ -343,7 +335,7 @@
 
     
     }
-    @media (min-width: 375px) and (max-width: 450px)  {
+    @media (min-width: 375px) and (max-width: 479px)  {
 
     }
 }
@@ -355,7 +347,7 @@
     margin-top: 10px;
     margin-right: 25%;
     margin-left: 25%;
-    @media (max-width: 450px){
+    @media (max-width: 479px){
         margin-right: 0;
         margin-left: 0;
     }
@@ -373,7 +365,7 @@
         width: 60%;
     
     }
-    @media (min-width: 375px) and (max-width: 450px)  {
+    @media (min-width: 375px) and (max-width: 479px)  {
         width: 58%;
     }
 }
@@ -382,7 +374,7 @@
     top: calc(50% + 40px);
     transform: translateY(-50%) rotate(-10deg);
     z-index: 1;
-    @media (max-width: 450px){
+    @media (max-width: 479px){
         transform: translateY(-50%) rotate(0deg);
         right: -10px;
         }
@@ -390,25 +382,45 @@
             top: calc(50% + 30px);
         
         }
-        @media (min-width: 375px) and (max-width: 450px)  {
+        @media (min-width: 375px) and (max-width: 479px)  {
     right: 0px;
         }
 }
 .thirdPicture{
     height: 450px;
      width: auto;
+     @media (max-width: 479px){
+        transform: translateY(-50%) rotate(0deg);
+        right: -10px;
+        }
+}
+thirdPictureM{
+    width: auto;
+    height: 300px;
+    @media (max-width: 479px){
+        width: auto;
+        height: 300px;
+        }
+        @media (max-width: 360px){
+
+        }
+        @media (min-width: 375px) and (max-width: 479px)  {
+
+        }
+
 }
 .fourthPictureM{
 
-     @media (max-width: 450px){
+     @media (max-width: 479px){
         height: 350px;
         width: 150px;
         }
         @media (max-width: 360px){
 
         }
-        @media (min-width: 375px) and (max-width: 450px)  {
-
+        @media (min-width: 375px) and (max-width: 479px)  {
+            height: 350px;
+            width: 130px;
         }
 }
 .photoDivProizvodi4{
@@ -424,8 +436,8 @@
         @media (max-width: 360px){
 
         }
-        @media (min-width: 375px) and (max-width: 450px)  {
-
+        @media (min-width: 375px) and (max-width: 479px)  {
+            left: 210px;
         }
 
 }
@@ -434,7 +446,7 @@
     text-align: center;
     margin-bottom: 20px;
     margin-top: 10px;
-    @media (max-width: 450px){
+    @media (max-width: 479px){
 margin-left: 0;
 margin-right: 0;
     }
@@ -447,7 +459,7 @@ margin-right: 0;
     @media (min-width: 991px) and (max-width: 1381px) {
         margin-left: 35%;
     }
-        @media (max-width: 450px){
+        @media (max-width: 479px){
           margin-right: 40%;
           margin-left: 0;
 
@@ -456,7 +468,7 @@ margin-right: 0;
             @media (max-width: 360px){
     
             }
-            @media (min-width: 375px) and (max-width: 450px)  {
+            @media (min-width: 375px) and (max-width: 479px)  {
     
             }
 
@@ -484,7 +496,7 @@ margin-right: 0;
     font-size: 1rem;
      text-align:left;
       margin-top: 0.5rem;
-      @media (max-width: 450px){
+      @media (max-width: 479px){
         font-size: 15px;
         margin-left: 0;
         margin-right: 0;
@@ -492,7 +504,7 @@ margin-right: 0;
           @media (max-width: 360px){
   
           }
-          @media (min-width: 375px) and (max-width: 450px)  {
+          @media (min-width: 375px) and (max-width: 479px)  {
   
           }
 
@@ -513,7 +525,7 @@ margin-right: 0;
     } 
 }
 .klasaMobilnoMarginaBottom{
-    @media (max-width: 450px){
+    @media (max-width: 479px){
         margin-bottom: 50px;
     }
 }
@@ -526,7 +538,7 @@ margin-right: 0;
     }
 
     @media (max-width: 1030px) {
-        width: 430px;
+        width: 479px;
     }
     @media (max-width: 900px) {
         width: 400px;
