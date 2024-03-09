@@ -24,7 +24,7 @@
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
-    @media (max-width: 469px) {
+    @media (max-width: 826px) {
         position: static;
         width: 100%;
         height: auto;
@@ -47,7 +47,7 @@
         margin-top: 30px;
         height: fit-content;
     }
-    @media (max-width: 450px) {
+    @media (max-width: 826px) {
         position: static;
         width: 100%;
         height: auto;
@@ -56,7 +56,7 @@
     }
     h1,
     h3 {
-        @media (max-width: 479px) {
+        @media (max-width: 826px) {
             text-align: center;
             color: rgb(2, 2, 2);
         }
@@ -223,19 +223,15 @@
     transform: translateY(-50%);
     z-index: 4;
     @media (max-width: 479px){
-        right: -90px;
         top: calc(50% + 60px);
+        right: 10px;
     
     }
     @media (max-width: 360px){
-        right: -60px;
+        right: -0px;
         top: calc(50% + 60px);
     
     }
-    @media (min-width: 375px) and (max-width: 479px)  {
-        right: -0px;
-        top: calc(50% + 80px);
-}
 }
 
 .firstPicture {
@@ -323,6 +319,10 @@
     @media (min-width: 375px) and (max-width: 479px)  {
 
     }
+    @media (max-width: 1400px) and (min-width: 950px) {
+
+        left: -250px;
+    }
 }
 .secondPicture {
     height: 350px;
@@ -338,6 +338,7 @@
     @media (min-width: 375px) and (max-width: 479px)  {
 
     }
+    
 }
 
 .thirdH3 {
@@ -376,14 +377,15 @@
     z-index: 1;
     @media (max-width: 479px){
         transform: translateY(-50%) rotate(0deg);
-        right: -10px;
+        right: 20px;
         }
         @media (max-width: 360px){
             top: calc(50% + 30px);
+            right: 20px;
         
         }
-        @media (min-width: 375px) and (max-width: 479px)  {
-    right: 0px;
+        @media (min-width: 375px) and (max-width: 400px)  {
+            right: 20px;
         }
 }
 .thirdPicture{
@@ -391,15 +393,19 @@
      width: auto;
      @media (max-width: 479px){
         transform: translateY(-50%) rotate(0deg);
-        right: -10px;
+
         }
+        @media (max-width: 360px){
+            transform: translateY(-50%) rotate(0deg);
+
+            }
 }
-thirdPictureM{
+.thirdPictureM{
     width: auto;
     height: 300px;
     @media (max-width: 479px){
         width: auto;
-        height: 300px;
+        height: 250px;
         }
         @media (max-width: 360px){
 
@@ -428,16 +434,16 @@ thirdPictureM{
      top: calc(50% + 50px);
       transform: translateY(-50%) rotate(10deg);
        z-index: 1;
-       @media (max-width: 450px){
+       @media (max-width: 479px){
         left: 230px;
         transform: translateY(-50%) rotate(-1deg);
         top: calc(50% + 75px);
         }
         @media (max-width: 360px){
-
+            left: 180px;
         }
         @media (min-width: 375px) and (max-width: 479px)  {
-            left: 210px;
+            left: 250px;
         }
 
 }

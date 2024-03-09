@@ -45,7 +45,7 @@ p {
     width: 95%;
 }
 .rowBox{
-    height: 600px !important; 
+    height: fit-content;
     overflow: hidden;
     @media (max-width: 479px) {
         height: 100% !important;

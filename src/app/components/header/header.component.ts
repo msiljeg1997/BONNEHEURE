@@ -55,7 +55,7 @@ export class HeaderComponent implements OnInit {
     {
       label: 'O nama',
       command: () => {
-        this.router.navigate(['/about']);
+        this.router.navigate(['/about_us']);
       }
     },
     {
