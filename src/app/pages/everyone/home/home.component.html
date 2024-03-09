@@ -10,11 +10,6 @@
             </div>
         </div>
     </div>
-
-
-
-
-
     <div class="main_content">
         <div class="secondary_content p-2">
             <div class="klasaMobilnoMarginaBottom row d-flex justify-content-center">
@@ -22,7 +17,7 @@
                     <div class="textCol m-3">
                         <h3 class=" firstH3">KREMA NAMJENJENA OBNOVI KOLAGENA I REVITALIZACIJI BARIJERE KOŽE
                         </h3>
-                        <div class="firstPWrapperMobile d-flex justify-content-center">
+                        <div *ngIf="isMobile" class="firstPWrapperMobile d-flex justify-content-center">
                             <p class="firstPMobile">Bonneheure – Collagen Repair Krema</p>
                         </div>
                         <p class="firstP">
@@ -55,16 +50,18 @@
                             zaštitu i učinili je mlađom preporuča se redovito korištenje maske uz ostale proizvode iz
                             Collagen Repair serije.
                         </p>
+
                     </div>
                     <div class="photoDivProizvodi2 position-absolute">
-                        <img *ngIf="!isMobile" class="secondPicture" src="assets\pasta_paketic.png">
+                        <img *ngIf="!isMobile" class="secondPicture" src="assets\maskMobile.jpeg">
                     </div>
                 </div>
                 <div class="col-lg-5 okviri position-relative   m-0 mt-5 mb-5  d-flex">
                     <div class="textCol m-3">
                         <h3 class="thirdH3">DUBINSKA OBNOVA KOŽE I POVRATAK VLAGE I HIDRATACIJE</h3>
-                        <div *ngIf="isMobile" class="firstPWrapperMobile d-flex justify-content-center">
-                            <p class="firstPMobile">Bonneheure – Collagen Hydratation Sprej</p>
+                        <div *ngIf="isMobile" class="imagewrapperSecond d-flex justify-content-center">
+                            <img class="thirdPictureMobile " src="assets\repairSpraj.jpeg">
+                            <p class="mobilePodopis">Bonneheure – Collagen Hydratation Sprej</p>
                         </div>
                         <p class="thirdP">
                             Collagen Hydratation sprej osmišljen je kako bi zaštitio kožu od „fotostarenja“ uzrokovanog
@@ -76,17 +73,17 @@
                     </div>
                     <div class="photoDivProizvodi3 position-absolute">
                         <img *ngIf="!isMobile" class="thirdPicture" src="assets\sprej.png">
-                        <img *ngIf="isMobile" class="thirdPictureM" src="assets\repairSpraj.jpeg">
                     </div>
                 </div>
 
                 <div class="col-lg-5 okviri position-relative  m-0 mt-5 mb-5 d-flex">
                     <div class="textCol m-3">
                         <h3 class=" fourthH3">POVEĆANA OTPORNOST KOŽE I POVRATAK MLADOLIKOG IZGLEDA</h3>
-                        <div *ngIf="isMobile" class="firstPWrapperMobile d-flex justify-content-center">
+                        <div *ngIf="isMobile" class="imagewrapperSecond d-flex justify-content-center">
+                            <img class="fourthPictureMobile " src="assets\repairgelMob.jpeg">
                             <p class="firstPMobile">Bonneheure – Collagen Repair Gel</p>
                         </div>
-                        <p class="fourthP">
+                        <p class="fourthPe">
                             Collagen Repair gel pomaže pri postizanju mladolikog izgleda kože. Osim što poboljšava
                             otpornost kože na vanjske utjecaje, kožu čini mlađom i naizgled zategnutom i hidratiziranom.
                             Gel je prigodan za sve tipove kože te se lako upija i nanositi. Gel već nakon prvog
@@ -96,8 +93,7 @@
                         </p>
                     </div>
                     <div class="photoDivProizvodi4 position-absolute">
-                        <img *ngIf="!isMobile" class="fourthPicture" src="assets\gel.png">
-                        <img *ngIf="isMobile" class="fourthPictureM" src="assets\repairGel.jpeg">
+                        <img *ngIf="!isMobile" class="fourthPicture" src="assets\repairgelMob.jpeg">
                     </div>
                 </div>
                 <div *ngIf="!isMobile" class="col-lg-10 okviri position-relative   m-0 mt-5 mb-5 d-flex">
@@ -117,11 +113,6 @@
                         <img class="fifthPicture" src="assets\set.png">
                     </div>
                 </div>
-
-
-
-
-
                 <div *ngIf="isMobile"
                     class="col-lg-12 okviri position-relative   m-0 mt-5 mb-5 d-flex justify-content-center">
                     <div class="textColMobile textCol5Mobile m-3 position-relative">
@@ -140,18 +131,7 @@
                         </p>
                     </div>
                 </div>
-
-
-
-
-
-
-
-
             </div>
-
-
-
         </div>
         <div class="product_details">
             <div class="product_details_header_text">
@@ -161,8 +141,6 @@
                 <app-proizvodi-naslovna [item]="product" [imgIndex]="i+1"></app-proizvodi-naslovna>
             </div>
         </div>
-
-
     </div>
 
 
