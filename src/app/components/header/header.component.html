@@ -25,12 +25,12 @@
         <div class="logo-wrapper" routerLink="/home">
             <img src="assets/loggo_bigger.jpeg" alt="Logo" class="slikaLogo">
         </div>
-        <div class="search-container">
+        <!-- <div class="search-container">
             <i class="pi pi-search search-icon"></i>
             <input type="text" class="search-input" [(ngModel)]="itemService.searchText"
                 (input)="itemService.applySearchFilter(false)">
 
-        </div>
+        </div> -->
         <i class="pi pi-shopping-bag Mshopping_bag_icon" routerLink="/cart">
             <span class="cart-item-count" *ngIf="(cartService?.currentCartItemCount | async) ?? 0 > 0">{{
                 (cartService.currentCartItemCount | async) ?? 0 }}</span>
@@ -46,9 +46,9 @@
             <p-menubar [model]="menuItems">
 
                 <div class="Msearch-container">
-                    <i class="pi pi-search Msearch-icon"></i>
+                    <!-- <i class="pi pi-search Msearch-icon"></i>
                     <input type="text" class="Msearch-input" [(ngModel)]="itemService.searchText"
-                        (input)="itemService.applySearchFilter(false)">
+                        (input)="itemService.applySearchFilter(false)"> -->
 
                     <i class="pi pi-shopping-bag Mshopping_bag_icon" routerLink="/cart">
                         <span class="cart-item-count" *ngIf="(cartService?.currentCartItemCount | async) ?? 0 > 0">{{
