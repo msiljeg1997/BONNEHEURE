@@ -13,7 +13,7 @@
                         <h3 style="text-align: center;"
                             [routerLink]="['/proizvod', item.getProductUrlName() + '_' + item.id]">{{item.getName()}}
                         </h3>
-                        <p class="product-price">{{item.getPriceEur()}} EUR</p>
+                        <p class="product-price">Cijena - {{item.getPriceEur()}} EUR</p>
                         <p style="text-align: center;">{{item.getDescription()}}</p>
                         <div *ngIf="!isMobile" class="gumb_wrapperNaslovna" style="display: flex;">
                             <button class="gumb"
@@ -88,7 +88,7 @@
 
             <h3 class="product-title" [routerLink]="['/proizvod', item.getProductUrlName() + '_' + item.id]">
                 {{item.getName()}}</h3>
-            <p class="product-price">{{item.getPriceEur()}} EUR</p>
+            <p class="product-price">Cijena - {{item.getPriceEur()}} EUR</p>
             <p class="p-style">
                 {{item.getDescription()}}
             </p>
