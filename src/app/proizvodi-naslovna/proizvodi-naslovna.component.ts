@@ -59,6 +59,7 @@ export class ProizvodiNaslovnaComponent implements OnInit, AfterViewInit {
     private uiService: UiService,
     private apiService: ApiService,
     public cartService: CartService,
+    private apiResponse: ApiResponse
 
   ) {
   }
