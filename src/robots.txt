@@ -1,5 +1,23 @@
-# www.robotstxt.org/
-
-# Allow crawling of all content
 User-agent: *
-Disallow:
+Disallow: /login
+Disallow: /forgot_password
+Disallow: /confirm_reset_password
+Disallow: /register
+Disallow: /verify_registration
+Disallow: /document-contact
+Disallow: /document-basic-conditions
+Disallow: /document-privacy-policy
+Disallow: /document-quality
+Disallow: /document-returns
+Disallow: /document-complaints
+Disallow: /document-delivery
+Disallow: /document-payment
+Disallow: /document-payment-security
+Disallow: /document-cookies
+Disallow: /admin-product-management
+Disallow: /admin-group-management
+Disallow: /admin-user-management
+Disallow: /admin-order-management
+Disallow: /admin-log-management
+Disallow: /user-settings
+Disallow: /user-orders
