@@ -67,9 +67,12 @@
                             <p class="cijene1 cijeneWrapperCssLijevo">COL003</p>
                             <p class="cijene2 cijeneWrapperCssLijevo">30ml - bruto cijena 32,00€</p>
                         </div>
-                        <p class="mobilePodopis cijeneWrapperCssLijevo">Bonneheure – Collagen Hydratation Sprej</p>
-                        <p class="cijene1 cijeneWrapperCssLijevo">COL003</p>
-                        <p class="cijene2 cijeneWrapperCssLijevo">30ml - bruto cijena 32,00€</p>
+                        <div *ngIf="!isMobile">
+                            <p class="mobilePodopis cijeneWrapperCssLijevo">Bonneheure – Collagen Hydratation Sprej</p>
+                            <p class="cijene1 cijeneWrapperCssLijevo">COL003</p>
+                            <p class="cijene2 cijeneWrapperCssLijevo">30ml - bruto cijena 32,00€</p>
+                        </div>
+
                         <p class="thirdP">
                             Collagen Hydratation sprej osmišljen je kako bi zaštitio kožu od „fotostarenja“ uzrokovanog
                             izlaganju štetnim UV zrakama. Sprej osim što štiti koži, pomaže pri obnovi fotooštećenja i
