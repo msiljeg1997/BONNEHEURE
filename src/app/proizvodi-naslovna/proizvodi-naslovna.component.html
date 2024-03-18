@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row vh-40 rowprvi">
-        <div class="col-4 col-md-8 m-0">
+        <div class="col-4 col-md-6 m-0">
             <div class="container-fluid" style="height: 100%;">
                 <div class="row m-0" style="height: 100%; ">
 
@@ -28,7 +28,7 @@
                 </div>
             </div>
         </div>
-        <div *ngIf="!isMobile" class="col-6 col-md-4 pgalerija">
+        <div *ngIf="!isMobile" class="col-6 col-md-6 pgalerija">
             <p-galleria [value]="product.getImages()" [responsiveOptions]="responsiveOptions" [numVisible]="3"
                 style="background-color: #e8e6e6;" class="p-galleria_home">
                 <ng-template pTemplate="item" let-image>

@@ -28,7 +28,7 @@
 .object-fit-cover{
     height: 385px !important;
     width: 100%;
-    @media (max-width: 430px) {
+    @media (max-width: 800px) {
         height: 100% !important;
         box-sizing: border-box;
     }
@@ -36,7 +36,7 @@
 .pgalerija{
     height: 385px !important;
     background-color: rgba(230, 230, 230, 0.5);
-    @media (max-width: 430px) {
+    @media (max-width: 800px) {
         height: 100% !important;
     }
 }
@@ -55,15 +55,15 @@
     padding-left: 0px;
     background-color: white;
     overflow: hidden;
-    @media (max-width: 430px) {
+    @media (max-width: 800px) {
        padding-right: 0px;
     }
 }
 .rowprvi{
     margin-right: 0;
     margin-left: 0;
-    @media (max-width: 430px) {
-       
+    @media (max-width: 800px) {
+       height: fit-content;
     }
 }
 .p-style {
@@ -84,10 +84,13 @@
 .gumb_wrapper{
 display: flex;
 justify-content: center;
+@media (max-width: 800px) {
+    margin-bottom: 10px;
+}
 }
 .prvaSlika{
     height: 100%;
-    @media(max-width: 430px){
+    @media(max-width: 800px){
         height: 100%;
         box-sizing: border-box;
         ;
@@ -96,7 +99,7 @@ justify-content: center;
 .container-fluid{
     padding-left: 0 !important;
     padding-right: 0 !important;
-    @media(max-width: 430px){
+    @media(max-width: 800px){
         padding-left: 12px;
         padding-right: 0px;
     }

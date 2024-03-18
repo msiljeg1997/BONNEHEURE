@@ -6,6 +6,7 @@ import { Product } from 'src/app/models/api/api-response';
 import { ApiService } from 'src/app/services/api.service';
 import { CartService } from 'src/app/services/cart.service';
 import { environment } from 'src/environments/environment';
+import { Title, Meta } from '@angular/platform-browser';
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
@@ -43,7 +44,9 @@ export class ProductDetailsComponent implements OnInit, AfterViewInit {
     private activatedRoute: ActivatedRoute,
     private uiService: UiService,
     private apiService: ApiService,
-    public cartService: CartService
+    public cartService: CartService,
+    private titleService: Title,
+    private metaService: Meta
   ) { }
   ngAfterViewInit(): void {
     if (this.dialog) {
@@ -85,7 +88,6 @@ export class ProductDetailsComponent implements OnInit, AfterViewInit {
 
     return id;
   }
-
   getProductDetails(): void {
     let id = this.getProductIdFromUrl();
 
@@ -102,6 +104,12 @@ export class ProductDetailsComponent implements OnInit, AfterViewInit {
           this.product = res.data;
           window.scrollTo(0, 0);
           this.uiService.countRequestDown();
+
+          // desc i title proizvodi
+          this.titleService.setTitle(this.product.name!);
+          const description = this.product.detailed_description!.split('.').slice(0, 10).join('. ');
+
+          this.metaService.updateTag({ name: 'description', content: description });
         } else {
           this.uiService.countRequestDown();
           this.uiService.showError("Pogreška kod dohvata proizvoda.");

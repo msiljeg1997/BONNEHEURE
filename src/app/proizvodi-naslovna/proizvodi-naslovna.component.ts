@@ -28,7 +28,7 @@ export class ProizvodiNaslovnaComponent implements OnInit, AfterViewInit {
   display: boolean = false;
 
   public product_quantity: number = 0;
-  isMobile = window.innerWidth < 475;
+  isMobile = window.innerWidth < 800;
   @ViewChild('myDialog') dialog?: Dialog;
 
   responsiveOptions: any[] = [
