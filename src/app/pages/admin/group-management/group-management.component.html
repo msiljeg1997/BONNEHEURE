@@ -1,5 +1,6 @@
-<app-group-form *ngIf="this.displayEditProductCategoryForm" [display]="this.displayEditProductCategoryForm" [isEditing]="this.isEditing"
-(closeDialogEmitter)="toggleEditCategoryForm($event)" [category]="this.selectedCategory" [productCategories]="this.categories"></app-group-form>
+<app-group-form *ngIf="this.displayEditProductCategoryForm" [display]="this.displayEditProductCategoryForm"
+    [isEditing]="this.isEditing" (closeDialogEmitter)="toggleEditCategoryForm($event)"
+    [category]="this.selectedCategory" [productCategories]="this.categories"></app-group-form>
 
 <p-table #dt [value]="categories" dataKey="id" [rowHover]="true" [rows]="10" [showCurrentPageReport]="true"
     [rowsPerPageOptions]="[10,25,50]" responsiveLayout="scroll" [paginator]="true"
@@ -8,8 +9,10 @@
     <ng-template pTemplate="caption">
         <div class="table-header space-between">
             <div>
-                <button pButton type="button" class="p-button-primary" icon="pi pi-folder" (click)="toggleAddCategoryForm()"></button>&nbsp;
-                <button pButton label="" class="p-button-outlined" icon="pi pi-filter-slash" (click)="clearFilters(dt)"></button>
+                <button pButton type="button" class="p-button-primary" icon="pi pi-folder"
+                    (click)="toggleAddCategoryForm()"></button>&nbsp;
+                <button pButton label="" class="p-button-outlined" icon="pi pi-filter-slash"
+                    (click)="clearFilters(dt)"></button>
             </div>
         </div>
     </ng-template>
@@ -40,7 +43,8 @@
                 <div class="flex justify-content-between align-items-center">
                     Kategorija iznad
                     <p-sortIcon field="parent_category_id"></p-sortIcon>
-                    <p-columnFilter type="numeric" field="parent_category_id" display="menu" class="ml-auto"></p-columnFilter>
+                    <p-columnFilter type="numeric" field="parent_category_id" display="menu"
+                        class="ml-auto"></p-columnFilter>
                 </div>
             </th>
             <th></th>

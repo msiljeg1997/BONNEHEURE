@@ -149,7 +149,8 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes, {
     useHash: false,
     scrollPositionRestoration: 'disabled',
-  })],
+    initialNavigation: 'enabledBlocking'
+})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
