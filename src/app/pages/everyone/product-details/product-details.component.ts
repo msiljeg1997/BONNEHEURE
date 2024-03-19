@@ -105,10 +105,14 @@ export class ProductDetailsComponent implements OnInit, AfterViewInit {
           window.scrollTo(0, 0);
           this.uiService.countRequestDown();
 
-          // desc i title proizvodi
+          // metadata i title proizvodi
+          console.log('Setting title to:', this.product.name!);
           this.titleService.setTitle(this.product.name!);
+
+
           const description = this.product.detailed_description!.split('.').slice(0, 10).join('. ');
 
+          console.log('Setting description to:', description);
           this.metaService.updateTag({ name: 'description', content: description });
         } else {
           this.uiService.countRequestDown();

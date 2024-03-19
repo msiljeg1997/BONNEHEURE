@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { Product } from 'src/app/models/api/api-response';
+import { Component, Inject, OnInit, Renderer2 } from '@angular/core';
 import { ItemService } from 'src/app/services/item.service';
 import { environment } from 'src/environments/environment';
-import { Meta } from '@angular/platform-browser';
+import { RendererFactory2 } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -30,11 +31,14 @@ export class HomeComponent implements OnInit {
       numScroll: 1
     }
   ];
+  private renderer: Renderer2
 
   constructor(
     public itemService: ItemService,
-    private metaService: Meta
-  ) { }
+    rendererFactory: RendererFactory2, @Inject(DOCUMENT) private document: Document
+  ) {
+    this.renderer = rendererFactory.createRenderer(null, null);
+  }
 
   ngOnInit(): void {
     this.setCanonicalURL('https://www.bonneheure.hr/home');
@@ -43,12 +47,13 @@ export class HomeComponent implements OnInit {
   }
 
   setCanonicalURL(url: string) {
-    let link: HTMLMetaElement | null = this.metaService.getTag('link[rel="canonical"]');
-    if (!link) {
-      this.metaService.addTag({ rel: 'canonical', href: url });
-    } else {
-      this.metaService.updateTag({ rel: 'canonical', href: url });
+    let canonicalLinkElement = this.document.querySelector('link[rel="canonical"]');
+    if (!canonicalLinkElement) {
+      canonicalLinkElement = this.renderer.createElement('link');
+      this.renderer.setAttribute(canonicalLinkElement, 'rel', 'canonical');
+      this.renderer.appendChild(this.document.head, canonicalLinkElement);
     }
+    this.renderer.setAttribute(canonicalLinkElement, 'href', url);
   }
 
 }
