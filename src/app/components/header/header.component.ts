@@ -61,7 +61,7 @@ export class HeaderComponent implements OnInit {
     {
       label: 'Proizvodi',
       command: () => {
-        this.router.navigate(['/products']);
+        this.router.navigate(['/products-list']);
       }
     },
   ];
