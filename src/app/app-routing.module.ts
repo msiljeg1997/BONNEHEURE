@@ -141,7 +141,7 @@ const routes: Routes = [
     component: LogManagementComponent,
     canActivate: [AdminGuard],
   }, {
-    path: 'products',
+    path: 'products-list',
     component: ProizvodiOnlyComponent,
     canActivate: [],
   },

@@ -49,7 +49,8 @@ export class HeaderComponent implements OnInit {
     {
       label: 'Kontakt',
       command: () => {
-        this.router.navigate(['/kontakt']);
+        const element = document.querySelector('#footer');
+        if (element) element.scrollIntoView({ behavior: "smooth" });
       }
     },
     {
