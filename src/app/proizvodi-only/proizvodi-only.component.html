@@ -1,0 +1,10 @@
+<div class="container">
+    <div class="product_details">
+        <div class="product_details_header_text">
+            <h1 class="product_details_h1" id="proizvodi">BONNEHEURE PROIZVODI</h1>
+        </div>
+        <div class="product_wrapper" *ngFor="let product of itemService.featuredItems; let i = index">
+            <app-proizvodi-naslovna [item]="product" [imgIndex]="i+1"></app-proizvodi-naslovna>
+        </div>
+    </div>
+</div>

@@ -28,6 +28,7 @@ import { RegisterComponent } from './pages/everyone/register/register.component'
 import { VerifyRegistrationComponent } from './pages/everyone/register/verify-registration/verify-registration.component';
 import { UserOrdersComponent } from './pages/user/user-orders/user-orders.component';
 import { UserSettingsComponent } from './pages/user/user-settings/user-settings.component';
+import { ProizvodiOnlyComponent } from './proizvodi-only/proizvodi-only.component';
 
 const routes: Routes = [
   {
@@ -140,6 +141,11 @@ const routes: Routes = [
     component: LogManagementComponent,
     canActivate: [AdminGuard],
   }, {
+    path: 'products',
+    component: ProizvodiOnlyComponent,
+    canActivate: [],
+  },
+  {
     path: '**',
     redirectTo: '/home'
   }
@@ -150,7 +156,7 @@ const routes: Routes = [
     useHash: false,
     scrollPositionRestoration: 'disabled',
     initialNavigation: 'enabledBlocking'
-})],
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

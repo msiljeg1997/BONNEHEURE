@@ -79,6 +79,7 @@ import { UserOrderLinesComponent } from './pages/user/user-orders/user-order-det
 import { PaginatorModule } from 'primeng/paginator';
 import { ProizvodiNaslovnaComponent } from './proizvodi-naslovna/proizvodi-naslovna.component';
 import { CartService } from './services/cart.service';
+import { ProizvodiOnlyComponent } from './proizvodi-only/proizvodi-only.component';
 
 
 @NgModule({
@@ -127,6 +128,7 @@ import { CartService } from './services/cart.service';
     UserOrderDetailsComponent,
     UserOrderLinesComponent,
     ProizvodiNaslovnaComponent,
+    ProizvodiOnlyComponent,
   ],
   imports: [
     HttpClientModule,

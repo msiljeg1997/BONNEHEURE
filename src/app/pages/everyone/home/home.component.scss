@@ -124,22 +124,8 @@ body, html {
         background-color: #ffffff;
     }
 }
-.product_details {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
 
-    height: auto;
-    width: auto;
-    background-color: #e8e6e6;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    @media (max-width: 479px) {
-        padding-top: 0;
-        height: auto; //OVAJ
-        width: auto;
-    }
-}
+
 
 .product_details_header_text {
     font-size: 40px;
@@ -174,6 +160,10 @@ body, html {
 .okviri {
     background-color: white;
     height: auto;
+    @media (max-width: 800px) {
+        background-color: rgba(255, 255, 255, 0.552);
+    };
+    
 }
 .secondary_content {
     margin-top: 50px;
