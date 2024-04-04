@@ -33,7 +33,7 @@ import { ProizvodiOnlyComponent } from './proizvodi-only/proizvodi-only.componen
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'products',
+    redirectTo: 'home',
     pathMatch: 'full',
   }, {
     path: 'login',
