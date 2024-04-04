@@ -29,7 +29,7 @@
             </div>
         </div>
         <div *ngIf="!isMobile" class="col-6 col-md-6 pgalerija">
-            <p-galleria [value]="product.getImages()" [responsiveOptions]="responsiveOptions" [numVisible]="3"
+            <p-galleria [value]="product.getImages()" [numVisible]="3" [circular]="true"
                 style="background-color: #e8e6e6;" class="p-galleria_home">
                 <ng-template pTemplate="item" let-image>
                     <p-image (click)="openDialog()" src="{{baseUrl}}/{{product.getImagePath()}}/{{image.name}}"
@@ -38,9 +38,9 @@
                     </p-image>
                 </ng-template>
                 <ng-template pTemplate="thumbnail" let-image>
-                    <div class="grid grid-nogutter justify-content-center global-border-custom align-items-center">
+                    <div class="grid grid-nogutter ">
                         <p-image src="{{baseUrl}}/{{product.getImagePath()}}/{{image.name}}" class="podSlika"
-                            height="50" width="50" [preview]="false" appendTo="body">
+                            height="100" width="100" [preview]="false" appendTo="body">
                         </p-image>
                     </div>
                 </ng-template>
