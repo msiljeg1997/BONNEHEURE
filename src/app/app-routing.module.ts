@@ -33,8 +33,8 @@ import { ProizvodiOnlyComponent } from './proizvodi-only/proizvodi-only.componen
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
     pathMatch: 'full',
+    redirectTo: 'home',
   }, {
     path: 'login',
     component: LoginComponent,
@@ -153,7 +153,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
-    useHash: false,
+    useHash: true,
     scrollPositionRestoration: 'disabled',
     initialNavigation: 'enabledBlocking'
   })],

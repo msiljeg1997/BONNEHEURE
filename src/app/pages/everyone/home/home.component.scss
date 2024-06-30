@@ -3,8 +3,136 @@ body, html {
     width: 100%;
     max-width: 100%;
   }
+  .wrapper{
+    height: 400px;
+    width: 800px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    @media (max-width: 900px) {
+        height: 300px;
+        width: 650px;
+    }
+    @media (max-width: 800px) {
+        height: 300px;
+        width: 550px;
+    }
+    @media (max-width: 700px) {
+        height: 300px;
+        width: 450px;
+    }
+    @media (max-width: 600px) {
+        height: 350px;
+        width: 350px;
+    }
+    @media (max-width: 450px) {
+        height: 400px;
+        width: 300px;
+    }
+  }
 
+.divZaKarosel{
+    height: 300px;
+    width: 800px;
+    background-color: white;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    @media (max-width: 900px) {
+        height: 300px;
+        width: 650px;
+    }
+    @media (max-width: 800px) {
+        height: 300px;
+        width: 550px;
+    }
+    @media (max-width: 700px) {
+        height: 300px;
+        width: 450px;
+    }
+    @media (max-width: 600px) {
+        height: 320px;
+        width: 350px;
+    }
+    @media (max-width: 450px) {
+        height: 400px;
+        width: 300px;
+    }
+}
+.welcome_h1 {
+    margin-left: 85px;
+    margin-right: 85px;
+    text-align: center;
+    font-size: 1rem;
 
+    @media (max-width: 900px) {
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-bottom: 50px !important;
+        font-size: 17px;
+    
+    }
+    @media (max-width: 800px) {
+        font-size: 17px;
+    }
+    @media (max-width: 700px) {
+        font-size: 15px;
+    }
+    @media (max-width: 600px) {
+        font-size: 15px;
+        font-weight: 500;
+    }
+
+    @media (max-width: 450px) {
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 5px !important;
+        font-size: 15px;
+        padding-left: 10px;
+        padding-right: 10px;
+        line-height: 1.5;
+        font-weight: 00;
+    }
+}
+
+.welcome_2{
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+.welcome{
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    font-weight:500;
+    
+    @media (max-width: 900px) {
+        font-size: 20px;
+        font-weight:500;
+    }
+    @media (max-width: 800px) {
+        font-size: 20px;
+        font-weight:300;
+        font-weight: bold;
+    }
+    @media (max-width: 700px) {
+        font-size: 20px;
+        font-weight:300;
+        font-weight: bold;
+    }
+    @media (max-width: 600px) {
+        font-size: 20px;
+        font-weight:300;
+        font-weight: bold;
+    }
+    @media (max-width: 450px) {
+        font-size: 20px;
+    font-weight: bold;
+    }
+}
 .welcome_promo {
     display: flex;
     justify-content: center;
@@ -15,10 +143,31 @@ body, html {
     margin: 0;
     background-color: #e8e6e6;
 }
-.welcome{
-    @media (max-width: 479px) {
-    font-weight: bold;   
-}
+.slikaLogoPromo{
+    width: 500px;
+    height: auto;
+    margin-bottom: 30px;
+        
+    @media (max-width: 900px) {
+        width: 400px ;
+      height: auto ;
+    }
+    @media (max-width: 800px) {
+        width: 300px ;
+        height: auto ;
+    }
+    @media (max-width: 700px) {
+        width: 250px ;
+        height: auto ;
+    }
+    @media (max-width: 600px) {
+        width: 250px ;
+        height: auto ;
+    }
+    @media (max-width: 450px) {
+        width: 200px ;
+        height: auto ;
+    }
 }
 .promo_content {
     position: relative;
@@ -138,30 +287,13 @@ body, html {
         margin: 20px 0;
     }
 }
-.welcome_h1 {
-    margin-left: 85px;
-    margin-right: 85px;
-    text-align: center;
 
-    @media (max-width: 900px) {
-        margin-left: 10px;
-        margin-right: 10px;
-        padding-bottom: 20px;
-        margin-bottom: 50px !important;
-    }
-
-    @media (max-width: 450px) {
-        margin-left: 0;
-        margin-right: 0;
-        margin-bottom: 10px !important;
-    }
-}
 
 .okviri {
     background-color: white;
     height: auto;
     @media (max-width: 800px) {
-        background-color: rgba(255, 255, 255, 0.552);
+        background-color: rgba(255, 255, 255, 0.839);
     };
     
 }
@@ -457,7 +589,7 @@ body, html {
     }
 }
 .photoDivProizvodi3 {
-    right: -80px;
+    right: -110px;
     top: calc(50% + 40px);
     transform: translateY(-50%) rotate(-10deg);
     z-index: 2;
@@ -472,7 +604,7 @@ body, html {
     }
 }
 .thirdPicture {
-    height: 450px;
+    height: 350px;
     width: auto;
     @media (max-width: 479px) {
         transform: translateY(-50%) rotate(0deg);

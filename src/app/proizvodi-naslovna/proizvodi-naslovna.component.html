@@ -10,7 +10,7 @@
 
                     <div
                         class="d-none d-lg-flex col-lg-9 flex-column justify-content-center align-items-center py-4 klasaTekst">
-                        <h3 style="text-align: center;"
+                        <h3 style="text-align: center; cursor: pointer;"
                             [routerLink]="['/proizvod', item.getProductUrlName() + '_' + item.id]">{{item.getName()}}
                         </h3>
                         <p class="product-price">Cijena - {{item.getPriceEur()}} EUR</p>
@@ -38,7 +38,7 @@
                     </p-image>
                 </ng-template>
                 <ng-template pTemplate="thumbnail" let-image>
-                    <div class="grid grid-nogutter ">
+                    <div class="grid grid-nogutter">
                         <p-image src="{{baseUrl}}/{{product.getImagePath()}}/{{image.name}}" class="podSlika"
                             height="100" width="100" [preview]="false" appendTo="body">
                         </p-image>
@@ -47,7 +47,7 @@
             </p-galleria>
             <p-dialog #myDialog [(visible)]="display" (onShow)="onDialogShow()" [modal]="true"
                 [style]="{width: '100vw'}" [maximizable]="true" [contentStyle]="{'height': '100vh'}" [modal]="true"
-                [baseZIndex]="10000" class="dialog-centered">
+                appendTo="body" [baseZIndex]="10000" class="dialog-centered">
                 <p-galleria [value]="product.getImages()" [responsiveOptions]="responsiveOptions"
                     [containerStyle]="{'max-width': '750px'}" [numVisible]="5">
                     <ng-template pTemplate="item" let-image>

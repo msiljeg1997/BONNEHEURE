@@ -1,13 +1,40 @@
 <div class="container">
     <div class="welcome_promo">
-        <div class="promo_content">
-            <div class="promo_content_text">
-                <h1 class="welcome">ISTRAŽITE BONNEHEURE KOLEKCIJU</h1>
-                <h3 class="welcome_h1">Istražite kolekciju rekombinantnog humaniziranog kolagena tipa III
-                    Nazivaju ga i "liquid skin" s podudarnosti većom od 97,50% u odnosu na ljudski kolagen.
-                    Pozivamo Vas a probate tehnologiju kolagena koja još nije postajala na području Europske Unije, do
-                    sada!</h3>
+        <div class="promo_content d-flex justify-content-center align-items-center">
+            <div class="wrapper">
+                <ngb-carousel [interval]="2500">
+                    <ng-template ngbSlide>
+                        <div class="divZaKarosel">
+                            <div class="flexc">
+                                <h1 class="welcome">ISTRAŽITE BONNEHEURE KOLEKCIJU</h1>
+                                <h3 class="welcome_h1">Istražite kolekciju rekombinantnog humaniziranog kolagena tipa
+                                    III
+                                    Nazivaju ga i "liquid skin" s podudarnosti većom od 97,50% u odnosu na ljudski
+                                    kolagen.
+                                    Pozivamo Vas a probate tehnologiju kolagena koja još nije postajala na području
+                                    Europske
+                                    Unije, do
+                                    sada! <br> <br> <span style="font-weight: 600; font-size: larger ;">Pozivamo Vas da
+                                        budete Bonneheure
+                                        uz naše proizvode!</span> </h3>
+
+                            </div>
+                        </div>
+                    </ng-template>
+                    <ng-template ngbSlide>
+                        <div class="divZaKarosel">
+                            <div class="flexc">
+                                <div class="photo-container d-flex justify-content-center align-items-center"><img src="
+                                    /assets/logo_smaller.jpeg" class="slikaLogoPromo" alt=""></div>
+                                <h3 class="welcome_2">NA PRVIH 50 NARUDŽBI BESPLATNA POŠTARINA!</h3>
+
+
+                            </div>
+                        </div>
+                    </ng-template>
+                </ngb-carousel>
             </div>
+
         </div>
     </div>
     <div class="main_content">
@@ -61,7 +88,7 @@
                     <div class="textCol m-3">
                         <h3 class="thirdH3">DUBINSKA OBNOVA KOŽE I POVRATAK VLAGE I HIDRATACIJE</h3>
                         <div *ngIf="isMobile" class="imagewrapperSecond d-flex justify-content-center">
-                            <img class="thirdPictureMobile " src="assets\repairSpraj.jpeg">
+                            <img class="thirdPictureMobile" src="assets\sprej.png">
                             <p class="mobilePodopis cijeneWrapperCssLijevo">Bonneheure – Collagen Hydratation Sprej</p>
 
                         </div>
@@ -78,7 +105,8 @@
                             nahranite i povratite joj vlagu i hidrataciju.
                     </div>
                     <div class="photoDivProizvodi3 position-absolute">
-                        <img *ngIf="!isMobile" class="thirdPicture" src="assets\sprej.png">
+                        <img *ngIf="!isMobile" class="thirdPicture " src="assets\sprej.png">
+
                     </div>
                 </div>
 

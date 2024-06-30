@@ -347,7 +347,16 @@ p-image {
 }
 
 .p-dialog .p-dialog-content {
-    background-color: #151515a9 !important;
+    background-color: #1515151c !important;
+}
+
+.carousel-indicators {
+    /* Styles for your navigation dots */
+    background-color: rgba(0, 0, 0, 0) !important;
+}
+/* Targeting active carousel indicators with ng-star-inserted and active classes */
+.carousel-indicators .ng-star-inserted.active {
+    background-color: black; /* Sets the active indicator's background to black */
 }
 
 .p-galleria-thumbnail-items{

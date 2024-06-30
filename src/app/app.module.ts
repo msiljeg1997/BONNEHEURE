@@ -80,6 +80,8 @@ import { PaginatorModule } from 'primeng/paginator';
 import { ProizvodiNaslovnaComponent } from './proizvodi-naslovna/proizvodi-naslovna.component';
 import { CartService } from './services/cart.service';
 import { ProizvodiOnlyComponent } from './proizvodi-only/proizvodi-only.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 
 @NgModule({
@@ -160,6 +162,7 @@ import { ProizvodiOnlyComponent } from './proizvodi-only/proizvodi-only.componen
     StepsModule,
     GalleriaModule,
     PaginatorModule,
+    NgbModule,
   ],
   providers: [
     DatePipe,

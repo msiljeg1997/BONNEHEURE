@@ -1,4 +1,4 @@
-<div *ngIf="product.id" class="container" style="margin-top:10px" >
+<div *ngIf="product.id" class="container" style="margin-top:10px">
     <div class="ukrasnaTraka" *ngIf="!isMobile"></div>
     <div class="row rowBox">
         <div class="col-12 col-md-6 divObrdub">
@@ -6,7 +6,8 @@
                 [containerStyle]="{'max-width': '750px'}" [numVisible]="5">
                 <ng-template pTemplate="item" let-image>
                     <p-image src="{{baseUrl}}/{{product.getImagePath()}}/{{image.name}}" [alt]="image.alt_text ?? ''"
-                        height="400" width="400" [preview]="false" fullScreen="false" class="global-border-custom" appendTo="body"  (click)="openDialog()">
+                        height="400" width="400" [preview]="false" fullScreen="false" class="global-border-custom"
+                        appendTo="body" (click)="openDialog()">
                     </p-image>
                 </ng-template>
                 <ng-template pTemplate="thumbnail" let-image>
@@ -17,12 +18,14 @@
                     </div>
                 </ng-template>
             </p-galleria>
-            <p-dialog *ngIf="!isMobile" [(visible)]="display" [modal]="true" [style]="{width: '100vw'}" [maximizable]="true" [contentStyle]="{'height': '100vh'}" [modal]="true" [baseZIndex]="10000" class="dialog-centered">
+            <p-dialog *ngIf="!isMobile" [(visible)]="display" [modal]="true" [style]="{width: '100vw'}"
+                [maximizable]="true" [contentStyle]="{'height': '100vh'}" [modal]="true" [baseZIndex]="10000"
+                class="dialog-centered">
                 <p-galleria [value]="product.getImages()" [responsiveOptions]="responsiveOptions"
                     [containerStyle]="{'max-width': '750px'}" [numVisible]="5">
                     <ng-template pTemplate="item" let-image>
                         <img src="{{baseUrl}}/{{product.getImagePath()}}/{{image.name}}" [alt]="image.alt_text ?? ''"
-                        height="700" width="700" class="global-border-custom">
+                            height="700" width="700" class="global-border-custom">
                     </ng-template>
                     <ng-template pTemplate="thumbnail" let-image>
                         <div class="grid grid-nogutter justify-content-center global-border-custom">
@@ -32,7 +35,7 @@
                     </ng-template>
                 </p-galleria>
             </p-dialog>
-            
+
         </div>
         <div class="col-12 col-md-4 divObrdub">
             <h1 class="h2">{{product.getName()}}</h1>
@@ -70,11 +73,11 @@
                 </div>
                 <div *ngIf="product.getDiscountPriceEur() > 0 && !product.table_view_variant" class="input-group mb-2">
                     <input class="form-control" type="number" min="1" step="1" [(ngModel)]="product_quantity">
-                    
+
                 </div>
-<span class="input-group-append">
-                    <button class="gumbProdDetails" 
-                        (click)="cartService.addToCart(product, product_quantity)">Dodaj u košaricu</button>
+                <span class="input-group-append">
+                    <button class="gumbProdDetails" (click)="cartService.addToCart(product, product_quantity)">Dodaj u
+                        košaricu</button>
                 </span>
                 <div>
                     <p *ngIf="product.getUnitOfMeasure() != ''" class="text-muted mb-0">JM:

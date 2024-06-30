@@ -1,4 +1,4 @@
-import { AfterViewChecked, AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
+import { AfterViewChecked, ElementRef, AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CartService } from 'src/app/services/cart.service';
 import { ItemService } from 'src/app/services/item.service';
@@ -19,7 +19,6 @@ import { Dialog } from 'primeng/dialog';
 export class ProizvodiNaslovnaComponent implements OnInit, AfterViewInit {
   @Input() item!: Product;
   @Input() imgIndex?: number;
-
 
   public baseUrl: string = environment.productImagesUrl;
 
@@ -45,7 +44,6 @@ export class ProizvodiNaslovnaComponent implements OnInit, AfterViewInit {
       numVisible: 1
     }
   ];
-
 
 
 

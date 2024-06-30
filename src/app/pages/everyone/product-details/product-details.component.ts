@@ -90,6 +90,7 @@ export class ProductDetailsComponent implements OnInit, AfterViewInit {
   }
   getProductDetails(): void {
     let id = this.getProductIdFromUrl();
+    console.log(id);
 
     if (id == 0) {
       this.uiService.showError('Greška kod dohvata detalja proizvoda');
